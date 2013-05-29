@@ -1,0 +1,143 @@
+<input id="cb1" type="checkbox" title="Checkbox for row 2" onclick="Joomla.isChecked(this.checked);" value="1" name="cid[]">
+
+
+
+
+ALTER TABLE `tintuc` ADD FOREIGN KEY (`idloaitin`) REFERENCES `loaitin` (`idloaitin`)
+
+
+De tao khoa ngoai: truoc tien phai nhan vao add index hoac index
+
+
+
+msconfig: tat cac chuong trinh chay tu dong
+
+
+Asianux VietNam		Vietsoftware
+
+
+firmware-b43-installer.deb
+
+
+
+
+
+
+if($("#fullname1").val()==''){
+   	 	$("#errFullname").text("abc");
+	}else {$("#errFullname").text("nbc");}
+
+
+
+
+http://www.ddth.com/archive/index.php/t-53602.html
+
+
+
+http://vozforums.com/showthread.php?t=2932200
+
+
+
+
+
+
+
+@vietnam2008@
+
+
+	Cach tat tuong lua:
+ star -->control panel -->system and security -->windown firewall
+b?n ch?n ti?p "turn windowns firewall on or off" ? góc trên cùng bên tay trái. sau dó b?n click vô turn off windowns firewall 
+
+
+
+
+
+
+Buihuycuong1206@gmail.com
+
+
+
+
+
+
+
+
+
+http://azsharing.com/1ic45dwml72x/GarenaCIG.exe.html
+
+
+day la cai seri
+Nguy?n Hoàng Long: len trang chu garena
+Nguy?n Hoàng Long: down cai garena cig ve
+Nguy?n Hoàng Long: cai nhu binh thuong
+Nguy?n Hoàng Long: no se hoi cai seri
+Nguy?n Hoàng Long: copy cai nay vao la dc
+Nguy?n Hoàng Long: doi tam 5 phut la co
+VN20101025900613
+
+
+
+
+Ðính chính l?i ngày 6/6/2010
+Cái này r?t nhi?u ngu?i ko bi?t, mình m?i tìm ra.
+Chú ý Cái này dành cho nh?ng máy tính m?i ch? d? màn hình 16:9 d? tránh tình tr?ng nhi?u ngu?i vào spam
+Ð? choi full màn hình các b?n làm nhu sau:
+vào regedit
+Ch?nh nhu sao
+HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Gr aphicsDrivers\Configuration\xxxx\00\00 Ph?n Scaling ch?nh l?i giá tr? 3 (nh?p dúp vào scaling r?i d?i s? 4 thành s? 3)
+
+HKEY_LOCAL_MACHINE\SYSTEM\ControlSet002\Control\Gr aphicsDrivers\Configuration\xxxx\00\00 Cung SCaling ch?nh l?i giá tr? 3 nhé. (nh?p dúp vào scaling r?i d?i s? 4 thành s? 3)
+
+xxx là cái này dây: Chú ý dính chính l?i là ch? ch?nh cái xxx mà là dòng d?u tiên trong 4 dòng thôi (n?u ai mà 2 và 6 dòng cung ch?n dòng d?u thôi) t?c là c?a mình là cái d?u tiên ?y. N?u v?n không du?c thì th? h?t c? 4 cái xem, nó ch? cang mà hình ra dúng t? l? ch? không gây h?i gì cho máy dâu mà lo.
+
+Ch?c ch?n thành công 100% (Ngu?i 1kho.com)
+Cách 2 d?i v?i card Ati
+m? cái CCC lên Graphics> Desktop Properties, v?n nó res xu?ng 1 c? 1280x768 ho?c cái nào cung dc tùy lo?i LCD > Apply > YES Lúc này màn hình m?y thím s? b? co l?i 2 bên, don't worry
+típ, m? Desktop & Display lên chú ý bên du?i có cái hình ghi s? 1 (góc trái bên du?i ch? hok f?i cái b? t? ch?ng nha), b?n nhìn s? th?y có cái mui tên chia xu?ng, click nó > Configure> ch? scaling options> ch?n thành full screen > Apply, lúc này nó s? full màn hình và v?i nh?ng ch? d? khác nó cung dã t? full luôn ko c?n ch?nh n?a và ch?nh l?i ch? d? mà mình thu?ng dùng thu?ng là 1366x768, th? là m?i l?n vào game bình thu?ng nhu win xp v?y ko khác gì và cung ch? có thay d?i gì (cách này an toàn hon vì cách 1 cung ko ch?c ch?n l?m)
+dây là hình ?nh
+
+
+
+dangtrung_kien89
+
+
+
+
+
+
+Ma su dung BK: Free - 6219-0124-5862
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include<conio.h>
+#include<stdio.h>
+#define Int Ma,i=0;
+void main(){
+	printf("ma hoc phan :%d",Ma);scanf(%d,Ma);
+	If(i<5){
+		switch(Ma){
+			   case 0 : printf ("A");break;
+			   case 1: printf("B");break;
+			   case 2: printf("C");break;
+			   case 3: printf("D");break;
+			   default:{ printf("ma ban nhap sai xin moi nhap lai \n");
+				     printf("Ma:%d);
+				     scantf(%d,Ma);
+				   };
+			  }
+        else printf("ma dang nhap khong hop le");
+	getch();
+	   };
+
+
