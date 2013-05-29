@@ -1,0 +1,791 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html class="firefox firefox21" slick-uniqueid="3" xmlns="http://www.w3.org/1999/xhtml" xml:lang="vi-vn" dir="ltr" lang="vi-vn"><head>
+   <!-- base href="http://hoangnguyen.edu.vn/khoa-hoc/106-lap-trinh-joomla-2-5-chuyen-sau.html" -->
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="keywords" content="Tin học Hoàng Nguyễn, thiết kế web, lập trình web, chuyên sâu web, lập trình web PHP, Lập trình web ASP.Net, php, Mysql, asp.net, sql server, chuyên đề Joomla, mã nguồn mở joomla, thiết kế web joomla, lập trình joomla, thiết kế web cho doanh nghiệp, web thuơng mại điện tử, học web, đào tạo web chất lượng, webchuyennghiep, webchuyennghiep.net, web chuyên, Forum, forum, Forums, forums, zend framework, bảo mật web">
+  <meta name="author" content="Administrator">
+  <meta name="description" content="Chuyên sâu web, Internet Marketing, SEO, Google Adwords, Social Marketing">
+  <meta name="generator" content="Joomla! - Open Source Content Management">
+  <title>Khóa học Lập trình Joomla 2.5: code  Component - Plugin - Module</title>
+  <link href="http://hoangnguyen.edu.vn/templates/hn06/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+  <link rel="stylesheet" href="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/style.css" type="text/css">
+  <link rel="stylesheet" href="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/moo_maximenuhck.css" type="text/css">
+  <link rel="stylesheet" href="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/maximenuhck.css" type="text/css">
+  <link rel="stylesheet" href="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/beez_20-position1.css" type="text/css">
+  <script src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/all.js" id="facebook-jssdk"></script><script src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/widgets.js" id="twitter-wjs"></script><script gapi_processed="true" src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/plusone.js" async="" type="text/javascript"></script><script src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/ga.js" async="" type="text/javascript"></script><script async="" src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/cbgapi.loaded_0"></script><script src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/mootools-core.js" type="text/javascript"></script>
+  <script src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/core.js" type="text/javascript"></script>
+  <script src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/caption.js" type="text/javascript"></script>
+  <script src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/swfobject.js" type="text/javascript"></script>
+  <script src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/jwplayer.js" type="text/javascript"></script>
+  <script src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/youtubeplaylist.js" type="text/javascript"></script>
+  <script src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/mootools-more.js" type="text/javascript"></script>
+  <script src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/moomaximenuck.js" type="text/javascript"></script>
+  <script src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/fancymenuck.js" type="text/javascript"></script>
+  <script type="text/javascript">
+window.addEvent('load', function() {
+				new JCaption('img.caption');
+			});
+var mod_youtubeplaylist = '/modules/mod_youtubeplaylist/player/player.swf';
+window.addEvent('domready', function() {new DropdownMaxiMenu(document.getElement('div#maximenuck'),{mooTransition : 'Quad',mooEase : 'easeOut',useOpacity : '0',dureeIn : 0,dureeOut : 500,menuID : 'maximenuck',testoverflow : '0',orientation : '0',style : 'moomenu',opentype : 'open',direction : 'normal',directionoffset1 : '30',directionoffset2 : '30',mooDureeout : '500',showactivesubitems : '0',ismobile : 0,mooDuree : 500});});
+window.addEvent('domready', function() {new SlideList(document.getElement('div#maximenuck ul'),{fancyTransition : 'Quad',fancyEase : 'easeOut',fancyDuree : 500});});
+  </script>
+
+ <link rel="stylesheet" href="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/system.css" type="text/css">
+ <link rel="stylesheet" href="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/general.css" type="text/css">
+ <link rel="stylesheet" type="text/css" href="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/template.css" media="screen">
+ <!--[if IE 6]><link rel="stylesheet" href="/templates/hn06/css/template.ie6.css" type="text/css" media="screen" /><![endif]-->
+ <!--[if IE 7]><link rel="stylesheet" href="/templates/hn06/css/template.ie7.css" type="text/css" media="screen" /><![endif]-->
+ <script type="text/javascript">if ('undefined' != typeof jQuery) document._artxJQueryBackup = jQuery;</script>
+ <script type="text/javascript" src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/jquery.js"></script>
+ <script type="text/javascript">jQuery.noConflict();</script>
+ <script type="text/javascript" src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/script.js"></script>
+ <script type="text/javascript">if (document._artxJQueryBackup) jQuery = document._artxJQueryBackup;</script>
+<link rel="shortcut icon" href="http://hoangnguyen.edu.vn/favicon.ico">
+<script gapi_processed="true" type="text/javascript" src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/plusone.js">
+  {lang: 'vi'}
+</script>
+  <script type="text/javascript" src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/skype-uri.js"></script><script src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/skype-analytics.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+
+
+
+  var _gaq = _gaq || [];
+
+  _gaq.push(['_setAccount', 'UA-15399173-1']);
+
+  _gaq.push(['_trackPageview']);
+
+
+
+  (function() {
+
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+
+  })();
+
+
+
+</script>
+
+
+
+
+<style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}
+.fb_invisible{display:none}
+.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}
+.fb_reset > div{overflow:hidden}
+.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}
+.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}
+.fb_dialog_content{background:#fff;color:#333}
+.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px;top:8px\9;right:7px\9}
+.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}
+.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}
+.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_loader{background-color:#f2f2f2;border:1px solid #606060;font-size:24px;padding:20px}
+.fb_dialog_top_left,
+.fb_dialog_top_right,
+.fb_dialog_bottom_left,
+.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}
+/* @noflip */
+.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}
+/* @noflip */
+.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}
+/* @noflip */
+.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}
+/* @noflip */
+.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right,
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right{width:10px;height:100%}
+.fb_dialog_vert_left{margin-left:-10px}
+.fb_dialog_vert_right{right:0;margin-right:-10px}
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{width:100%;height:10px}
+.fb_dialog_horiz_top{margin-top:-10px}
+.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}
+.fb_dialog_iframe{line-height:0}
+.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3b5998;color:#fff;font-size:14px;font-weight:bold;margin:0}
+.fb_dialog_content .dialog_title > span{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif)
+no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}
+body.fb_hidden{-webkit-transform:none;height:100%;margin:0;left:-10000px;overflow:visible;position:absolute;top:-10000px;width:100%
+}
+.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif)
+white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}
+.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}
+#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}
+#fb-root #fb_dialog_ipad_overlay.hidden{display:none}
+.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}
+.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0 0, 0 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}
+.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%
+}
+.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0 0, 0 100%, from(#4966A6),
+color-stop(0.5, #355492), to(#2A4887));border:1px solid #29447e;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset,
+rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}
+.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}
+.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}
+.fb_dialog_content .dialog_footer{background:#f2f2f2;border:1px solid #555;border-top-color:#ccc;height:40px}
+#fb_dialog_loader_close{float:left}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{display:inline-block;position:relative}
+.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}
+.fb_iframe_widget iframe{position:absolute}
+.fb_iframe_widget_lift{z-index:1}
+.fb_hide_iframes iframe{position:relative;left:-10000px}
+.fb_iframe_widget_loader{position:relative;display:inline-block}
+.fb_iframe_widget_fluid{display:inline}
+.fb_iframe_widget_fluid span{width:100%}
+.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}
+.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_connect_bar_container div,
+.fb_connect_bar_container span,
+.fb_connect_bar_container a,
+.fb_connect_bar_container img,
+.fb_connect_bar_container strong{background:none;border-spacing:0;border:0;direction:ltr;font-style:normal;font-variant:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal;vertical-align:baseline}
+.fb_connect_bar_container{position:fixed;left:0 !important;right:0 !important;height:42px !important;padding:0 25px !important;margin:0 !important;vertical-align:middle !important;border-bottom:1px solid #333 !important;background:#3b5998 !important;z-index:99999999 !important;overflow:hidden !important}
+.fb_connect_bar_container_ie6{position:absolute;top:expression(document.compatMode=="CSS1Compat"? document.documentElement.scrollTop+"px":body.scrollTop+"px")}
+.fb_connect_bar{position:relative;margin:auto;height:100%;width:100%;padding:6px 0 0 0 !important;background:none;color:#fff !important;font-family:"lucida grande", tahoma, verdana, arial, sans-serif !important;font-size:13px !important;font-style:normal !important;font-variant:normal !important;font-weight:normal !important;letter-spacing:normal !important;line-height:1 !important;text-decoration:none !important;text-indent:0 !important;text-shadow:none !important;text-transform:none !important;white-space:normal !important;word-spacing:normal !important}
+.fb_connect_bar a:hover{color:#fff}
+.fb_connect_bar .fb_profile img{height:30px;width:30px;vertical-align:middle;margin:0 6px 5px 0}
+.fb_connect_bar div a,
+.fb_connect_bar span,
+.fb_connect_bar span a{color:#bac6da;font-size:11px;text-decoration:none}
+.fb_connect_bar .fb_buttons{float:right;margin-top:7px}
+.fb_edge_widget_with_comment{position:relative;*z-index:1000}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget{position:absolute}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget{z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget .FB_Loader{left:0;top:1px;margin-top:6px;margin-left:0;background-position:50% 50%;background-color:#fff;height:150px;width:394px;border:1px #666 solid;border-bottom:2px solid #283e6c;z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.dark .FB_Loader{background-color:#000;border-bottom:2px solid #ccc}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.siderender
+.FB_Loader{margin-top:0}
+.fbpluginrecommendationsbarleft,
+.fbpluginrecommendationsbarright{position:fixed !important;bottom:0;z-index:999}
+/* @noflip */
+.fbpluginrecommendationsbarleft{left:10px}
+/* @noflip */
+.fbpluginrecommendationsbarright{right:10px}</style></head>
+
+<!----
+giao dien tet
+<div style="width:100%;height:100%;position:fixed;display:block;top:0;z-index:-10;background:url('http://tqasolution.com/templates/ja_sanidine/images/bg_danweb.jpg') top center no-repeat">
+<div id="mblfireworks" style="width:1400px;height:500px">
+</div>
+</div>
+-->
+<body data-twttr-rendered="true">
+
+<div id="art-main">
+    <div style="" class="cleared reset-box"></div>
+<div class="art-header">
+  <div class="art-header-position">
+    <div class="art-header-wrapper">
+      <div class="cleared reset-box"></div>
+      <div class="art-header-inner">
+        <div class="art-headerobject"></div>
+        <div class="art-logo">
+           <h1 class="art-logo-name"><a href="http://hoangnguyen.edu.vn/"></a></h1>
+           <h2 class="art-logo-text"></h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="" class="cleared reset-box"></div>
+
+<div class="art-bar art-nav">
+  <div class="art-nav-outer">
+    <div class="art-nav-wrapper">
+      <div class="art-nav-inner">
+                      <!-- debut Maximenu CK, par cedric keiflin sur http://www.joomlack.fr -->
+    <div class="maximenuckh" id="maximenuck" style="z-index:10;">
+        <div class="maxiroundedleft"></div>
+        <div class="maxiroundedcenter">
+            <ul class="menu phu maximenuck" style="">
+<li class="maximenuck item187 first level1 " style="z-index : 12000;"><a class="maximenuck " href="http://hoangnguyen.edu.vn/"><span class="titreck">Trang chủ</span></a>
+		</li>
+<li class="maximenuck item188 level1 " style="z-index : 11999;"><a class="maximenuck " href="http://hoangnguyen.edu.vn/gioi-thieu.html"><span class="titreck">Giới thiệu</span></a>
+		</li>
+<li class="maximenuck item189 current active parent level1 " style="z-index : 11998;"><a class="maximenuck " href="http://hoangnguyen.edu.vn/khoa-hoc.html"><span class="titreck">Khóa học</span></a>
+	<div class="floatck" style="width: 936px; height: 0px; left: -999em;"><div class="maxidrop-top"><div class="maxidrop-top2"></div></div><div class="maxidrop-main"><div class="maxidrop-main2"><div class="maximenuck2 first " style="width:936px;float:left;">
+	<ul style="position: static;" class="maximenuck2"><li class="maximenuck item235 first last level2 "><div class="maximenuck_mod">
+
+<div class="custom">
+	<table border="0" cellpadding="0" cellspacing="0" width="950">
+<tbody>
+<tr>
+<td><img src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/tk.png" style="border: 0;" border="0" height="23" width="936"></td>
+</tr>
+<tr>
+<td><a href="http://hoangnguyen.edu.vn/khoa-hoc/102-thiet-ke-web-my-thuat-web.html" title="Khóa học Thiết kế web Mỹ thuật web"><img src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/menu_tkw.png" alt="Khóa học Thiết kế web Mỹ thuật web" style="border: 0; float: left;" border="0" height="140" width="235"></a><a href="http://hoangnguyen.edu.vn/khoa-hoc/105-khoa-hoc-thiet-ke-web-voi-joomla-2-5-online.html" title="Khóa học Thiết kế web với Joomla 2.5 online"><img src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/menu_joomla.png" alt="Khóa học Thiết kế website với Joomla Online" style="border: 0; float: left;" border="0" height="140" width="233"></a><a href="http://hoangnguyen.edu.vn/khoa-hoc/164-khoa-hoc-wordpress-online.html" title="Khóa học thiết kế web với wordpress online"><img src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/menu_word.png" alt="Khóa học Thiết kế website với Wordpress" style="border: 0; float: left;" border="0" height="140" width="234"></a> <a href="http://hoangnguyen.edu.vn/khoa-hoc/134-dao-tao-theo-yeu-cau-doanh-nghiep.html" title="Khóa học Đào tạo theo nhu cầu doanh nghiệp"><img src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/menu_dn.png" alt="Đào tạo theo nhu cầu doanh nghiệp" style="border: 0; float: left;" border="0" height="140" width="234"></a></td>
+</tr>
+<tr>
+<td><img src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/lt.png" style="border: 0;" border="0" height="26" width="936"></td>
+</tr>
+<tr>
+<td><a href="http://hoangnguyen.edu.vn/khoa-hoc/103-khoa-hoc-lap-trinh-web-php-mysql.html" title="Khóa học Lập trình web PHP &amp; MySQL"><img src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/menu_php.png" alt="Khóa học Lập trình website với PHP &amp; MySQL" style="border: 0; float: left;" border="0" height="140" width="234"></a><a href="http://hoangnguyen.edu.vn/khoa-hoc/106-lap-trinh-joomla-2-5-chuyen-sau.html" title="Khóa học Lập trình Joomla 2.5"><img src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/menu_joomlalt.png" alt="Khóa học Lập trình website với Joomla 2.5" style="border: 0; float: left;" border="0" height="140" width="234"></a><a href="http://hoangnguyen.edu.vn/khoa-hoc/107-khoa-hoc-lap-trinh-zend-framework.html" title="Khóa học lập trình ứng dụng Zend Framework"><img src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/menu_zf.png" alt="Khóa học Lập trình ứng dụng Zend Framework" style="border: 0; float: left;" border="0" height="140" width="234"></a><a href="http://hoangnguyen.edu.vn/khoa-hoc/165-lap-trinh-ung-dung-android.html" title="Khóa học lập trình ứng dụng Android"><img src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/menu_android.png" alt="Khóa học Lập trình ứng dụng Android" style="border: 0; float: left;" border="0" height="140" width="234"></a></td>
+</tr>
+<tr>
+<td><img src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/im.png" style="border: 0;" border="0" height="26" width="936"></td>
+</tr>
+<tr>
+<td><a href="http://hoangnguyen.edu.vn/khoa-hoc/131-khoa-hoc-seo-dao-tao-seo-search-engine-optimization.html" target="_self" title="Khóa học SEO - Đào tạo SEO - Quảng bá Website"><img src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/menu_seo.png" alt="Khóa học SEO - Quảng bá website" style="border: 0; float: left;" border="0" height="140" width="234"></a><a href="http://hoangnguyen.edu.vn/khoa-hoc/167-khoa-hoc-chuyen-vien-internet-marketing.html" target="_self" title="Khóa học chuyên viên internet marketing uy tín tại tp hcm"><img src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/menu_im.png" alt="Khóa học Chuyên viên Internet Marketing" style="border: 0; float: left;" border="0" height="140" width="234"></a><a href="http://hoangnguyen.edu.vn/khoa-hoc/202-khoa-hoc-seo-cho-doanh-nghiep-seo-audit.html" title="Khóa học SEO cho Doanh nghiệp - Đào tạo SEO Audit - Lập kế hoạch chiến dịch SEO"><img src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/menu_seo_audit.png" alt="Khóa học SEO cho Doanh nghiệp - Đào tạo SEO Audit - Lập kế hoạch chiến dịch SEO" style="border: 0; float: left;" border="0" height="140" width="234"></a><a href="http://hoangnguyen.edu.vn/khoa-hoc/168-quang-cao-google-adwords-hieu-qua.html" target="_blank" title="Khóa học Quảng cáo Google hiệu quả"><img src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/menu_gg.png" alt="Khóa học Quảng cáo Google Adwords hiệu quả" style="border: 0; float: left;" border="0" height="140" width="234"></a></td>
+</tr>
+</tbody>
+</table></div>
+<div class="clr"></div></div>
+	</li>
+	</ul>
+	<div class="clr"></div></div><div class="clr"></div></div></div><div class="maxidrop-bottom"><div class="maxidrop-bottom2"></div></div></div>
+	</li><li class="maximenuck item190 parent level1 " style="z-index : 11996;"><a class="maximenuck " href="http://hoangnguyen.edu.vn/lich-khai-giang.html"><span class="titreck">Lịch khai giảng</span></a>
+	<div style="height: 0px; left: -999em;" class="floatck"><div class="maxidrop-top"><div class="maxidrop-top2"></div></div><div class="maxidrop-main"><div class="maxidrop-main2"><div class="maximenuck2 first ">
+	<ul style="position: static;" class="maximenuck2"><li class="maximenuck item234 first level2 " style="z-index : 11995;"><a class="maximenuck " href="http://hoangnguyen.edu.vn/lich-khai-giang/dang-ky-hoc.html"><span class="titreck">Đăng ký học</span></a>
+		</li>
+<li class="maximenuck item197 level2 " style="z-index : 11994;"><a class="maximenuck " href="http://hoangnguyen.edu.vn/lich-khai-giang/lich-khai-giang.html"><span class="titreck">Lịch khai giảng</span></a>
+		</li>
+<li class="maximenuck item198 last level2 " style="z-index : 11993;"><a class="maximenuck " href="http://hoangnguyen.edu.vn/lich-khai-giang/hinh-thuc-thanh-toan.html"><span class="titreck">Hình thức thanh toán</span></a>
+	</li>
+	</ul>
+	<div class="clr"></div></div><div class="clr"></div></div></div><div class="maxidrop-bottom"><div class="maxidrop-bottom2"></div></div></div>
+	</li><li class="maximenuck item191 parent level1 " style="z-index: 12001;"><a class="maximenuck " href="http://hoangnguyen.edu.vn/hoc-vien.html"><span class="titreck">Học viên</span></a>
+	<div style="height: 0px; left: -999em;" class="floatck"><div class="maxidrop-top"><div class="maxidrop-top2"></div></div><div class="maxidrop-main"><div class="maxidrop-main2"><div class="maximenuck2 first ">
+	<ul style="position: static;" class="maximenuck2"><li class="maximenuck item219 first level2 " style="z-index : 11991;"><a class="maximenuck " href="http://hoangnguyen.edu.vn/hoc-vien/quyen-loi-hoc-vien.html"><span class="titreck">Quyền lợi học viên</span></a>
+		</li>
+<li class="maximenuck item220 level2 " style="z-index : 11990;"><a class="maximenuck " href="http://hoangnguyen.edu.vn/hoc-vien/ket-qua-cuoi-khoa.html"><span class="titreck">Kết quả cuối khóa</span></a>
+		</li>
+<li class="maximenuck item221 level2 " style="z-index : 11989;"><a class="maximenuck " href="http://hoangnguyen.edu.vn/hoc-vien/hoc-bong.html"><span class="titreck">Chính sách học bổng</span></a>
+		</li>
+<li class="maximenuck item222 level2 " style="z-index : 11988;"><a class="maximenuck " href="http://hoangnguyen.edu.vn/hoc-vien/cam-nhan-hoc-vien.html"><span class="titreck">Cảm nhận học viên</span></a>
+		</li>
+<li class="maximenuck item245 last level2 " style="z-index : 11987;"><a class="maximenuck " href="http://hoangnguyen.edu.vn/hoc-vien/cau-chuyen-thanh-cong.html"><span class="titreck">Câu chuyện thành công</span></a>
+	</li>
+	</ul>
+	<div class="clr"></div></div><div class="clr"></div></div></div><div class="maxidrop-bottom"><div class="maxidrop-bottom2"></div></div></div>
+	</li><li class="maximenuck item192 parent level1 " style="z-index : 11986;"><a class="maximenuck " href="http://hoangnguyen.edu.vn/su-kien.html"><span class="titreck">Sự kiện</span></a>
+	<div style="height: 0px; left: -999em;" class="floatck"><div class="maxidrop-top"><div class="maxidrop-top2"></div></div><div class="maxidrop-main"><div class="maxidrop-main2"><div class="maximenuck2 first ">
+	<ul style="position: static;" class="maximenuck2"><li class="maximenuck item241 first last level2 " style="z-index : 11985;"><a class="maximenuck " href="http://hoangnguyen.edu.vn/su-kien/thong-bao-moi.html"><span class="titreck">Thông báo</span></a>
+	</li>
+	</ul>
+	<div class="clr"></div></div><div class="clr"></div></div></div><div class="maxidrop-bottom"><div class="maxidrop-bottom2"></div></div></div>
+	</li><li class="maximenuck item193 level1 " style="z-index : 11984;"><a class="maximenuck " href="http://hoangnguyen.edu.vn/thu-vien.html"><span class="titreck">Thư viện</span></a>
+		</li>
+<li class="maximenuck item238 level1 " style="z-index : 11983;"><a class="maximenuck " href="http://hoangnguyen.edu.vn/faqs.html"><span class="titreck">FAQs</span></a>
+		</li>
+<li class="maximenuck item194 level1 " style="z-index : 11982;"><a class="maximenuck " href="http://www.webchuyennghiep.net/" target="_blank"><span class="titreck">Diễn đàn</span></a>
+		</li>
+<li class="maximenuck item195 last level1 " style="z-index : 11981;"><a class="maximenuck " href="http://hoangnguyen.edu.vn/lien-he.html"><span class="titreck">Liên hệ</span></a></li>            <li style="opacity: 1; left: 196px; width: 86px;" class="maxiFancybackground"><div class="maxiFancycenter"><div class="maxiFancyleft"></div><div class="maxiFancyright"></div></div></li></ul>
+        </div>
+        <div class="maxiroundedright"></div>
+        <div style="clear:both;"></div>
+    </div>
+    <div style="clear:both;"></div>
+    <!-- fin maximenuCK -->
+      </div>
+    </div>
+  </div>
+</div>
+<div style="" class="cleared reset-box"></div>
+  <div class="bannerheader">
+      </div> 
+<div class="breadcrumbs_middle">
+  <div class="module2"><div class="breadcumbs1">
+<div class="breadcrumbs">
+<span class="showHere">Bạn đang ở trang: </span><a href="http://hoangnguyen.edu.vn/" class="pathway">Hoàng Nguyễn </a> &nbsp;&gt;&gt;  <a href="http://hoangnguyen.edu.vn/khoa-hoc.html" class="pathway">Khóa học</a> &nbsp;&gt;&gt;  <span>Khóa học Lập trình Joomla 2.5: code  Component - Plugin - Module</span></div>
+</div></div></div>
+ <div class="hihi">
+<div class="art-box art-sheet">
+</div>
+    <div class="art-box-body art-sheet-body">
+    <div class="art-layout-wrapper">
+      <div class="art-content-layout">
+        <div class="art-content-layout-row">
+          <div style="height: auto;" class="art-layout-cell art-content">
+
+            <div class="item-page"><div class="art-box art-post">
+    <div class="art-box-body art-post-body">
+<div class="art-post-inner">
+<h2 class="art-postheader"><a href="http://hoangnguyen.edu.vn/khoa-hoc/106-khoa-hoc-lap-trinh-joomla-2-5-chuyen-sau.html" class="PostHeader">Khóa học Lập trình Joomla 2.5: code  Component - Plugin - Module</a></h2>
+<div class="art-postcontent">
+<div class="likes">	<div class="like"><div fb-xfbml-state="parsed" class="fb-like fb_edge_widget_with_comment fb_iframe_widget" data-href="http://hoangnguyen.edu.vn/khoa-hoc/106-khoa-hoc-lap-trinh-joomla-2-5-chuyen-sau.html" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"><span style="height: 21px; width: 450px;"><iframe src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/like.xht" class="fb_ltr" title="Like this content on Facebook." style="border: medium none; overflow: hidden; height: 21px; width: 450px;" name="f365d77953ba42a" id="f159bfeba352c02" scrolling="no"></iframe></span></div></div>	<div class="like"><div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/fastbutton.htm" name="I0_1369578166043" id="I0_1369578166043" vspace="0" tabindex="0" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div><script type="text/javascript">  (function() {    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;    po.src = 'https://apis.google.com/js/plusone.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);  })();</script></div>	<div class="like"><iframe data-twttr-rendered="true" title="Twitter Tweet Button" style="width: 109px; height: 20px;" class="twitter-share-button twitter-count-horizontal" src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/tweet_button.htm" allowtransparency="true" frameborder="0" scrolling="no"></iframe><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div>		<div style="clear:both"></div></div><div style="clear:both"></div><div class="art-article">
+<p><img src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/khoa-hoc-lap-trinh-joomla2.png" alt="joomla" style="float: left; border: 0;" border="0" height="162" width="224"></p>
+<p>Bạn là sinh viên CNTT, bạn muốn đi theo nghề Lập trình viên website, 
+các công ty yêu cầu Lập trình web với PHP &amp; MySQL, yêu cầu biết lập 
+trình module, template, plugin trên nền Joomla.</p>
+<p>Bạn là 01&nbsp;<strong>Freelancer</strong>, bạn muốn nhận thêm các 
+ứng dụng web, bạn muốn nhanh chóng xây dựng được các ứng dụng web tin 
+tức, sản phẩm, web giới thiệu doanh nghiệp chuyên nghiệp, hiện đại và dễ
+ quản trị giao cho khách hàng.</p>
+<p>Tất cả đều có trong khóa học&nbsp;<strong><em>Lập trình ứng dụng website trên nền CMS Joomla 2.5.</em></strong></p>
+<p>Khóa học Lập trình website Joomla 2.5&nbsp;đi sâu vào phân 
+tích&nbsp;Core của Joomla 2.5, viết các Module, Plugin, Component, 
+Extension,....&nbsp;từ&nbsp;đó xây dựng, phát triển các ứng dụng web 
+trên nền bộ CMS Joomla Framework theo đúng chuẩn của&nbsp;hướng đối 
+tượng và&nbsp;mô hình MVC.</p>
+<p><strong>Hoàng Nguyễn - Đơn vị&nbsp;<a href="http://hoangnguyen.edu.vn/joomla/lap-trinh-joomla-chuyen-sau.html"><span style="text-decoration: none;">Đào tạo Lập trình Joomla 2.5 chuyên nghiệp và uy tín tại TpHCM</span></a></strong></p>
+<p><strong>Joomla có thể xây dựng các ứng dụng web:</strong></p>
+<ul>
+<li>Các cổng thông tin điện tử</li>
+<li>Thương mại điện tử trực tuyến</li>
+<li>Báo điện tử , tạp chí điện tử</li>
+<li>Website của các doanh nghiệp vừa và nhỏ</li>
+<li>Website của các cơ quan, tổ chức phi chính phủ</li>
+<li>Website các trường học</li>
+<li>Website của gia đình hay cá nhân.</li>
+</ul>
+<p>Hoàn tất Khóa học về Lập trình chuyên sâu Joomla 2.5, học viên đủ khả
+ năng tự xây dựng và lập trình các ứng dụng web, viết thêm và chỉnh sửa 
+các Module, Plugin, Component, Extension,..... <span class="pageactive">&nbsp;</span>dựa trên nền Joomla 2.5 với các chức năng<span class="pageactive">:<br> </span></p>
+<p><strong>Giáo trình học:</strong> Tài liệu dạy Lập trình Joomla chuyên sâu 2.5 tiếng Việt do Hoàng Nguyễn biên soạn.</p>
+<p><strong> Điều kiện theo học: </strong></p>
+<ul>
+<li>Có kiến thức tốt lập trình website bằng ngôn ngữ PHP, CSDL MySQL, lập trình hướng đối tượng(OOP).</li>
+<li>Đã tốt nghiệp Đại học chuyên ngành CNTT hoặc có kinh nghiệm về lập trình Website muốn học chuyên sâu về lập trình Joomla CMS.</li>
+<li>Lập trình viên website với ngôn ngữ lập trình PHP</li>
+<li>Đã hoàn tất chương trình “LẬP TRÌNH WEB” tại Hoàng Nguyễn hoặc có kiến thức tương đương.</li>
+</ul>
+<p><strong>Môi trường học: </strong></p>
+<ul>
+<li>100% thời gian học trên phòng Lab.</li>
+<li>Mỗi học viên được cấp 1 tài khoản Hosting phục vụ cho việc học tập.</li>
+<li>Thực hành thêm giờ miễn phí , không hạn chế: 13h - 15h , thứ hai đến thứ sáu.</li>
+</ul>
+<p><strong> Bằng cấp: </strong>Tham dự trên 80% số buổi học và hoàn tất đồ án cuối khóa, học viên được cấp Giấy chứng nhận hoàn tất khóa học của Hoàng Nguyễn.</p>
+<p><strong>Học bổng: </strong>Bạn tham dự đầy đủ 80% khóa học và có điểm
+ đồ án đạt từ 7 điểm trở lên có cơ hội nhận được các suất học bồng toàn 
+phần và bán phần tại trung tâm.</p>
+<p><strong> Thời gian và học phí:</strong></p>
+<ul>
+<li>Thời gian: <strong>Lớp tối , tuần 3 buổi, 2tháng + 2 tuần làm đồ án cuối khóa.</strong></li>
+<li>Học phí: <strong>Trọn khóa: 1.300.000 VNĐ&nbsp;</strong>(Đã bao gồm giáo trình)</li>
+</ul>
+<p><strong>Kết thúc khóa học: </strong>Thực hiện các dự án website hoàn chỉnh, với sự hỗ trợ của Joomla, phát triển các ứng dụng trên nền Joomla 2.5&nbsp;</p>
+<p><strong>CHƯƠNG TRÌNH MỚI CẬP NHẬT VÀ NÂNG CẤP:</strong>&nbsp;</p>
+<table class="khoahoc" cellpadding="5" cellspacing="5" width="100%">
+<tbody>
+<tr>
+<td class="tieudekhoahoc" width="50%">Phần I: Ôn tập PHP &amp; Hướng đối tượng</td>
+<td class="tieudekhoahoc">Phần VI: Xây dựng các chức năng tại Front-End</td>
+</tr>
+<tr>
+<td>
+<ul>
+<li>Kỹ thuật xử lý mảng chuyên sâu</li>
+Lập trình hướng đối tượng
+<li>Mô hình MVC</li>
+</ul>
+</td>
+<td rowspan="3">
+<ul>
+<li>Xây dựng chức năng hiển thị tất cả các category</li>
+<li>Xây dựng chức năng hiển thị một category</li>
+<li>Xây dựng chức năng hiển thị tất cả các cuốn sách</li>
+<li>Xây dựng chức năng hiển thị một cuốn sách</li>
+<li>Xây dựng chức năng hiển thị giỏ hàng</li>
+<li>Xây dựng chức năng đưa sách vào giỏ hàng</li>
+<li>Xây dựng chức năng cập nhật giỏ hàng</li>
+<li>Xây dựng chức năng đặt hàng mua hàng</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="tieudekhoahoc">Phần II: Phân tích và xây dựng hệ thống Back-End</td>
+</tr>
+<tr>
+<td rowspan="3">
+<ul>
+<li>Phân tích Database</li>
+<li>Xây dựng cấu trúc MVC trong Back-End của Joomla</li>
+<li>Đăng ký com_book trong hệ thống joomla</li>
+<li>Tạo các controller cho component</li>
+<li>Tạo submenu cho com_book</li>
+<li>Tạo lệnh điều hướng đến các Controller</li>
+<li>Xây dựng các class định nghĩa các bảng dữ liệu có trong component</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="tieudekhoahoc">Phần VII: Xây dựng Module</td>
+</tr>
+<tr>
+<td rowspan="3">
+<ul>
+<li>Hiển thị các cuốn sách mới cập nhật</li>
+<li>Hiển thị ngẫu nhiên các cuốn sách</li>
+<li>Xây dựng hệ thống tham số cho module</li>
+<li>Tùy biến module theo tham số truyền</li>
+<li>Sử dụng Jquery trong Joomla</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="tieudekhoahoc">Phần III: Xây dựng Category controller</td>
+</tr>
+<tr>
+<td rowspan="5">
+<ul>
+<li>Xác định các chức năng (task) trong Category</li>
+<li>Xây dựng hệ thống hàm xử lý các chức năng của Category</li>
+<li>Xây dựng chức năng hiển thị category (task: show)</li>
+<li>Đăng ký các chức năng xử lý trong Controller</li>
+<li>Xây dựng chức năng publish &amp; unpublish category (task: publish – unpublish)</li>
+<li>Xây dựng chức năng delete (task: remove)</li>
+<li>Xây dựng chức năng thêm một category (task: add – save)</li>
+<li>Xây dựng chức năng hủy nhiệm vụ (task: cancel)</li>
+<li>Xây dựng chức năng chỉnh sửa một category (task: edit – save - apply ).</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="tieudekhoahoc">Phần VIII: Router &amp; Plugin (SEO link)</td>
+</tr>
+<tr>
+<td>
+<ul>
+<li>Xây dựng router cho Module và Component</li>
+<li>Xây dựng plugin</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="tieudekhoahoc">Phần IX: Đóng gói</td>
+</tr>
+<tr>
+<td>
+<ul>
+<li>Đóng gói Component</li>
+<li>Đóng gói Module</li>
+<li>Đóng gói Plugin</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="tieudekhoahoc">Phần IV: Xây dựng Book controller</td>
+<td class="tieudekhoahoc">Phần X: Template</td>
+</tr>
+<tr>
+<td rowspan="3">
+<ul>
+<li>Xác định các chức năng (task) trong Category</li>
+<li>Xây dựng hệ thống hàm xử lý các chức năng của Category</li>
+<li>Xây dựng chức năng hiển thị category (task: show)</li>
+<li>Đăng ký các chức năng xử lý trong Controller</li>
+<li>Xây dựng chức năng publish &amp; unpublish category (task: publish – unpublish)</li>
+<li>Xây dựng chức năng delete (task: remove)</li>
+<li>Xây dựng chức năng thêm một category (task: add – save)</li>
+<li>Xây dựng chức năng hủy nhiệm vụ (task: cancel)</li>
+<li>Xây dựng chức năng chỉnh sửa một category (task: edit – save - apply)</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>Giới thiệu cấu trúc template</li>
+<li>Xây dựng cấu trúc template</li>
+<li>Xây dựng hàm xử lý vị trí các Module trong template</li>
+<li>Xây dựng và xử lý hệ thống tham số cho template</li>
+<li>Các kỹ thuật override giao diện trong Joomla</li>
+<li>Đóng gói template</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="tieudekhoahoc">Phần XI: Ngôn ngữ</td>
+</tr>
+<tr>
+<td>
+<ul>
+<li>Xây dựng ngôn ngữ cho Component</li>
+<li>Xây dựng ngôn ngữ cho Module</li>
+<li>Xây dựng ngôn ngữ cho Plugin</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="tieudekhoahoc">Phần V: Xây dựng Front - End MVC</td>
+<td class="tieudekhoahoc" rowspan="2">Phần XII: Các lớp trong Joomla Framework</td>
+</tr>
+<tr>
+<td rowspan="2">
+<ul>
+<li>Mô hình MVC tại Front-End</li>
+<li>Thống kê các task cần thực hiện trong Book component</li>
+<li>Xây dựng hệ thống thư mục cho Front-End</li>
+<li>Xây dựng hệ thống chức năng Item menu</li>
+<li>Tạo tập tin chạy chính cho component</li>
+<li>Tạo tập tin controller cho component</li>
+<li>Xây dựng các VIEW và MODEL tạm thời cho các chức năng</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>
+<ul>
+<li>Các hằng số trong Joomla - 2. JRequest class</li>
+<li>JController class - 4. JText class</li>
+<li>JSubMenuHelper class - 6. JApplicationHelper class</li>
+<li>Global $mainframe;- 8. JDatabase class</li>
+<li>JHTML class - 10. JURI class</li>
+<li>Jtable - 2. JModel</li>
+<li>JSession</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="cleared"></div>
+</div>
+
+		<div class="cleared"></div>
+    </div>
+</div>
+</div>
+            
+          </div>
+                      <div class="art-layout-cell art-sidebar1">
+            <div class="module7"><h3 class="block7_title">Hỗ trợ trực tuyến</h3><div class="art-postcontent">
+
+<div class="custom">
+	<div class="httt">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody>
+<tr>
+<td align="center" width="50%"><a href="ymsgr:sendim?hn_edu_register"><img src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/online_002.gif" style="width:100px" border="0"></a></td>
+<td align="center" width="50%"><a href="ymsgr:sendim?hn_edu_training"><img src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/online.gif" style="width:100px" border="0"></a></td>
+</tr>
+<tr>
+<td align="center"><a href="ymsgr:sendIM?hn_edu_register">Tư vấn Ghi danh</a></td>
+    <td align="center"><a href="ymsgr:sendIM?hn_edu_training">Hỗ trợ học viên</a> </td>
+</tr>
+
+<tr>
+<td>&nbsp;
+<div id="SkypeButton_Chat_hoangnguyen.edu_1" class="skypechat">
+  <script type="text/javascript">
+    Skype.ui({
+      "name": "chat",
+      "element": "SkypeButton_Chat_hoangnguyen.edu_1",
+      "participants": ["hoangnguyen.edu"],
+      "imageSize": 32
+    });
+  </script><iframe id="_detectSkypeClient_1369578166117" style="display:none;"></iframe><p style="font-size:30px; color:#444444" id="SkypeButton_Chat_hoangnguyen.edu_1_paraElement"><a onclick="Skype.tryAnalyzeSkypeUri('chat', '0');Skype.trySkypeUri_Generic('skype:hoangnguyen.edu?chat', '_detectSkypeClient_1369578166117', '0'); return false;" href="javascript://"><img style="border:0; margin:32px; vertical-align:-41px;" alt="Chat Button (32px)" src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/chatbutton_32px.png"></a></p>
+</div></td>
+<td> <img src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/phone.png" alt="" style="float: left;margin-left:-10px" border="0"> 08 2200 2122<br>0908 964 578</td>
+</tr>
+<tr>
+<td colspan="2" align="center">  <a href="http://hoangnguyen.edu.vn/lich-khai-giang/dang-ky-hoc.html" target="_blank" title="Đăng ký học tại Hoàng Nguyễn"><img src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/dktt.png" alt="" border="0"></a>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div></div>            <div class="modulevd_video"><h3 class="blockvd_title">Video Clip</h3><div class="art-postcontent"><div class="random-image_video">
+
+<div style="position: relative; width: 290px; height: 243px;" id="m109-youtubevideo_wrapper"><object tabindex="0" name="m109-youtubevideo" id="m109-youtubevideo" bgcolor="#000000" data="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/player.swf" type="application/x-shockwave-flash" height="100%" width="100%"><param value="true" name="allowfullscreen"><param value="always" name="allowscriptaccess"><param value="true" name="seamlesstabbing"><param value="opaque" name="wmode"><param value="netstreambasepath=http%3A%2F%2Fhoangnguyen.edu.vn%2Fkhoa-hoc%2F106-lap-trinh-joomla-2-5-chuyen-sau.html&amp;id=m109-youtubevideo&amp;file=http%3A%2F%2Fwww.youtube.com%2Fv%2FVv7OIYCfcDE%3Ffeature%3Dplayer_embedded%26amp%3Bborder%3D1%26amp%3Bfs%3D1%26amp%3Brel%3D1%26autoplay%3D1&amp;autostart=false&amp;controlbar.position=bottom" name="flashvars"></object></div>
+<script type="text/javascript">loadSWFX('http://www.youtube.com/v/Vv7OIYCfcDE?feature=player_embedded&amp;border=1&amp;fs=1&amp;rel=1&autoplay=1','m109','290','243');
+</script>
+<div id="m109-youtubevideo-description">Chấm sơ khảo vòng 1 SEO IDOL 2011</div><div id="m109-youtubevideo-playlist"><form name="m109youtube-droplist" action="" method="get">
+	<select name="droplist" onchange="loadSWFX(this.form.droplist.value,'m109','290','243','true');document.getElementById('m109-youtubevideo-description').innerHTML='' + this.form.droplist.options[this.form.droplist.selectedIndex].text;">
+	<option selected="selected" value="">Chọn Video clip khác</option>
+<option value="http://www.youtube.com/v/kwdGM1zftLI?feature=player_embedded&amp;border=1&amp;fs=1&amp;rel=1&amp;autoplay=1">SEOIDOL 2011</option> 
+<option value="http://www.youtube.com/v/gHAtvwLn15w?feature=player_embedded&amp;border=1&amp;fs=1&amp;rel=1&amp;autoplay=1">SEOIDOL 2011</option> 
+<option value="http://www.youtube.com/v/Vv7OIYCfcDE?feature=player_embedded&amp;border=1&amp;fs=1&amp;rel=1&amp;autoplay=1">Chấm sơ khảo vòng 1 SEO IDOL 2011</option> 
+<option value="http://www.youtube.com/v/4bRYPkEjY5g?feature=player_embedded&amp;border=1&amp;fs=1&amp;rel=1&amp;autoplay=1">Phim giới thiệu Khánh Hòa eCom 2010</option> 
+<option value="http://www.youtube.com/v/eAjw18w_0pc?feature=player_embedded&amp;border=1&amp;fs=1&amp;rel=1&amp;autoplay=1">Khanhhoa eCom 2010</option> 
+<option value="http://www.youtube.com/v/4kXdw3L83X0?feature=player_embedded&amp;border=1&amp;fs=1&amp;rel=1&amp;autoplay=1">Khanhhoa eCom 2010</option> 
+</select>
+</form>
+</div></div>
+
+
+</div></div>                    <div class="art-box art-block">
+            <div class="art-box-body art-block-body">
+        
+                        <div class="art-box art-blockcontent">
+            <div class="art-box-body art-blockcontent-body">
+        
+        
+
+<div class="custom">
+	<div class="httt"><img src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/tim-viec-nhanh.png" style="border: 0;" border="0" width="290"></div></div>
+
+        
+        		<div class="cleared"></div>
+            </div>
+        </div>
+        
+        
+        		<div class="cleared"></div>
+            </div>
+        </div>
+        
+        <div class="art-box art-block">
+            <div class="art-box-body art-block-body">
+        
+                        <div class="art-box art-blockcontent">
+            <div class="art-box-body art-blockcontent-body">
+        
+        <script src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/all_002.js"></script><fb:fan class=" fb_iframe_widget fb_hide_iframes" fb-xfbml-state="parsed" profile_id="166447996716435" width="290" height="400" connections="25" stream="0" logobar="1" css="http://hoangnguyen.edu.vn//templates/hn06/css/template.css"><span style="height: 400px; width: 290px;"><iframe src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/likebox.xht" class="fb_ltr" title="Facebook Social Plugin" style="border: medium none; overflow: hidden; height: 400px; width: 290px;" name="f1145475684380c" id="f3dc7cc3d41a26" scrolling="no"></iframe></span></fb:fan> <noscript>JavaScript must be enabled in order for you to use the Nurte Facebook Like Box. However, it seems JavaScript is either disabled or not supported by your browser. To use the Nurte Facebook Like Box, enable JavaScript by changing your browser options, then <a href="http://hoangnguyen.edu.vn/khoa-hoc/106-lap-trinh-joomla-2-5-chuyen-sau.html">try again.</a></noscript>
+        
+        		<div class="cleared"></div>
+            </div>
+        </div>
+        
+        
+        		<div class="cleared"></div>
+            </div>
+        </div>
+        
+
+          <div class="cleared"></div>
+          </div>
+                    </div>
+      </div>
+    </div>
+    <div class="cleared"></div>
+          </div>
+  <div class="cleared"></div>
+</div>
+<div class="art-footer">
+    <div class="art-footer-body">
+        <div class="art-footer-center">
+            <div class="art-footer-wrapper">
+                <div class="art-footer-text">
+                                        <div class="art-nostyle">
+
+
+<div class="custom">
+	<div id="footerr">
+<div id="footer1">
+<h3>ĐÀO TẠO CHUYÊN SÂU WEB - INTERNET MARKETING</h3>
+<ul>
+<li><a href="http://hoangnguyen.edu.vn/khoa-hoc/102-thiet-ke-web-my-thuat-web.html" title="Khóa học thiết kế web mỹ thuật web">Thiết kế web - Mỹ thuật web</a></li>
+<li><a href="http://hoangnguyen.edu.vn/khoa-hoc/105-khoa-hoc-thiet-ke-web-voi-joomla-2-5-online.html" title="Khóa học Thiết kế website với Joomla2.5">Thiết kế website Joomla</a></li>
+<li><a href="http://hoangnguyen.edu.vn/khoa-hoc/164-khoa-hoc-wordpress-online.html" title="Thiết kế website Wordpress">Thiết kế website Wordpress</a></li>
+<li><a href="http://hoangnguyen.edu.vn/khoa-hoc/131-khoa-hoc-seo-dao-tao-seo-search-engine-optimization.html" title="Khóa học Seo Đào tạo SEO uy tín tại tp Hồ Chí Minh - Quảng bá website">Seo - Quảng bá website</a></li>
+<li><a href="http://hoangnguyen.edu.vn/khoa-hoc/167-khoa-hoc-chuyen-vien-internet-marketing.html" title="Khóa học Chuyên viên Internet Marketing">Chuyên viên&nbsp;Internet Marketing</a></li>
+<li><a href="http://hoangnguyen.edu.vn/khoa-hoc/168-quang-cao-google-adwords-hieu-qua.html" title="Khóa học Quảng cáo Google Adwords hiệu quả">Quảng bá&nbsp;Google Adwords&nbsp;hiệu quả</a></li>
+</ul>
+</div>
+<div id="footer2">
+<h3>&nbsp;</h3>
+<ul>
+<li><a href="http://hoangnguyen.edu.vn/khoa-hoc/103-khoa-hoc-lap-trinh-web-php-mysql.html" title="Khóa học Lập trình web PHP &amp; MySQL">Lập trình web PHP &amp; MYSQL</a></li>
+<li><a href="http://hoangnguyen.edu.vn/khoa-hoc/106-lap-trinh-joomla-2-5-chuyen-sau.html" title="Khóa học Lập trình Joomla 2.5">Lập trình Joomla 2.5</a></li>
+<li><a href="http://hoangnguyen.edu.vn/khoa-hoc/107-khoa-hoc-lap-trinh-zend-framework.html" title="Khóa học lập trình Zend framework">Lập trình Zend Framework</a></li>
+<li><a href="http://hoangnguyen.edu.vn/khoa-hoc/165-lap-trinh-ung-dung-android.html" title="Khóa học Lập trình ứng dụng Android">Lập trình ứng dụng Android</a></li>
+<li><a href="http://hoangnguyen.edu.vn/khoa-hoc/134-dao-tao-theo-yeu-cau-doanh-nghiep.html" title="Đào tạo theo nhu cầu doanh nghiệp">Đào tạo theo nhu cầu DN</a></li>
+</ul>
+</div>
+<div id="footer3">
+<h3>TRUY CẬP NHANH</h3>
+<ul>
+<li><a href="http://hoangnguyen.edu.vn/hoc-vien/hoc-bong.html" title="Chính sách học bổng cho học viên">Học bổng cho học viên</a></li>
+<li><a href="http://hoangnguyen.edu.vn/hoc-vien/quyen-loi-hoc-vien.html" title="Quyền lợi của học viên">Quyền lợi học viên</a></li>
+<li><a href="http://hoangnguyen.edu.vn/chieu-sinh/hinh-thuc-thanh-toan.html" title="Hình thức thanh toán">Hình thức thanh toán </a></li>
+<li><a href="http://hoangnguyen.edu.vn/chieu-sinh/lich-khai-giang.html" title="Lịch khai giảng">Lịch khai giảng</a></li>
+<li><a href="http://hoangnguyen.edu.vn/faqs.html" title="FAQs">Câu hỏi thường gặp</a></li>
+<li><a href="http://hoangnguyen.edu.vn/chieu-sinh/dang-ky-hoc.html" title="Đăng ký học">Đăng ký học</a></li>
+</ul>
+</div>
+<div id="footer4">
+<h3>CÔNG TY CỔ PHẦN GIÁO DỤC HOÀNG NGUYỄN</h3>
+<h4><a href="http://hoangnguyen.edu.vn/" title="Trung tâm Tin học Hoàng Nguyễn - Đào tạo Lập trình Chuyên sâu web - Internet Marketing">TRUNG TÂM TIN HỌC HOÀNG NGUYỄN</a></h4>
+<p>Địa chỉ: 264 Lê Văn Sỹ, P.14, Quận 3, Tp. HCM</p>
+<p>CN: 97 Trần Quang Diệu, P.14, Quận 3, Tp.HCM</p>
+<p>Điện thoại: 08 2242 7782 - 2211 2383 - Hotline: 08 2200 2122</p>
+<p>Email: 
+ <script type="text/javascript">
+ <!--
+ var prefix = '&#109;a' + 'i&#108;' + '&#116;o';
+ var path = 'hr' + 'ef' + '=';
+ var addy5459 = '&#105;nf&#111;' + '&#64;';
+ addy5459 = addy5459 + 'h&#111;&#97;ngng&#117;y&#101;n' + '&#46;' + '&#101;d&#117;' + '&#46;' + 'vn';
+ document.write('<a ' + path + '\'' + prefix + ':' + addy5459 + '\'>');
+ document.write(addy5459);
+ document.write('<\/a>');
+ //-->\n </script><a href="mailto:info@hoangnguyen.edu.vn">info@hoangnguyen.edu.vn</a><script type="text/javascript">
+ <!--
+ document.write('<span style=\'display: none;\'>');
+ //-->
+ </script><span style="display: none;">This email address is being protected from spambots. You need JavaScript enabled to view it.
+ <script type="text/javascript">
+ <!--
+ document.write('</');
+ document.write('span>');
+ //-->
+ </script></span></p>
+<h5>&nbsp;</h5>
+<h4>CHI NHÁNH CÔNG TY</h4>
+<p>Địa chỉ: 698/8 Trường Chinh, P.15, Q.Tân Bình, Tp. HCM</p>
+<p>Điện thoại: 08 2200 2060 - Hotline: 0979 49 0773</p>
+<p>Email: 
+ <script type="text/javascript">
+ <!--
+ var prefix = '&#109;a' + 'i&#108;' + '&#116;o';
+ var path = 'hr' + 'ef' + '=';
+ var addy12428 = '&#105;nf&#111;' + '&#64;';
+ addy12428 = addy12428 + 'h&#111;&#97;ngng&#117;y&#101;ngr&#111;&#117;p' + '&#46;' + 'vn';
+ document.write('<a ' + path + '\'' + prefix + ':' + addy12428 + '\'>');
+ document.write(addy12428);
+ document.write('<\/a>');
+ //-->\n </script><a href="mailto:info@hoangnguyengroup.vn">info@hoangnguyengroup.vn</a><script type="text/javascript">
+ <!--
+ document.write('<span style=\'display: none;\'>');
+ //-->
+ </script><span style="display: none;">This email address is being protected from spambots. You need JavaScript enabled to view it.
+ <script type="text/javascript">
+ <!--
+ document.write('</');
+ document.write('span>');
+ //-->
+ </script></span></p>
+</div>
+</div>
+<div id="footerc">Hoàng Nguyễn là nhà tài trợ chính cho đơn vị cung cấp <a href="http://freehostvn.net/" target="_blank" title="Hosting">Hosting</a> Freehostvn.net<br> <a href="http://tqasolution.com/" target="_blank" title="Thiết kế web">Thiết kế web</a> bởi Hoàng Nguyễn</div></div>
+</div>
+                                    </div>
+            </div>
+        </div>
+        <div class="cleared"></div>
+    </div>
+</div>
+
+    <div class="cleared"></div>
+</div><div class=" fb_reset" id="fb-root"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/xd_arbiter.htm" style="border: medium none;" tab-index="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_http" allowtransparency="true" name="fb_xdm_frame_http" frameborder="0" scrolling="no"></iframe><iframe src="Kh%C3%B3a%20h%E1%BB%8Dc%20L%E1%BA%ADp%20tr%C3%ACnh%20Joomla%202.5%20%20code%20Component%20-%20Plugin%20-%20Module_files/xd_arbiter_002.htm" style="border: medium none;" tab-index="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_https" allowtransparency="true" name="fb_xdm_frame_https" frameborder="0" scrolling="no"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+
+
+
+
+
+<div id="fb-root"></div><script>(function(d, s, id) {  var js, fjs = d.getElementsByTagName(s)[0];  if (d.getElementById(id)) return;  js = d.createElement(s); js.id = id;  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";  fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+<script type="text/javascript">
+/*
+jQuery.noConflict();
+(function($) {
+  $(function() {
+  Xteam.fireworkShow('#mblfireworks',200);  
+    // more code using $ as alias to jQuery
+  });
+})(jQuery);
+// other code using $ as an alias to the other library
+*/
+</script></body></html>

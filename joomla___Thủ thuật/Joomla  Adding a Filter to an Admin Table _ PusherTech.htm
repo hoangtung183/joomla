@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html id="blaskan" class="no-js iem7" dir="ltr" lang="en-US"><![endif]-->
+<!--[if lt IE 7 ]><html id="blaskan" class="no-js ie6" dir="ltr" lang="en-US"><![endif]-->
+<!--[if IE 7 ]><html id="blaskan" class="no-js ie7" dir="ltr" lang="en-US"><![endif]-->
+<!--[if IE 8 ]><html id="blaskan" class="no-js ie8" dir="ltr" lang="en-US"><![endif]-->
+<!--[if IE 9 ]><html id="blaskan" class="no-js ie9" dir="ltr" lang="en-US"><![endif]-->
+<!--[if (gt IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!-->
+<html id="blaskan" class=" js no-flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" dir="ltr" lang="en-US"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<title>Joomla: Adding a Filter to an Admin Table | PusherTech</title>
+
+<!-- Custom font -->
+<link href="Joomla%20%20Adding%20a%20Filter%20to%20an%20Admin%20Table%20_%20PusherTech_files/css.css" rel="stylesheet" type="text/css">
+
+	<link rel="alternate" type="application/rss+xml" title="PusherTech » Feed" href="http://tech.pusherhq.com/blog/?feed=rss2">
+<link rel="alternate" type="application/rss+xml" title="PusherTech » Comments Feed" href="http://tech.pusherhq.com/blog/?feed=comments-rss2">
+<link rel="alternate" type="application/rss+xml" title="PusherTech » Joomla: Adding a Filter to an Admin Table Comments Feed" href="http://tech.pusherhq.com/blog/?feed=rss2&amp;p=251">
+<link rel="stylesheet" id="prettify-gc-syntax-highlighter-css" href="Joomla%20%20Adding%20a%20Filter%20to%20an%20Admin%20Table%20_%20PusherTech_files/prettify.css" type="text/css" media="all">
+<link rel="stylesheet" id="blaskan-framework-css" href="Joomla%20%20Adding%20a%20Filter%20to%20an%20Admin%20Table%20_%20PusherTech_files/framework.css" type="text/css" media="screen">
+<link rel="stylesheet" id="blaskan-style-css" href="Joomla%20%20Adding%20a%20Filter%20to%20an%20Admin%20Table%20_%20PusherTech_files/style.css" type="text/css" media="screen">
+<script src="Joomla%20%20Adding%20a%20Filter%20to%20an%20Admin%20Table%20_%20PusherTech_files/ga.js" async="" type="text/javascript"></script><script type="text/javascript" src="Joomla%20%20Adding%20a%20Filter%20to%20an%20Admin%20Table%20_%20PusherTech_files/modernizr.js"></script>
+<script type="text/javascript" src="Joomla%20%20Adding%20a%20Filter%20to%20an%20Admin%20Table%20_%20PusherTech_files/jquery_003.js"></script>
+<script type="text/javascript" src="Joomla%20%20Adding%20a%20Filter%20to%20an%20Admin%20Table%20_%20PusherTech_files/jquery_002.js"></script>
+<script type="text/javascript" src="Joomla%20%20Adding%20a%20Filter%20to%20an%20Admin%20Table%20_%20PusherTech_files/helper.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var objectL10n = {"blaskan_navigation_title":"- Navigation -"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Joomla%20%20Adding%20a%20Filter%20to%20an%20Admin%20Table%20_%20PusherTech_files/script.js"></script>
+<link rel="prev" title="Forcing a git pull" href="http://tech.pusherhq.com/blog/?p=248">
+<link rel="next" title="Joomla: Simplistic Search on an Admin Table" href="http://tech.pusherhq.com/blog/?p=260">
+<link rel="canonical" href="http://tech.pusherhq.com/blog/?p=251">
+<link rel="pingback" href="http://tech.pusherhq.com/blog/xmlrpc.php">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width">
+<meta http-equiv="cleartype" content="on">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+<!-- Pusher libraries -->
+<script type="text/javascript" src="Joomla%20%20Adding%20a%20Filter%20to%20an%20Admin%20Table%20_%20PusherTech_files/jquery.js"></script>
+<script type="text/javascript" src="Joomla%20%20Adding%20a%20Filter%20to%20an%20Admin%20Table%20_%20PusherTech_files/pusher_002.txt"></script>
+<script type="text/javascript" src="Joomla%20%20Adding%20a%20Filter%20to%20an%20Admin%20Table%20_%20PusherTech_files/pusher.txt"></script>
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33008456-1']);
+  _gaq.push(['_setDomainName', 'pusherhq.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+<body class="single single-post postid-251 single-format-standard simple-menu content-wide sidebar content-wide-sidebar sans-serif">
+<div id="site">
+	<div id="wrapper">
+		<header id="header" role="banner">
+		  <div id="site-name"><a href="http://tech.pusherhq.com/" title="PusherTech" rel="home">PusherTech</a></div><div id="header-message">The
+ unofficial blog of PusherTech - code snippets, thoughts on graphics and
+ web programming, interesting links, and other sundry fares from the 
+technology side of the creative design agency Pusher, Inc.</div><nav id="nav" role="navigation"><div class="menu"><ul><li class="page_item page-item-316"><a href="http://tech.pusherhq.com/blog/?page_id=316">Archives</a></li><li class="page_item page-item-715"><a href="http://tech.pusherhq.com/blog/?page_id=715">Pusher, Inc.</a></li><li class="page_item page-item-717"><a href="http://tech.pusherhq.com/blog/?page_id=717">PusherTech</a></li><li class="page_item page-item-719"><a href="http://tech.pusherhq.com/blog/?page_id=719">Portfolio</a></li></ul></div>
+</nav>		</header>
+		<!-- / #header -->
+				
+		<section id="content" role="main">
+			
+
+	
+			
+		<article id="post-251" class="post-251 post type-post status-publish format-standard hentry category-uncategorized tag-filter tag-filter-joomla tag-filter-joomla-table tag-getlistquery tag-javascript tag-jmodel tag-joomla tag-joomla-admin-table tag-joomla-administrator tag-joomla-state tag-joomla-table-filters tag-table-filters tag-tables">
+			<header>
+								
+			  				  <time datetime="2012-08-14T21:18:52+00:00" pubdate="">2012/08/14</time>
+								
+									<h1>Joomla: Adding a Filter to an Admin Table</h1>
+							</header>
+		
+			<div class="content">
+				<h2>What’s Being Done…</h2>
+<p>The objective is to add a simple filter to a Joomla 1.6 installation.</p>
+<p>The use case described here is a Admin Table of “road races” 
+containing descriptions of the various road race details.  A filter is 
+being added to distinguish the road races that <em>have</em> been publicly published to the site and which <em>have not</em> yet been published.</p>
+<p><strong>Credit</strong>: this blog post derives from the documentation provided at the Joomla docs wiki: <a href="http://docs.joomla.org/How_to_add_custom_filters_to_component_admin">How to add custom filters to component admin</a>.</p>
+<p><strong>Note</strong>: the description here derives from real work on a <em>inherited, legacy codebase</em>.
+  This is mentioned as it may account for discrepanies between how an 
+ideal Joomla setup would work and what is described below.</p>
+<h2>Synopsis</h2>
+<ul>
+<li>The files of interest are in <code>administrator/components/com_roadraces</code></li>
+<li>Modify <code>default.php</code> to include the filter control</li>
+<li>Add a <code>populateState()</code> method to <code>models/roadraces.php</code> to set the form value into the Joomla state</li>
+<li>Modify the <code>getListQuery()</code> method to that Joomla state and modify the SQL query appropriately</li>
+<li>Add the necessary Javascript to ensure the filter control correctly displays and submits the filter value</li>
+</ul>
+<h2>What is the Joomla component of interest?</h2>
+<p>For all the text below, we’ll assume our Joomla component name for which the Admin table is built is called “RoadRaces”.</p>
+<h2>Where are the files of interest?</h2>
+<p>The directory <code>administrator/components/com_roadraces</code> within the installation should house all the files of interest.</p>
+<h3>Where is the component data coming from?</h3>
+<p><code>models/roadraces.php</code> contains the <code>JModelList</code> derived class which has the <code>getListQuery()</code> method which returns the data to the admin table.</p>
+<p>This is what we’ll want to apply the filter to, likely using a SQL <code>WHERE</code> clause on the data query.</p>
+<h3>Where do the results of that query get mapped into the user-visible HTML table column names?</h3>
+<p>The file <code>views/roadraces/tmpl/default_head.php</code> outputs the column names for the header of the HTML table.  The sibling file <code>default_body.php</code> outputs the rows of the table.  These two files are invoked via the <code>default.php</code> file in that same directory.</p>
+<p>(Note that these files may pipe through the <a href="http://docs.joomla.org/Embedding_translatable_strings_in_the_template"><code>JText::_()</code> method</a> for localization.  The localization strings are located in <code>administrator/language/<language></language></code>.  For simplification of this blog post, we <em>do not</em> localize the strings.)</p>
+<h3>Where should the filter control be added?</h3>
+<p>The <code>views/roadraces/tmpl/default.php</code> contains the host 
+PHP file which builds the table.  Assuming you want to insert the HTML 
+control above the table, this would be a good place to insert the HTML 
+for the control.  If you want the filters to be part of the column 
+headers themselves, then <code>default_head.php</code> would be the place to look.</p>
+<p>Below is the base HTML for the drop-down filter.  This is purely static control that is not yet functional.</p>
+<pre class="prettyprint "><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">&lt;!-- Published Filter --&gt;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="tag">&lt;div&gt;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="tag">&lt;h3&gt;</span><span class="pln">Filters</span><span class="tag">&lt;/h3&gt;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="tag">&lt;span&gt;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="tag">&lt;label&gt;</span><span class="pln">Published</span><span class="tag">&lt;/label&gt;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="tag">&lt;select&gt;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="tag">&lt;option&gt;</span><span class="pln">Any</span><span class="tag">&lt;/option&gt;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="tag">&lt;option&gt;</span><span class="pln">No</span><span class="tag">&lt;/option&gt;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="tag">&lt;option&gt;</span><span class="pln">Yes</span><span class="tag">&lt;/option&gt;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="tag">&lt;/select&gt;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="tag">&lt;/span&gt;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="tag">&lt;/div&gt;</span></pre>
+<h3>How does this HTML filter communicate with getListQuery()?</h3>
+<p>The <code>JModelList</code> derived class in <code>com_roadraces/models/roadraces.php</code> has inherits a method called <code>populateState</code> from <code>JModelList</code>.  This function has the opportunity to read any form-submitted data from the form created in the view’s <code>default.php</code> and put it into the Joomla state object.</p>
+<p>Once the filter data is put into the state by <code>populateState</code>, this filter data can be used by <code>getListQuery()</code> to filter the search.</p>
+<p>The following is added to the <code>JModel</code> derived class:</p>
+<pre class="prettyprint "><span class="kwd">protected</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> populateState</span><span class="pun">(</span><span class="pln">$ordering </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">,</span><span class="pln"> $direction </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">)</span><span class="pln"><br></span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="com">// Initialise variables.</span><span class="pln"><br>&nbsp; &nbsp; $app </span><span class="pun">=</span><span class="pln"> </span><span class="typ">JFactory</span><span class="pun">::</span><span class="pln">getApplication</span><span class="pun">(</span><span class="str">'administrator'</span><span class="pun">);</span><span class="pln"><br><br>&nbsp; &nbsp; </span><span class="com">// Load the filter state.</span><span class="pln"><br>&nbsp; &nbsp; $published </span><span class="pun">=</span><span class="pln"> $this</span><span class="pun">-&gt;</span><span class="pln">getUserStateFromRequest</span><span class="pun">(</span><span class="pln">$this</span><span class="pun">-&gt;</span><span class="pln">context</span><span class="pun">.</span><span class="str">'.filter.published'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'filter_published'</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; $this</span><span class="pun">-&gt;</span><span class="pln">setState</span><span class="pun">(</span><span class="str">'filter.published'</span><span class="pun">,</span><span class="pln"> $published</span><span class="pun">);</span><span class="pln"><br><br>&nbsp; &nbsp; </span><span class="com">// Be sure to call the default</span><span class="pln"><br>&nbsp; &nbsp; parent</span><span class="pun">::</span><span class="pln">populateState</span><span class="pun">();</span><span class="pln"><br></span><span class="pun">}</span></pre>
+<p>Note that the <code>populateState</code> implementation needs to call the inherited parent method as well.</p>
+<h2>How does the state filter the getListQuery() SQL query?</h2>
+<p>We assume the query is already constructed using a Joomla DBO query, a.l.a.:</p>
+<pre class="prettyprint "><span class="pln">&nbsp; &nbsp; </span><span class="com">// Create a new query object.</span><span class="pln"><br>&nbsp; &nbsp; $db </span><span class="pun">=</span><span class="pln"> </span><span class="typ">JFactory</span><span class="pun">::</span><span class="pln">getDBO</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; $query </span><span class="pun">=</span><span class="pln"> $db</span><span class="pun">-&gt;</span><span class="pln">getQuery</span><span class="pun">(</span><span class="kwd">true</span><span class="pun">);</span><span class="pln"><br><br>&nbsp; &nbsp; </span><span class="pun">...</span></pre>
+<p>So we then add in a filter if one has been set in the state by the populate method:</p>
+<pre class="prettyprint "><span class="pln">&nbsp; &nbsp; </span><span class="com">// Account for filters</span><span class="pln"><br>&nbsp; &nbsp; $filterPublished </span><span class="pun">=</span><span class="pln"> $this</span><span class="pun">-&gt;</span><span class="pln">getState</span><span class="pun">(</span><span class="str">'filter.published'</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">empty</span><span class="pun">(</span><span class="pln">$filterPublished</span><span class="pun">))</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; $query</span><span class="pun">-&gt;</span><span class="kwd">where</span><span class="pun">(</span><span class="str">"race.published = $filterPublished"</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">}</span></pre>
+<h2>Enabling the HTML Filter to pass the filter info to the server</h2>
+<p>We’ll assume jQuery is available on the website:</p>
+<pre class="prettyprint "><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">&lt;!-- Published Filter --&gt;</span><span class="pln"><br><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="tag">&lt;div&gt;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="tag">&lt;h3&gt;</span><span class="pln">Filters</span><span class="tag">&lt;/h3&gt;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="tag">&lt;span&gt;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="tag">&lt;label&gt;</span><span class="pln">Published</span><span class="tag">&lt;/label&gt;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="tag">&lt;select</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">'filter-published'</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">'filter_published'</span><span class="tag">&gt;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="tag">&lt;option</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">''</span><span class="tag">&gt;</span><span class="pln">Any</span><span class="tag">&lt;/option&gt;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="tag">&lt;option</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">'0'</span><span class="tag">&gt;</span><span class="pln">No</span><span class="tag">&lt;/option&gt;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="tag">&lt;option</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">'1'</span><span class="tag">&gt;</span><span class="pln">Yes</span><span class="tag">&lt;/option&gt;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="tag">&lt;/select&gt;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="tag">&lt;/span&gt;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="tag">&lt;/div&gt;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">'text/javascript'</span><span class="tag">&gt;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">&lt;!--</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">//</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// Set up the "Published" filter's current value and auto-submit on change</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">//</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">var</span><span class="pln"> filterPublished </span><span class="pun">=</span><span class="pln"> </span><span class="str">"&lt;?php echo $this-&gt;get('State')-&gt;get('filter.published') ?&gt;"</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $</span><span class="pun">(</span><span class="str">"#filter-published"</span><span class="pun">).</span><span class="pln">change</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">form</span><span class="pun">.</span><span class="pln">submit</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}).</span><span class="pln">val</span><span class="pun">(</span><span class="pln">filterPublished</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">});</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">--&gt;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="tag">&lt;/script&gt;</span></pre>
+<p>The additions are:</p>
+<ul>
+<li>Adding a <code>name</code> attribute to the form element so that it will be accessible to the <code>populateState</code> method</li>
+<li>Adding <code>value</code> attributes to the <code>option</code> elements corresponding the filter to use internally (rather than the plain English text)</li>
+<li>Add some simple jQuery to set the form to the current value and auto submit on control changes</li>
+</ul>
+					
+					
+			</div>
+			<!-- / .content -->
+			
+			<footer>
+			  				  <span class="author"><span class="author-label">Written by</span> <a href="http://tech.pusherhq.com/blog/?author=1" title="Posts by pushertech" rel="author">pushertech</a></span>
+																	<span class="categories">
+						<span class="categories-label">Posted in</span> <a href="http://tech.pusherhq.com/blog/?cat=1" title="View all posts in Uncategorized" rel="category">Uncategorized</a>					</span>
+													<span class="tags">
+						<span class="tags-label">Tagged with</span> <a href="http://tech.pusherhq.com/blog/?tag=filter" rel="tag">Filter</a>, <a href="http://tech.pusherhq.com/blog/?tag=filter-joomla" rel="tag">Filter Joomla</a>, <a href="http://tech.pusherhq.com/blog/?tag=filter-joomla-table" rel="tag">Filter Joomla Table</a>, <a href="http://tech.pusherhq.com/blog/?tag=getlistquery" rel="tag">getListQuery</a>, <a href="http://tech.pusherhq.com/blog/?tag=javascript" rel="tag">javascript</a>, <a href="http://tech.pusherhq.com/blog/?tag=jmodel" rel="tag">JModel</a>, <a href="http://tech.pusherhq.com/blog/?tag=joomla" rel="tag">Joomla</a>, <a href="http://tech.pusherhq.com/blog/?tag=joomla-admin-table" rel="tag">Joomla Admin Table</a>, <a href="http://tech.pusherhq.com/blog/?tag=joomla-administrator" rel="tag">Joomla Administrator</a>, <a href="http://tech.pusherhq.com/blog/?tag=joomla-state" rel="tag">Joomla State</a>, <a href="http://tech.pusherhq.com/blog/?tag=joomla-table-filters" rel="tag">Joomla Table Filters</a>, <a href="http://tech.pusherhq.com/blog/?tag=table-filters" rel="tag">Table Filters</a>, <a href="http://tech.pusherhq.com/blog/?tag=tables" rel="tag">Tables</a>					</span>
+								
+							</footer>
+		</article>
+		<!-- / #post-251 -->
+
+		
+<section id="comments">
+	
+			<h1 id="comments-title">2 comments</h1>
+
+		
+		<ol id="comment-list">	<li class="pingback">
+		<time>2012/08/14 - 10:56 pm</time>
+		Pingback: <a href="http://tech.pusherhq.com/blog/?p=260" rel="external nofollow" class="url">Joomla: Simplistic Search on an Admin Table | PusherTech</a>	</li>
+	<li class="comment even thread-even depth-1" id="comment-605">
+		<article>
+			<header class="comment-header">
+			  <figure><img alt="" src="Joomla%20%20Adding%20a%20Filter%20to%20an%20Admin%20Table%20_%20PusherTech_files/c51e39bc15fa0ffeed6d06d64ef35e7c.png" class="avatar avatar-40 photo" height="40" width="40"></figure>  			<time><a href="http://tech.pusherhq.com/blog/?p=251#comment-605">2012/12/24 - 8:06 pm</a></time>
+
+  			  			  <cite><a href="http://www.anc.edu.vn/viec-lam-o-singapore/" rel="external nofollow" class="url">tìm Việc làm ở Singapore</a></cite>  			  		</header>
+
+  		
+  		<p>This can be done by using virtual columns like the post you 
+found. The virtual column is a way to add a new criteria to filter using
+ the autogenerated filter provided by symfony</p>
+
+  		<div class="reply">
+  			<a class="comment-reply-link" href="http://tech.pusherhq.com/blog/?p=251&amp;replytocom=605#respond" onclick='return addComment.moveForm("comment-605", "605", "respond", "251")'>Reply</a>
+  			  		</div><!-- .reply -->
+		  </article>
+	</li>
+</ol>
+
+			
+									<div id="respond">
+				<h3 id="reply-title">Post a comment <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://tech.pusherhq.com/blog/?p=251#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://tech.pusherhq.com/blog/wp-comments-post.php" method="post" id="commentform">
+																										<label for="comment-author">Name <span class="required">(required)</span></label> <input id="comment-author" name="author" size="30" tabindex="1" aria-required="true" type="text">
+<label for="comment-email">Email <span class="required">(required - will be kept a secret)</span></label> <input id="comment-email" name="email" size="30" tabindex="2" aria-required="true" type="text">
+<label for="comment-url">Website</label><input id="comment-url" name="url" size="30" tabindex="3" type="text">
+												<label for="comment">Comment</label><textarea id="comment" name="comment" cols="45" rows="8" tabindex="4" aria-required="true"></textarea>						<dl class="form-allowed-tags"><dt>You may use the following <abbr title="HyperText Markup Language">HTML</abbr>:</dt> <dd><code>&lt;a
+ href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym title=""&gt; 
+&lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt; &lt;code&gt; &lt;del 
+datetime=""&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=""&gt; &lt;strike&gt; 
+&lt;strong&gt; </code></dd></dl>						<p class="form-submit">
+							<input name="submit" id="submit" value="Post comment" type="submit">
+							<input name="comment_post_ID" value="251" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+						</p>
+											</form>
+							</div><!-- #respond -->
+						
+</section>
+<!-- / #comments -->		
+				  <nav class="post-nav" role="navigation">
+				<div class="nav-previous"><a href="http://tech.pusherhq.com/blog/?p=248" rel="prev"><span class="meta-nav"></span> Forcing a git pull</a></div>
+				<div class="nav-next"><a href="http://tech.pusherhq.com/blog/?p=260" rel="next">Joomla: Simplistic Search on an Admin Table <span class="meta-nav"></span></a></div>
+			</nav>
+			<!-- / .post-nav -->
+				
+		
+
+		</section>
+		<!-- / #content -->
+		
+		
+					<aside id="primary" role="complementary">
+				<section id="text-2" class="widget widget_text"><h3 class="title">Navigation</h3>			<div class="textwidget"><a href="http://pusherhq.com/">Pusher, Inc.</a><br>
+<a href="http://tech.pusherhq.com/">PusherTech Home</a><br>
+<a href="http://tech.pusherhq.com/blog">PusherTech Blog</a><br>
+<a href="http://tech.pusherhq.com/blog/?page_id=316">Archives</a><br></div>
+		</section>		<section id="recent-posts-2" class="widget widget_recent_entries">		<h3 class="title">Recent Posts</h3>		<ul>
+				<li><a href="http://tech.pusherhq.com/blog/?p=854" title="Perlin Noise in 3D (WebGL)">Perlin Noise in 3D (WebGL)</a></li>
+				<li><a href="http://tech.pusherhq.com/blog/?p=847" title="Optical Illusion">Optical Illusion</a></li>
+				<li><a href="http://tech.pusherhq.com/blog/?p=843" title="Seamless Perlin Noise">Seamless Perlin Noise</a></li>
+				<li><a href="http://tech.pusherhq.com/blog/?p=833" title="Web Workers &amp; Ray Tracing">Web Workers &amp; Ray Tracing</a></li>
+				<li><a href="http://tech.pusherhq.com/blog/?p=828" title="Perlin Noise">Perlin Noise</a></li>
+				</ul>
+		</section><section id="tag_cloud-2" class="widget widget_tag_cloud"><h3 class="title">Tags</h3><div class="tagcloud"><a href="http://tech.pusherhq.com/blog/?tag=canvas" class="tag-link-61" title="7 topics" style="font-size: 13.0256410256pt;">canvas</a>
+<a href="http://tech.pusherhq.com/blog/?tag=color" class="tag-link-115" title="7 topics" style="font-size: 13.0256410256pt;">color</a>
+<a href="http://tech.pusherhq.com/blog/?tag=colors" class="tag-link-67" title="5 topics" style="font-size: 11.5897435897pt;">colors</a>
+<a href="http://tech.pusherhq.com/blog/?tag=diffs" class="tag-link-19" title="2 topics" style="font-size: 8pt;">diffs</a>
+<a href="http://tech.pusherhq.com/blog/?tag=float4" class="tag-link-84" title="3 topics" style="font-size: 9.4358974359pt;">float4</a>
+<a href="http://tech.pusherhq.com/blog/?tag=git" class="tag-link-94" title="7 topics" style="font-size: 13.0256410256pt;">git</a>
+<a href="http://tech.pusherhq.com/blog/?tag=google" class="tag-link-27" title="2 topics" style="font-size: 8pt;">Google</a>
+<a href="http://tech.pusherhq.com/blog/?tag=graphics" class="tag-link-113" title="9 topics" style="font-size: 14.2222222222pt;">graphics</a>
+<a href="http://tech.pusherhq.com/blog/?tag=green" class="tag-link-73" title="2 topics" style="font-size: 8pt;">green</a>
+<a href="http://tech.pusherhq.com/blog/?tag=html" class="tag-link-18" title="3 topics" style="font-size: 9.4358974359pt;">html</a>
+<a href="http://tech.pusherhq.com/blog/?tag=html5" class="tag-link-131" title="6 topics" style="font-size: 12.4273504274pt;">html5</a>
+<a href="http://tech.pusherhq.com/blog/?tag=image" class="tag-link-105" title="3 topics" style="font-size: 9.4358974359pt;">image</a>
+<a href="http://tech.pusherhq.com/blog/?tag=javascript" class="tag-link-17" title="44 topics" style="font-size: 22pt;">javascript</a>
+<a href="http://tech.pusherhq.com/blog/?tag=jquery" class="tag-link-60" title="9 topics" style="font-size: 14.2222222222pt;">jquery</a>
+<a href="http://tech.pusherhq.com/blog/?tag=js" class="tag-link-68" title="2 topics" style="font-size: 8pt;">JS</a>
+<a href="http://tech.pusherhq.com/blog/?tag=json" class="tag-link-357" title="3 topics" style="font-size: 9.4358974359pt;">JSON</a>
+<a href="http://tech.pusherhq.com/blog/?tag=markdown" class="tag-link-178" title="4 topics" style="font-size: 10.6324786325pt;">markdown</a>
+<a href="http://tech.pusherhq.com/blog/?tag=mongodb" class="tag-link-437" title="3 topics" style="font-size: 9.4358974359pt;">mongodb</a>
+<a href="http://tech.pusherhq.com/blog/?tag=mongoose" class="tag-link-436" title="3 topics" style="font-size: 9.4358974359pt;">mongoose</a>
+<a href="http://tech.pusherhq.com/blog/?tag=mysql" class="tag-link-7" title="5 topics" style="font-size: 11.5897435897pt;">mysql</a>
+<a href="http://tech.pusherhq.com/blog/?tag=node" class="tag-link-370" title="6 topics" style="font-size: 12.4273504274pt;">node</a>
+<a href="http://tech.pusherhq.com/blog/?tag=node-js" class="tag-link-364" title="13 topics" style="font-size: 16.0170940171pt;">node.js</a>
+<a href="http://tech.pusherhq.com/blog/?tag=noise" class="tag-link-149" title="4 topics" style="font-size: 10.6324786325pt;">noise</a>
+<a href="http://tech.pusherhq.com/blog/?tag=npm" class="tag-link-438" title="6 topics" style="font-size: 12.4273504274pt;">npm</a>
+<a href="http://tech.pusherhq.com/blog/?tag=package-json" class="tag-link-439" title="3 topics" style="font-size: 9.4358974359pt;">package.json</a>
+<a href="http://tech.pusherhq.com/blog/?tag=perlin" class="tag-link-387" title="4 topics" style="font-size: 10.6324786325pt;">perlin</a>
+<a href="http://tech.pusherhq.com/blog/?tag=perlin-noise" class="tag-link-143" title="3 topics" style="font-size: 9.4358974359pt;">Perlin noise</a>
+<a href="http://tech.pusherhq.com/blog/?tag=php" class="tag-link-5" title="5 topics" style="font-size: 11.5897435897pt;">PHP</a>
+<a href="http://tech.pusherhq.com/blog/?tag=process" class="tag-link-50" title="3 topics" style="font-size: 9.4358974359pt;">process</a>
+<a href="http://tech.pusherhq.com/blog/?tag=pusher" class="tag-link-70" title="4 topics" style="font-size: 10.6324786325pt;">pusher</a>
+<a href="http://tech.pusherhq.com/blog/?tag=pusher-color" class="tag-link-71" title="7 topics" style="font-size: 13.0256410256pt;">pusher.color</a>
+<a href="http://tech.pusherhq.com/blog/?tag=pusher-image" class="tag-link-106" title="4 topics" style="font-size: 10.6324786325pt;">pusher.image</a>
+<a href="http://tech.pusherhq.com/blog/?tag=pusher-platform" class="tag-link-461" title="3 topics" style="font-size: 9.4358974359pt;">pusher.platform</a>
+<a href="http://tech.pusherhq.com/blog/?tag=ray-tracer" class="tag-link-358" title="7 topics" style="font-size: 13.0256410256pt;">ray tracer</a>
+<a href="http://tech.pusherhq.com/blog/?tag=ray-tracing" class="tag-link-359" title="5 topics" style="font-size: 11.5897435897pt;">ray tracing</a>
+<a href="http://tech.pusherhq.com/blog/?tag=red" class="tag-link-72" title="2 topics" style="font-size: 8pt;">red</a>
+<a href="http://tech.pusherhq.com/blog/?tag=release" class="tag-link-54" title="4 topics" style="font-size: 10.6324786325pt;">release</a>
+<a href="http://tech.pusherhq.com/blog/?tag=rgba" class="tag-link-80" title="3 topics" style="font-size: 9.4358974359pt;">rgba</a>
+<a href="http://tech.pusherhq.com/blog/?tag=saturation" class="tag-link-91" title="3 topics" style="font-size: 9.4358974359pt;">saturation</a>
+<a href="http://tech.pusherhq.com/blog/?tag=simple" class="tag-link-230" title="4 topics" style="font-size: 10.6324786325pt;">simple</a>
+<a href="http://tech.pusherhq.com/blog/?tag=slim" class="tag-link-43" title="3 topics" style="font-size: 9.4358974359pt;">Slim</a>
+<a href="http://tech.pusherhq.com/blog/?tag=sql" class="tag-link-3" title="4 topics" style="font-size: 10.6324786325pt;">sql</a>
+<a href="http://tech.pusherhq.com/blog/?tag=tools" class="tag-link-65" title="2 topics" style="font-size: 8pt;">tools</a>
+<a href="http://tech.pusherhq.com/blog/?tag=versioning" class="tag-link-48" title="2 topics" style="font-size: 8pt;">versioning</a>
+<a href="http://tech.pusherhq.com/blog/?tag=visualizations" class="tag-link-310" title="3 topics" style="font-size: 9.4358974359pt;">visualizations</a></div>
+</section><section id="linkcat-2" class="widget widget_links"><h3 class="title">Worth Reading</h3>
+	<ul class="xoxo blogroll">
+<li><a href="http://glassonionblog.wordpress.com/">Glass Onion Blog</a></li>
+<li><a href="http://jamesreggers.com/">James Eggers' Blog</a></li>
+<li><a href="http://lulupinney.co.uk/">Telling Information</a></li>
+<li><a href="http://www.popekim.com/">Blind Renderer</a></li>
+<li><a href="http://www.tamats.com/blog/">tamapolis</a></li>
+<li><a href="http://www.shiningrocksoftware.com/">Shining Rock Software</a></li>
+<li><a href="http://caolanmcmahon.com/">Caolan McMahon's blog</a></li>
+<li><a href="http://timharford.com/">Tim Hartford: The Undercover Economist</a></li>
+<li><a href="http://markhansen.co.nz/">Mark Hansen's Blog</a></li>
+<li><a href="http://manojalpa.net/me/writing/">[Mind-Speak]</a></li>
+<li><a href="http://blogs.msdn.com/b/oldnewthing/">The Old New Thing</a></li>
+<li><a href="http://www.stephanboyer.com/">Stephan Boyer's Blog</a></li>
+<li><a href="http://anteru.net/">Anteru's blog</a></li>
+<li><a href="http://www.macieira.org/blog/">Thiago Macieira's blog</a></li>
+<li><a href="http://www.cs.uni.edu/%7Ewallingf/blog/">Knowing and Doing</a></li>
+<li><a href="http://eli.thegreenplace.net/">Eli Bendersky's website</a></li>
+<li><a href="http://lousodrome.net/blog/light/">Light is beautiful</a></li>
+<li><a href="http://learningwebgl.com/blog/">Learning WebGL</a></li>
+<li><a href="http://jestermax.wordpress.com/">Jake Seigel's Blog</a></li>
+<li><a href="http://dryerasewritings.wordpress.com/">Dry-Erase Writings</a></li>
+<li><a href="http://programmers.blogoverflow.com/">Programmer's Community Blog</a></li>
+<li><a href="http://cbloomrants.blogspot.co.uk/?m=1">cbloom rants</a></li>
+<li><a href="http://www.codercorner.com/blog/">Coder Corner</a></li>
+<li><a href="http://hydrocodedesign.com/">Daniel Fagnan's blog</a></li>
+<li><a href="http://blog.andrewmunsell.com/">Andrew Munsell's Blog</a></li>
+<li><a href="http://www.realtimerendering.com/blog/">Real-Time Rendering</a></li>
+<li><a href="http://planetnodejs.com/">Planet node.js</a></li>
+<li><a href="http://swombat.com/">swombat.com</a></li>
+
+	</ul>
+</section>
+		</aside>
+		<!-- / #primary -->
+    			
+		
+		<footer id="footer">
+					</footer>
+		<!-- / #footer -->
+	</div>
+	<!-- / #wrapper -->
+</div>
+<!-- / #site -->
+
+<img src="Joomla%20%20Adding%20a%20Filter%20to%20an%20Admin%20Table%20_%20PusherTech_files/css.gif" height="1" width="1">
+	<script>
+	MBP.scaleFix();
+	MBP.hideUrlBar();
+	</script>
+	<!--[if (lt IE 9) & (!IEMobile)]>
+<script type="text/javascript" src="http://tech.pusherhq.com/blog/wp-content/themes/blaskan/js/libs/selectivizr.1.0.3b.js"></script>
+<script type="text/javascript" src="http://tech.pusherhq.com/blog/wp-content/themes/blaskan/js/libs/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="Joomla%20%20Adding%20a%20Filter%20to%20an%20Admin%20Table%20_%20PusherTech_files/prettify.js"></script>
+<script type="text/javascript" src="Joomla%20%20Adding%20a%20Filter%20to%20an%20Admin%20Table%20_%20PusherTech_files/launch.js"></script>
+<script type="text/javascript" src="Joomla%20%20Adding%20a%20Filter%20to%20an%20Admin%20Table%20_%20PusherTech_files/comment-reply.js"></script>
+
+</body></html>

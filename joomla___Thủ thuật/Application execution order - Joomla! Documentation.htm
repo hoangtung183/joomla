@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html dir="ltr" class="client-nojs" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Application execution order - Joomla! Documentation</title>
+<meta charset="UTF-8">
+<meta name="generator" content="MediaWiki 1.19.3">
+<link rel="shortcut icon" href="http://docs.joomla.org/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://docs.joomla.org/opensearch_desc.php" title="Joomla! Documentation (en)">
+<link rel="EditURI" type="application/rsd+xml" href="http://docs.joomla.org/api.php?action=rsd">
+<link rel="copyright" href="http://docs.joomla.org/JEDL">
+<link rel="alternate" type="application/atom+xml" title="Joomla! Documentation Atom feed" href="http://docs.joomla.org/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="Application%20execution%20order%20-%20Joomla%21%20Documentation_files/load_002.css">
+<link rel="stylesheet" href="Application%20execution%20order%20-%20Joomla%21%20Documentation_files/ext.htm"><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="Application%20execution%20order%20-%20Joomla%21%20Documentation_files/load.css">
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}a.new,#quickbar a.new{color:#ba0000}
+
+/* cache key: docsj_mediawiki:resourceloader:filter:minify-css:7:c88e2bcd56513749bec09a7e29cb3ffa */
+</style>
+
+<script src="Application%20execution%20order%20-%20Joomla%21%20Documentation_files/ga.js" async="" type="text/javascript"></script><script src="Application%20execution%20order%20-%20Joomla%21%20Documentation_files/ga.js" async="" type="text/javascript"></script><script src="Application%20execution%20order%20-%20Joomla%21%20Documentation_files/load.php"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Application_execution_order","wgTitle":"Application execution order","wgCurRevisionId":68331,"wgArticleId":2339,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Joomla! Wiki need pages","Needs completion","Development","Framework","References"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgRelevantPageName":"Application_execution_order","wgRestrictionEdit":[],"wgRestrictionMove":[],"wgVectorEnabledModules":{"collapsiblenav":true,"collapsibletabs":true,"editwarning":false,"expandablesearch":false,"footercleanup":false,"sectioneditlinks":false,"simplesearch":true,"experiments":true},"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"templateEditor":false,"templates":false,"preview":true,"previewDialog":false,"publish":false,"toc":false},"htTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"highlightbroken":1,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,
+"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"vector-simplesearch":1,"usebetatoolbar":1,"usebetatoolbar-cgd":1,"wikieditor-preview":1,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"searchNs100":false,"searchNs101":false,"searchNs104":true,"searchNs105":false,"searchNs106":false,"searchNs107":false,"searchNs108":false,"searchNs109":false,"searchNs111":false,"searchNs112":false,"searchNs114":false,"searchNs115":false,"searchNs116":true,"searchNs117":false,"searchNs118":true,"searchNs119":false,"searchNs120":false,"searchNs121":false,"searchNs122":false,"searchNs123":false,
+"searchNs124":true,"searchNs125":false,"searchNs126":true,"searchNs127":false,"searchNs128":false,"searchNs129":false,"searchNs130":true,"searchNs131":false,"searchNs132":false,"searchNs133":false,"searchNs134":true,"searchNs135":false,"searchNs136":false,"searchNs137":false,"searchNs138":true,"searchNs139":false,"searchNs140":false,"searchNs141":false,"searchNs142":true,"searchNs143":false,"searchNs144":true,"searchNs145":false,"searchNs146":true,"searchNs147":false,"searchNs500":false,"searchNs501":false,"searchNs502":true,"searchNs503":false,"searchNs504":false,"searchNs505":false,"gadget-Code_insert":1});;},{},{});mw.loader.implement("user.tokens",function($){mw.user.tokens.set({"editToken":"+\\","watchToken":false});;},{},{});
+
+/* cache key: docsj_mediawiki:resourceloader:filter:minify-js:7:4aebe1ac146459dbc992579c2e41e781 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/vector/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Application_execution_order skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<!-- content -->
+		<div id="content" class="mw-body">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">
+				<span dir="auto">Application execution order</span>
+			</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+								<!-- tagline -->
+				<div id="siteSub">From Joomla! Documentation</div>
+				<!-- /tagline -->
+								<!-- subtitle -->
+				<div id="contentSub"></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav" class="mw-jump">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodycontent -->
+				<div id="mw-content-text" dir="ltr" class="mw-content-ltr" lang="en"><div style="margin:0em 0em 1em 0em; width:100% vertical-align:top; text-align: center; border:1px solid #A0522D; background-color:#FFF8DC;">
+<div style="border-bottom:1px solid #A0522D; background-color:#F5DEB3; padding:0.2em 0.5em 0.2em 0.5em; font-size:130%; font-weight:bold;">Note</div>
+<div style="text-align: center; padding:1em 5em 1em 1em;"> 
+<p>Please note that the content on this page is currently incomplete.  Please treat it as a work in progress.
+</p>
+<dl><dd><small><span class="plainlinks">This article was <a rel="nofollow" class="external text" href="http://docs.joomla.org/index.php?title=Application_execution_order&amp;diff=cur">last edited</a> by <a href="http://docs.joomla.org/index.php?title=User:Mvangeest&amp;action=edit&amp;redlink=1" class="new" title="User:Mvangeest (page does not exist)">Mvangeest</a> <span class="plainlinks">(<a href="http://docs.joomla.org/index.php?title=User_talk:Mvangeest&amp;action=edit&amp;redlink=1" class="new" title="User talk:Mvangeest (page does not exist)">talk</a>| <a href="http://docs.joomla.org/Special:Contributions/Mvangeest" title="Special:Contributions/Mvangeest">contribs</a>)</span> 9 months ago. <font size="1"><i>(<a rel="nofollow" class="external text" href="http://docs.joomla.org/index.php?title=Application_execution_order&amp;action=purge">Purge</a>)</i></font></span></small>
+</dd></dl>
+<div style="text-align:left;"></div>
+</div>
+</div>
+<div style="position:relative; z-index:10; float:right; margin:0 0 1em 1em;"> <table id="toc" class="toc"><tbody><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Typical_Frontend_Application_Execution"><span class="tocnumber">1</span> <span class="toctext">Typical Frontend Application Execution</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Initialisation"><span class="tocnumber">1.1</span> <span class="toctext">Initialisation</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Routing_and_Authorisation"><span class="tocnumber">1.2</span> <span class="toctext">Routing and Authorisation</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Dispatching"><span class="tocnumber">1.3</span> <span class="toctext">Dispatching</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Rendering"><span class="tocnumber">1.4</span> <span class="toctext">Rendering</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Typical_Administrator_Application_Execution"><span class="tocnumber">2</span> <span class="toctext">Typical Administrator Application Execution</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Typical_XML-RPC_Application_Execution"><span class="tocnumber">3</span> <span class="toctext">Typical XML-RPC Application Execution</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Login_Event_Execution"><span class="tocnumber">4</span> <span class="toctext">Login Event Execution</span></a></li>
+</ul>
+</td></tr></tbody></table>
+</div>
+<h2> <span class="mw-headline" id="Typical_Frontend_Application_Execution"> Typical Frontend Application Execution </span></h2>
+<p>This section outlines key points in the execution of the Joomla! 
+script including, but not limited to, key files that are includes, key 
+methods that are called, trigger, and so on.
+</p>
+<h3> <span class="mw-headline" id="Initialisation"> Initialisation </span></h3>
+<ul><li> Load once: <code>defines.php</code>
+</li><li> Load once: <code>framework.php</code>
+<ul><li> Modify configuration options for magic quotes and Zend compatibility
+</li><li> Check for <code>configuration.php</code>. Redirect to installation if present or halt.
+</li><li> Load once: <code>import.php</code>
+</li><li> Load once: <code>configuration.php</code>
+</li><li> Set error reporting
+</li><li> Load PHP compatibility functions and classes
+</li><li> Initialise profiler (if debug on)
+</li><li> Import <code>joomla.application.menu</code>
+</li><li> Import <code>joomla.user.user</code>
+</li><li> Import <code>joomla.environment.uri</code>
+</li><li> Import <code>joomla.html.html</code>
+</li><li> Import <code>joomla.utilities.utility</code>
+</li><li> Import <code>joomla.event.event</code>
+</li><li> Import <code>joomla.event.dispatcher</code>
+</li><li> Import <code>joomla.language.language</code>
+</li><li> Import <code>joomla.utilities.string</code>
+</li></ul>
+</li><li> Profile mark: <code>afterLoad</code>
+</li><li> Set global <code>$mainframe</code>. Call to <code>JFactory::getApplication('site')</code>
+<ul><li> Create and return instance.  Call to <code>JApplication::getInstance</code>
+</li></ul>
+</li><li> Initialise the application.  Call to <code>JSite::initialise</code>
+<ul><li> Load base language files
+</li><li> Call to <code>parent::initialise</code>
+<ul><li> First call to <code>JFactory::getUser</code> (initialises user)
+<ul><li> Import <code>joomla.user.user</code>
+</li><li> Create session.  Call to <code>JFactory::getSession</code>
+</li></ul>
+</li><li> Set editor based on user preference if available
+</li></ul>
+</li></ul>
+</li><li> Import the system plugins.  Call to <code>JPluginHelper::importPlugin('system')</code>
+</li><li> Profile mark: afterInitialise
+</li><li> Trigger events: <code><b>onAfterInitialise</b></code>
+</li></ul>
+<h3> <span class="mw-headline" id="Routing_and_Authorisation"> Routing and Authorisation </span></h3>
+<ul><li> Route the URI: Call to <code>JSite::route</code>
+</li><li> Call to <code>JSite::authorize</code>
+<ul><li> Check current menu item access level. Redirect if not logged in. Halt if logged in and not authorised.
+</li></ul>
+</li><li> Profile mark: <code>afterRoute</code>
+</li><li> Trigger events: <code><b>onAfterRoute</b></code>
+</li></ul>
+<h3> <span class="mw-headline" id="Dispatching"> Dispatching </span></h3>
+<ul><li> Dispatch the component: Call to <code>JSite::dispatch</code>
+</li><li> Profile mark: <code>afterDispatch</code>
+</li><li> Trigger events: <code><b>onAfterDispatch</b></code>
+</li></ul>
+<h3> <span class="mw-headline" id="Rendering"> Rendering </span></h3>
+<ul><li> Render the page: Call to <code>JSite::render</code>
+</li><li> Profile mark: <code>afterRender</code>
+</li><li> Trigger events: <code><b>onAfterRender</b></code>
+</li></ul>
+<ul><li> Echo output: Call to <code>JResponse::toString</code> with option for compressed output
+</li></ul>
+<h2> <span class="mw-headline" id="Typical_Administrator_Application_Execution"> Typical Administrator Application Execution </span></h2>
+<p>TODO
+</p>
+<h2> <span class="mw-headline" id="Typical_XML-RPC_Application_Execution"> Typical XML-RPC Application Execution </span></h2>
+<p>TODO
+</p>
+<h2> <span class="mw-headline" id="Login_Event_Execution"> Login Event Execution </span></h2>
+<p>This execution trace begins with at the User Component Controller method for login, <code>UserController::login</code> (called within the application dispatch method)
+</p><p>TODO
+</p>
+<!-- Tidy found serious XHTML errors -->
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 332/1000000
+Post-expand include size: 2987/2097152 bytes
+Template argument size: 344/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key docsj_mediawiki:pcache:idhash:2339-0!*!0!!en!*!* and timestamp 20130512233506 -->
+</div>				<!-- /bodycontent -->
+								<!-- printfooter -->
+				<div class="printfooter">
+				Retrieved from "<a href="http://docs.joomla.org/index.php?title=Application_execution_order&amp;oldid=68331">http://docs.joomla.org/index.php?title=Application_execution_order&amp;oldid=68331</a>"				</div>
+				<!-- /printfooter -->
+												<!-- catlinks -->
+				<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="http://docs.joomla.org/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="http://docs.joomla.org/Category:Joomla%21_Wiki_need_pages" title="Category:Joomla! Wiki need pages">Joomla! Wiki need pages</a></li><li><a href="http://docs.joomla.org/Category:Needs_completion" title="Category:Needs completion">Needs completion</a></li><li><a href="http://docs.joomla.org/Category:Development" title="Category:Development">Development</a></li><li><a href="http://docs.joomla.org/Category:Framework" title="Category:Framework">Framework</a></li><li><a href="http://docs.joomla.org/Category:References" title="Category:References">References</a></li></ul></div></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+				<!-- debughtml -->
+								<!-- /debughtml -->
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		<div id="mw-head" class="noprint">
+			
+<!-- 0 -->
+<div id="p-personal" class="">
+	<h5>Personal tools</h5>
+	<ul>
+		<li id="pt-login"><a href="http://docs.joomla.org/index.php?title=Special:UserLogin&amp;returnto=Application+execution+order" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in / create account</a></li>
+	</ul>
+</div>
+
+<!-- /0 -->
+			<div id="left-navigation">
+				
+<!-- 0 -->
+<div id="p-namespaces" class="vectorTabs">
+	<h5>Namespaces</h5>
+	<ul>
+					<li id="ca-nstab-main" class="selected"><span><a href="http://docs.joomla.org/Application_execution_order" title="View the content page [c]" accesskey="c">Page</a></span></li>
+					<li id="ca-talk"><span><a href="http://docs.joomla.org/Talk:Application_execution_order" title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" class="vectorMenu emptyPortlet">
+	<h4>
+		</h4>
+	<h5><span>Variants</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+			</div>
+			<div id="right-navigation">
+				
+<!-- 0 -->
+<div id="p-views" class="vectorTabs">
+	<h5>Views</h5>
+	<ul>
+					<li id="ca-view" class="selected"><span><a href="http://docs.joomla.org/Application_execution_order">Read</a></span></li>
+					<li id="ca-viewsource"><span><a href="http://docs.joomla.org/index.php?title=Application_execution_order&amp;action=edit" title="This page is protected.
+You can view its source [e]" accesskey="e">View source</a></span></li>
+					<li id="ca-history" class="collapsible"><span><a href="http://docs.joomla.org/index.php?title=Application_execution_order&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+	<h5><span>Actions</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+
+<!-- 2 -->
+<div id="p-search">
+	<h5><label for="searchInput">Search</label></h5>
+	<form action="/index.php" id="searchform">
+				<div>
+			<input name="search" title="Search Joomla! Documentation [f]" accesskey="f" id="searchInput" type="search">			<input name="go" value="Go" title="Go to a page with this exact name if exists" id="searchGoButton" class="searchButton" type="submit">			<input name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton" type="submit">					<input name="title" value="Special:Search" type="hidden">
+		</div>
+	</form>
+</div>
+
+<!-- /2 -->
+			</div>
+		</div>
+		<!-- /header -->
+		<!-- panel -->
+			<div id="mw-panel" class="noprint">
+				<!-- logo -->
+					<div id="p-logo"><a style="background-image: url(/skins/common/images/workgroups_documentation.jpg);" href="http://docs.joomla.org/Main_Page" title="Visit the main page"></a></div>
+				<!-- /logo -->
+				
+<!-- navigation -->
+<div class="portal" id="p-navigation">
+	<h5>Navigation</h5>
+	<div class="body">
+		<ul>
+			<li id="n-mainpage"><a href="http://docs.joomla.org/Main_Page" title="Visit the main page [z]" accesskey="z">Main Page</a></li>
+			<li id="n-recentchanges"><a href="http://docs.joomla.org/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+			<li id="n-currentevents"><a href="http://docs.joomla.org/Events" title="Find background information on current events">Current events</a></li>
+			<li id="n-randompage"><a href="http://docs.joomla.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+			<li id="n-Browse-categories"><a href="http://docs.joomla.org/Category:Top_Level">Browse categories</a></li>
+			<li id="n-help"><a href="http://docs.joomla.org/Help:Contents" title="The place to find out">Help</a></li>
+		</ul>
+	</div>
+</div>
+
+<!-- /navigation -->
+
+<!-- SEARCH -->
+
+<!-- /SEARCH -->
+
+<!-- LANGUAGES -->
+
+<!-- /LANGUAGES -->
+
+<!-- Joomla! Sites -->
+<div class="portal" id="p-Joomla.21_Sites">
+	<h5>Joomla! Sites</h5>
+	<div class="body">
+		<ul>
+			<li id="n-Main"><a href="http://www.joomla.org/" rel="nofollow">Main</a></li>
+			<li id="n-Community"><a href="http://community.joomla.org/" rel="nofollow">Community</a></li>
+			<li id="n-Forum"><a href="http://forum.joomla.org/" rel="nofollow">Forum</a></li>
+			<li id="n-Extensions"><a href="http://extensions.joomla.org/" rel="nofollow">Extensions</a></li>
+			<li id="n-Shop"><a href="http://shop.joomla.org/" rel="nofollow">Shop</a></li>
+			<li id="n-Developers"><a href="http://developer.joomla.org/" rel="nofollow">Developers</a></li>
+			<li id="n-API"><a href="http://api.joomla.org/" rel="nofollow">API</a></li>
+		</ul>
+	</div>
+</div>
+
+<!-- /Joomla! Sites -->
+
+<!-- TOOLBOX -->
+<div class="portal" id="p-tb">
+	<h5>Toolbox</h5>
+	<div class="body">
+		<ul>
+			<li id="t-whatlinkshere"><a href="http://docs.joomla.org/Special:WhatLinksHere/Application_execution_order" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+			<li id="t-recentchangeslinked"><a href="http://docs.joomla.org/Special:RecentChangesLinked/Application_execution_order" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+			<li id="t-specialpages"><a href="http://docs.joomla.org/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+			<li><a href="http://docs.joomla.org/index.php?title=Application_execution_order&amp;printable=yes" rel="alternate">Printable version</a></li>
+			<li id="t-permalink"><a href="http://docs.joomla.org/index.php?title=Application_execution_order&amp;oldid=68331" title="Permanent link to this revision of the page">Permanent link</a></li>
+		</ul>
+	</div>
+</div>
+
+<!-- /TOOLBOX -->
+			</div>
+		<!-- /panel -->
+		<!-- footer -->
+		<div id="footer">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 15 July 2012, at 17:30.</li>
+											<li id="footer-info-copyright">Content is available under <a href="http://docs.joomla.org/JEDL" title="JEDL">Joomla! EDL</a>.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="http://docs.joomla.org/JDOC:Privacy_policy" title="JDOC:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="http://docs.joomla.org/JDOC:About" title="JDOC:About">About Joomla! Documentation</a></li>
+											<li id="footer-places-disclaimer"><a href="http://docs.joomla.org/JDOC:General_disclaimer" title="JDOC:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+					<li id="footer-copyrightico">
+						<a href="http://docs.joomla.org/JEDL"><img src="Application%20execution%20order%20-%20Joomla%21%20Documentation_files/JEDL_icon.png" alt="Joomla! EDL" height="31" width="88"></a>
+					</li>
+					<li id="footer-poweredbyico">
+						<a href="http://www.mediawiki.org/"><img src="Application%20execution%20order%20-%20Joomla%21%20Documentation_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" height="31" width="88"></a>
+					</li>
+				</ul>
+						<div style="clear:both"></div>
+		</div>
+		<!-- /footer -->
+		<script src="Application%20execution%20order%20-%20Joomla%21%20Documentation_files/load_002.php"></script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.user","mediawiki.page.ready","ext.vector.collapsibleNav","ext.vector.collapsibleTabs","ext.vector.simpleSearch","ext.headertabs"], null, true);
+}</script>
+<script src="Application%20execution%20order%20-%20Joomla%21%20Documentation_files/load_003.php"></script>
+<script type="text/javascript">
+ var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-544070-3']);
+  _gaq.push(['_setDomainName', 'joomla.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-544070-19']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script><!-- Served in 0.410 secs. -->
+	
+
+
+</body><!-- Cached 20130512233506 --></html>

@@ -1,0 +1,2826 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" xml:lang="en-gb" lang="en-gb"><head>
+
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="content-language" content="en-gb">
+
+<meta http-equiv="content-style-type" content="text/css">
+
+<meta http-equiv="imagetoolbar" content="no">
+
+<meta name="resource-type" content="document">
+
+<meta name="distribution" content="global">
+
+<meta name="keywords" content="Joomla, CMS, content management, PHP, MySQL, free, open, source, forum, website, webhosting">
+
+<meta name="description" content="Joomla! Discussion Forums">
+
+
+
+<title>Joomla! • View topic - [Help] Add custom filter dropdown on administrator component</title>
+
+<link href="http://forum.joomla.org/styles/joomla12/theme/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+<link rel="alternate" type="application/atom+xml" title="Feed - Joomla!" href="http://forum.joomla.org/feed.php"><link rel="alternate" type="application/atom+xml" title="Feed - Forum - Joomla! 2.5 Coding" href="http://forum.joomla.org/feed.php?f=642"><link rel="alternate" type="application/atom+xml" title="Feed - Topic - [Help] Add custom filter dropdown on administrator component" href="http://forum.joomla.org/feed.php?f=642&amp;t=732640">
+
+
+
+<link rel="stylesheet" href="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/stylesheet.css" type="text/css">
+
+
+
+<!--[if lt IE 7]>
+
+	<link rel="stylesheet" type="text/css" href="./styles/joomla12/theme/ie6.css" />
+
+<![endif]-->
+
+
+
+<script type="text/javascript" src="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/google_service.js">
+
+</script>
+
+<script type="text/javascript">
+
+ GS_googleAddAdSenseService("ca-pub-1189370408998555");
+
+ GS_googleEnableAllServices();
+
+</script><script src="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/google_ads.js"></script>
+
+<script type="text/javascript">
+
+ GA_googleAddSlot("ca-pub-1189370408998555", "Joomla_forum_1");
+
+ GA_googleAddSlot("ca-pub-1189370408998555", "Joomla_forum_2");
+
+ GA_googleAddSlot("ca-pub-1189370408998555", "Joomla_Forum");
+
+ GA_googleAddSlot("ca-pub-1189370408998555", "Joomla_Forum_Footer");
+
+ GA_googleAddSlot("ca-pub-1189370408998555", "Joomla_forum_in_post");
+
+</script>
+
+<script type="text/javascript">
+
+ GA_googleFetchAds();
+
+</script>
+
+
+
+<script type="text/javascript">
+
+// <![CDATA[
+
+
+
+
+
+function popup(url, width, height, name)
+
+{
+
+	if (!name)
+
+	{
+
+		name = '_popup';
+
+	}
+
+
+
+	window.open(url.replace(/&amp;/g, '&'), name, 'height=' + height + ',resizable=yes,scrollbars=yes,width=' + width);
+
+	return false;
+
+}
+
+
+
+function jumpto()
+
+{
+
+	var page = prompt('Enter the page number you wish to go to:', '1');
+
+	var per_page = '';
+
+	var base_url = '';
+
+
+
+	if (page !== null && !isNaN(page) && page == Math.floor(page) && page > 0)
+
+	{
+
+		if (base_url.indexOf('?') == -1)
+
+		{
+
+			document.location.href = base_url + '?start=' + ((page - 1) * per_page);
+
+		}
+
+		else
+
+		{
+
+			document.location.href = base_url.replace(/&amp;/g, '&') + '&start=' + ((page - 1) * per_page);
+
+		}
+
+	}
+
+}
+
+
+
+/**
+
+* Find a member
+
+*/
+
+function find_username(url)
+
+{
+
+	popup(url, 760, 570, '_usersearch');
+
+	return false;
+
+}
+
+
+
+/**
+
+* Mark/unmark checklist
+
+* id = ID of parent container, name = name prefix, state = state [true/false]
+
+*/
+
+function marklist(id, name, state)
+
+{
+
+	var parent = document.getElementById(id);
+
+	if (!parent)
+
+	{
+
+		eval('parent = document.' + id);
+
+	}
+
+
+
+	if (!parent)
+
+	{
+
+		return;
+
+	}
+
+
+
+	var rb = parent.getElementsByTagName('input');
+
+	
+
+	for (var r = 0; r < rb.length; r++)
+
+	{
+
+		if (rb[r].name.substr(0, name.length) == name)
+
+		{
+
+			rb[r].checked = state;
+
+		}
+
+	}
+
+}
+
+
+
+
+
+
+
+// ]]>
+
+</script>
+
+
+
+<script type="text/javascript" src="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/jquery.js"></script>
+
+<script type="text/javascript" src="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/jquery_002.js"></script>
+
+
+
+<script type="text/javascript" language="javascript">
+
+
+
+$(document).ready(function () {
+
+    
+
+	//$('#page').css('width',$.cookie('pageWidth'));
+
+	$('BODY').css('font-size',$.cookie('fontSize'));
+
+	
+
+	$('#change-width').bind("click", function(e){
+
+		var pageWidth = $('#page').css('width');
+
+		if (pageWidth == '960px') pageWidth = '94%'; else pageWidth = '960px';
+
+		
+
+		$.cookie('pageWidth', pageWidth);
+
+
+
+		$('#page').css('width',pageWidth);
+
+	});
+
+	
+
+	$('#change-font-size').bind("click", function(e){
+
+		var fontSize = parseInt($('BODY').css('font-size'));
+
+		
+
+		if(fontSize < 12){
+
+			fontSize++;
+
+		} else {
+
+			fontSize = 10;
+
+		}
+
+		
+
+		$.cookie('fontSize', fontSize);
+
+
+
+		$('BODY').css('font-size',fontSize);
+
+		
+
+	});
+
+	
+
+	
+
+});
+
+</script>
+
+
+
+
+
+
+
+<script src="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/osd.js" type="text/javascript"></script></head>
+
+<body class="site ltr">
+
+<a name="top"></a>
+
+<div id="menuWrap">
+
+  <div id="menuWrapInner" class="container_12 clearfix">
+
+  <div id="menu" class="width"> 
+
+    <!--Begin Menu-->
+
+    <ul id="menu">
+
+      <li class="home_item"><a href="http://www.joomla.org/" class="drop"><span class="logo">Joomla!<span class="sup">®</span></span></a>
+
+      	<!-- Begin Home Item -->
+
+        <div class="dropdown_2columns">
+
+          <!-- Begin 2 columns container -->
+
+          <div class="col_2">
+
+            <h2>Welcome to Joomla!</h2>
+
+          </div>
+
+          <div class="col_2">
+
+            <p>Joomla! is an award-winning open source CMS for building powerful websites.</p>
+
+          </div>
+
+          <div class="col_2">
+
+            <h2>Recent Joomla! News</h2>
+
+          </div>
+
+          <div class="col_2"> <img src="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/joomla.jpg" class="img_left imgshadow" alt="Joomla!" height="70" width="70">
+
+            <ul class="img_left">
+
+              <li><a href="http://www.joomla.org/announcements.html">Announcements</a></li>
+
+              <li><a href="http://community.joomla.org/blogs/community.html">Joomla! Blogs</a></li>
+
+              <li><a href="http://magazine.joomla.org/">Joomla! Magazine</a></li>
+
+            </ul>
+
+          </div>
+
+          <div class="col_2">
+
+            <h2>Support Joomla!</h2>
+
+          </div>
+
+          <div class="col_1">
+
+            <ul class="greybox">
+
+              <li class="blue"><a href="http://shop.joomla.org/">Shop Joomla! Gear</a></li>
+
+            </ul>
+
+          </div>
+
+          <div class="col_1">
+
+            <ul class="greybox">
+
+              <li class="blue"><a href="http://opensourcematters.org/support-joomla.html">Contribution</a></li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+        <!-- End 2 columns container --> 
+
+      </li>
+
+      <!-- End Home Item -->
+
+      <li><a href="http://www.joomla.org/about-joomla.html" class="drop">About</a>
+
+      	<!-- Begin 5 columns Item -->
+
+        <div class="dropdown_4columns">
+
+          <!-- Begin 5 columns container -->
+
+          <div class="col_4">
+
+            <h2>What Is Joomla?</h2>
+
+            <p>Joomla is an award-winning content management system 
+(CMS), which enables you to build Web sites and powerful online 
+applications.<br><a href="http://www.joomla.org/about-joomla.html">Read more...</a></p>
+
+          </div>
+
+          <div class="col_2">
+
+            <h3>Joomla! for Business</h3>
+
+            <p>Joomla! is a extremely customizable and adaptable for Enterprise, SMBs, NPOs and beyond. <a href="http://www.joomla.org/core-features.html">Read more...</a></p>
+
+          </div>
+
+          <div class="col_2">
+
+            <h3>Joomla! for Developers</h3>
+
+            <p class="black_box">No matter what level of experience you hold, Joomla! has strengths to match; programmers, designers and end users alike!<a href="http://developer.joomla.org/">Read more...</a></p>
+
+          </div>
+
+          <div class="col_4">
+
+            <h2>Learn more about Joomla!</h2>
+
+          </div>
+
+          <div class="col_1">
+
+            <ul class="greybox">
+
+              <li><a href="http://www.joomla.org/about-joomla.html">The Software</a></li>
+
+            </ul>
+
+          </div>
+
+          <div class="col_1">
+
+            <ul class="greybox">
+
+              <li><a href="http://www.joomla.org/about-joomla/the-project.html">The Project</a></li>
+
+            </ul>
+
+          </div>
+
+          <div class="col_1">
+
+            <ul class="greybox">
+
+              <li><a href="http://www.joomla.org/about-joomla/the-project/leadership-team.html">The Leadership</a></li>
+
+            </ul>
+
+          </div>
+
+          <div class="col_1">
+
+            <ul class="greybox">
+
+              <li><a href="http://opensourcematters.org/index.php">Open Source Matters</a></li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+        <!-- End 5 columns container --> 
+
+      </li>
+
+      <!-- End 5 columns Item -->
+
+      <li><a href="http://community.joomla.org/" class="drop">Community &amp; Support</a>
+
+      	<!-- Begin 4 columns Item -->
+
+        <div class="dropdown_3columns"><!-- Begin 4 columns container -->
+
+          <div class="col_1">
+
+            <h3>Connect!</h3>
+
+            <ul>
+
+              <li><a href="http://community.joomla.org/events.html">Joomla! Events</a></li>
+              <li><a href="http://ux.joomla.org/">Joomla! UX</a></li>
+
+              <li><a href="http://community.joomla.org/user-groups.html">Joomla! User Groups</a></li>
+
+            </ul>
+
+          </div>
+
+          <div class="col_1">
+
+            <h3>Support!</h3>
+
+            <ul>
+
+              <li><a href="http://forum.joomla.org/">Joomla! Forum</a></li>
+
+              <li><a href="http://docs.joomla.org/">Joomla! Documentation</a></li>
+
+              <li><a href="http://resources.joomla.org/">Joomla! Resources</a></li>
+
+            </ul>
+
+          </div>
+
+          <div class="col_1">
+
+            <h3>Read!</h3>
+
+            <ul>
+
+              <li><a href="http://magazine.joomla.org/">Joomla! Magazine</a></li>
+
+              <li><a href="http://community.joomla.org/connect.html">Joomla! Connect</a></li>
+
+              <li><a href="http://www.joomla.org/mailing-lists.html">Joomla! Mailing Lists</a></li>
+
+            </ul>
+
+          </div>
+
+          <div class="col_3">
+
+            <h2>Get involved with Joomla!</h2> <img src="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/joomla.jpg" alt="Joomla!" class="img_left imgshadow" height="70" width="70">
+
+            <p>Joomla is an open source project and contributions from 
+the community are essential to its growth and success. Anyone can 
+contribute on any level, even newcomers can contribute to Joomla. <a href="http://www.joomla.org/about-joomla/contribute-to-joomla.html">Read more...</a></p>
+
+          </div>
+
+        </div>
+
+        <!-- End 4 columns container --> 
+
+      </li>
+
+      <!-- End 4 columns Item -->
+
+      <li><a href="http://extensions.joomla.org/" class="drop">Extend</a>
+
+      	<!-- Begin 4 columns Item -->
+
+        <div class="dropdown_2columns">
+
+          <!-- Begin 4 columns container -->
+
+          <div class="col_1">
+
+            <h3>Directories</h3>
+
+            <ul>
+
+              <li><a href="http://extensions.joomla.org/">Extension Directory</a></li>
+
+              <li><a href="http://community.joomla.org/showcase/">Showcase Directory</a></li>
+
+              <li><a href="http://resources.joomla.org/">Resource Directory</a></li>
+
+              <li><a href="http://community.joomla.org/translations.html">Translations</a></li>
+
+              <li><a href="http://ideas.joomla.org/">Idea Pool</a></li>
+
+            </ul>
+
+          </div>
+
+          <div class="col_1">
+
+            <h3>Developers</h3>
+
+            <ul>
+
+              <li><a href="http://developer.joomla.org/">Developer Site</a></li>
+
+              <li><a href="http://docs.joomla.org/">Documentation</a></li>
+
+              <li><a href="http://docs.joomla.org/Bug_Squad">Joomla! Bug Squad</a></li>
+
+              <li><a href="http://api.joomla.org/">Joomla! API</a></li>
+
+              <li><a href="http://joomlacode.org/">JoomlaCode</a></li>
+
+              <li><a href="https://github.com/joomla/joomla-platform">Joomla! Platform</a></li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+        <!-- End 4 columns container --> 
+
+      </li>
+
+      <!-- End 4 columns Item -->
+
+      <li class="download"><a href="http://www.joomla.org/download.html" class="drop">Download</a>
+
+        <!-- Begin 3 columns Item -->
+
+        <div class="dropdown_3columns">
+
+          <!-- Begin 3 columns container -->
+
+          <div class="col_3">
+
+            <h2>Download Joomla! 2.5</h2>
+
+          </div>
+
+          <div class="col_1">
+
+            <ul class="greybox">
+
+              <li class="orange"><a href="http://www.joomla.org/download.html">2.5 Full Package</a></li>
+
+            </ul>
+
+          </div>
+
+          <div class="col_1">
+
+            <ul class="greybox">
+
+              <li><a href="http://joomlacode.org/gf/project/joomla/frs/?action=index">Update Packages</a></li>
+
+            </ul>
+
+          </div>
+
+          <div class="col_1">
+
+            <ul class="greybox">
+
+              <li><a href="http://demo.joomla.org/">Demo Joomla! 2.5</a></li>
+
+            </ul>
+
+          </div>
+
+          <div class="col_3">
+
+            <h2>Download Joomla! 3.1 </h2>
+
+          </div>
+
+          <div class="col_1">
+
+            <ul class="greybox">
+
+              <li class="blue"><a href="http://www.joomla.org/download.html">3.1 Full Package</a></li>
+
+            </ul>
+
+          </div>
+
+          <div class="col_1">
+
+            <ul class="greybox">
+
+              <li><a href="http://joomlacode.org/gf/project/joomla/frs/?action=index">Update Packages</a></li>
+
+            </ul>
+
+          </div>
+
+          <div class="col_1">
+
+            <ul class="greybox">
+
+              <li><a href="http://demo.joomla.org/">Demo Joomla! 3.1</a></li>
+
+            </ul>
+
+          </div>
+
+          <div class="col_3">
+
+            <h2>Getting Started with Joomla!</h2>
+
+          </div>
+
+          <div class="col_3">
+
+            <ul class="nowrap">
+
+              <li><a href="http://docs.joomla.org/Beginners">Beginner Documentation</a></li>
+
+              <li><a href="http://www.joomla.org/technical-requirements.html">Technical Requirements</a></li>
+
+              <li><a href="http://opensourcematters.org/index.php?option=com_content&amp;view=article&amp;id=56&amp;Itemid=155">License &amp; Usage</a></li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+        <!-- End 3 columns container --> 
+
+      </li>
+
+	  <li class="menu_right language"><a href="http://community.joomla.org/translations.html" class="drop language_link">Internationalization</a><!-- Begin 3 columns Item -->
+  		
+  		    <div class="dropdown_1column align_right"><!-- Begin 3 columns container -->
+  		        
+  		        <div class="col_1">
+  		            <h2>Internationalization
+  		            </h2>
+  		        </div>
+  		        
+  		        <div class="col_1">
+  		            <ul class="nowrap">
+  		                <li><a href="http://community.joomla.org/translations.html">Translations</a></li>
+  		                <li><a href="http://multilingual-joomla-demo.cloudaccess.net/">Multilingual Demo</a></li>
+  		                <li><a href="http://docs.joomla.org/Translations_Working_Group">Translation Working Group</a></li>
+  		                <li><a href="http://forum.joomla.org/viewforum.php?f=11">Translations Forum</a></li>
+  		            </ul> 
+  		        </div>
+  		    
+  		    </div><!-- End 3 columns container -->
+  		    
+  		</li><!-- End 3 columns Item -->
+
+      <li class="menu_right search">
+
+        <!-- Google CSE Search Box Begins -->
+
+        <form action="http://forum.joomla.org/results.php" id="searchbox_007628682600509520926:higrppcfurc">
+
+        	<div class="search-box-area">
+
+        		
+
+        		<input name="cx" value="007628682600509520926:higrppcfurc" type="hidden">
+
+        		<input name="cof" value="FORID:9" type="hidden">
+
+        		
+
+        		<!-- Disabled site search
+
+        		<select name="search-option"><option value="Forum">Forum</option></select>
+
+        		-->
+
+        		<input style="border: 1px solid rgb(126, 157, 185); padding: 2px; background: url(&quot;http://www.google.com/cse/intl/en/images/google_custom_search_watermark.gif&quot;) no-repeat scroll left center rgb(255, 255, 255);" class="text inputbox" name="q" size="25" type="text">		
+
+        		<!-- <input type="text" class="text" name="search-val" value=""/> -->
+
+        	</div>
+
+        <input value="forum.joomla.org/viewtopic.php?f=642&amp;t=732640" name="siteurl" type="hidden"><input value="www.google.com.vn/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=2&amp;cad=rja&amp;ved=0CDUQFjAB&amp;url=http%3A%2F%2Fforum.joomla.org%2Fviewtopic.php%3Ff%3D642%26t%3D732640&amp;ei=4PmiUavJL6m5iQegl4HYDQ&amp;usg=AFQjCNEqMWY6C34u4H_ZJlXgg3a-NUPkoQ&amp;sig2=qbPRi5dDSVIJWjfmRNRU1g&amp;bvm=bv.47008514,d.aGc" name="ref" type="hidden"><input name="ss" type="hidden"></form>
+
+        <script type="text/javascript" src="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/brand"></script>
+
+        <!-- Google CSE Search Box Ends -->
+
+      </li>
+
+    </ul>
+
+    <!--End Menu--> 
+
+  </div>
+
+</div>
+
+</div>
+
+
+
+    <div id="titleWrap">
+
+        <div id="title" class="container_12 clearfix">
+
+        	<div class="grid_7">
+
+		        <h1 title="Welcome to the Joomla! Forum">The Joomla! Forum ™</h1>
+
+        	</div>
+
+        	<div class="grid_5 right">
+
+        		<div class="downdemo">
+
+        		    <p class="download-16">
+
+
+
+        		    	<a href="http://www.joomla.org/download.html">Download</a>
+
+        		    </p>
+
+        		    <p class="demo">
+
+        		    	<a href="http://demo.joomla.org/">Demo</a>
+
+        		    </p>
+
+        		</div>
+
+        	</div>
+
+        	<div class="clear"></div>
+
+
+
+        </div>
+
+    </div>
+
+    <div class="clear"></div>
+
+
+
+<div id="insetWrap">
+
+	<div id="inset" class="container_12 clearfix">
+
+		<ul class="menu">
+
+		<li><a href="http://forum.joomla.org/index.php?sid=806b37d3f1d8c063a20e5c1e40f08666">Home</a></li>
+
+		
+
+		<li><a href="http://forum.joomla.org/ucp.php?mode=register&amp;sid=806b37d3f1d8c063a20e5c1e40f08666">Register</a></li>
+
+			
+
+		
+
+		<li><a href="http://forum.joomla.org/viewtopic.php?f=8&amp;t=65">Rules</a></li>
+
+		<li><a href="http://forum.joomla.org/faq.php?sid=806b37d3f1d8c063a20e5c1e40f08666">FAQ</a></li>
+
+		
+
+		<li><a href="http://forum.joomla.org/memberlist.php?mode=leaders&amp;sid=806b37d3f1d8c063a20e5c1e40f08666">The team</a></li>
+
+		<li><a href="http://forum.joomla.org/ucp.php?mode=login&amp;sid=806b37d3f1d8c063a20e5c1e40f08666">Login</a></li>
+
+		</ul>
+
+
+
+        <div class="clear"></div>
+
+    </div>
+
+</div>
+
+<div class="clear"></div>
+
+<div id="containerWrap">
+
+    <div id="container" class="container_12 clearfix">
+
+
+
+        <div id="mainbody" class="6 maincontent">
+
+                        <div class="clr"></div>
+                        
+						<div style="text-align:center;">
+							<script type="text/javascript">
+									GA_googleFillSlot("Joomla_Forum");
+							</script><script src="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/ads_003"></script><div id="google_ads_div_Joomla_Forum_ad_wrapper">
+<div id="google_ads_div_Joomla_Forum_ad_container" style="display:inline-block;">
+<ins style="width: 728px; height: 90px; display: inline-table; position: relative; border: 0px none;"><ins style="width: 728px; height: 90px; display: block; position: relative; border: 0px none;"><iframe style="border: 0px none; position: absolute; top: 0px; left: 0px;" marginheight="0" marginwidth="0" name="google_ads_iframe_Joomla_Forum" id="google_ads_iframe_Joomla_Forum" frameborder="0" height="90" scrolling="no" width="728"></iframe></ins></ins></div>
+</div>
+<script>GA_googleCreateDomIframe("google_ads_div_Joomla_Forum_ad_container" ,"Joomla_Forum");</script>
+						</div>
+                        
+
+
+
+								<div id="wrapcentre">
+
+								
+
+									
+
+								
+
+									<br style="clear: both;">
+
+								
+
+									<table class="tablebg" style="margin-top: 5px;" cellpadding="0" cellspacing="1" width="100%">
+	<tbody><tr>
+		<td class="row1">
+			<p class="breadcrumbs"><a href="http://forum.joomla.org/index.php?sid=806b37d3f1d8c063a20e5c1e40f08666">Board index</a> » <a href="http://forum.joomla.org/viewforum.php?f=646&amp;sid=806b37d3f1d8c063a20e5c1e40f08666">Joomla! Development Forums</a> » <a href="http://forum.joomla.org/viewforum.php?f=509&amp;sid=806b37d3f1d8c063a20e5c1e40f08666">Joomla! Development</a> » <a href="http://forum.joomla.org/viewforum.php?f=642&amp;sid=806b37d3f1d8c063a20e5c1e40f08666">Joomla! 2.5 Coding</a></p>
+		</td>
+	</tr>
+	</tbody></table>
+
+								
+
+									<br>
+
+	<div class="forumrules">
+
+		
+
+			<h3>Forum rules</h3><br>
+
+			Please use the mailing list here: <!-- m --><a class="postlink" href="http://groups.google.com/group/joomla-dev-general">http://groups.google.com/group/joomla-dev-general</a><!-- m --> rather than this forum.
+
+		
+
+	</div>
+
+
+
+	<br clear="all">
+
+
+
+
+
+<div id="pageheader">
+
+	<h2><a class="titles" href="http://forum.joomla.org/viewtopic.php?f=642&amp;t=732640&amp;sid=806b37d3f1d8c063a20e5c1e40f08666">[Help] Add custom filter dropdown on administrator component</a></h2>
+
+
+
+
+
+	<p class="moderators">Moderators: <a href="http://forum.joomla.org/memberlist.php?mode=viewprofile&amp;u=4142&amp;sid=806b37d3f1d8c063a20e5c1e40f08666" style="color: #660000;" class="username-coloured">dam-man</a>, <a href="http://forum.joomla.org/memberlist.php?mode=viewprofile&amp;u=6134&amp;sid=806b37d3f1d8c063a20e5c1e40f08666" style="color: #CC6600;" class="username-coloured">tcp</a>, <a href="http://forum.joomla.org/memberlist.php?mode=viewprofile&amp;u=218211&amp;sid=806b37d3f1d8c063a20e5c1e40f08666" style="color: #000066;" class="username-coloured">ooffick</a>, <a href="http://forum.joomla.org/memberlist.php?mode=viewprofile&amp;u=6495&amp;sid=806b37d3f1d8c063a20e5c1e40f08666" style="color: #660099;" class="username-coloured">ianmac</a></p>
+
+
+
+</div>
+
+
+
+<br clear="all"><br>
+
+
+
+<div id="pagecontent">
+
+
+
+	<table cellspacing="1" width="100%">
+
+	<tbody><tr>
+
+		<td align="left" nowrap="nowrap" valign="middle">
+
+		<a href="http://forum.joomla.org/posting.php?mode=post&amp;f=642&amp;sid=806b37d3f1d8c063a20e5c1e40f08666"><img src="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/button_topic_new.gif" alt="Post new topic" title="Post new topic" height="25" width="96"></a>&nbsp;<a href="http://forum.joomla.org/posting.php?mode=reply&amp;f=642&amp;t=732640&amp;sid=806b37d3f1d8c063a20e5c1e40f08666"><img src="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/button_topic_reply.gif" alt="Reply to topic" title="Reply to topic" height="25" width="96"></a>
+
+		</td>
+
+		
+
+			<td class="nav" nowrap="nowrap" valign="middle">&nbsp;Page <strong>1</strong> of <strong>1</strong><br></td>
+
+			<td class="gensmall" nowrap="nowrap">&nbsp;[ 2 posts ]&nbsp;</td>
+
+			<td class="gensmall" align="right" nowrap="nowrap" width="100%"></td>
+
+		
+
+	</tr>
+
+	</tbody></table>
+
+
+
+	<table class="tablebg" cellspacing="1" width="100%">
+
+	<tbody><tr>
+
+		<td class="cat">
+
+			<table cellspacing="0" width="100%">
+
+			<tbody><tr>
+
+				<td class="nav" nowrap="nowrap">&nbsp;
+
+				<a href="http://forum.joomla.org/viewtopic.php?f=642&amp;t=732640&amp;sid=806b37d3f1d8c063a20e5c1e40f08666&amp;view=print" title="Print view">Print view</a>
+
+				</td>
+
+				<td class="nav" align="right" nowrap="nowrap"><a href="http://forum.joomla.org/viewtopic.php?f=642&amp;t=732640&amp;view=previous&amp;sid=806b37d3f1d8c063a20e5c1e40f08666">Previous topic</a> | <a href="http://forum.joomla.org/viewtopic.php?f=642&amp;t=732640&amp;view=next&amp;sid=806b37d3f1d8c063a20e5c1e40f08666">Next topic</a>&nbsp;</td>
+
+			</tr>
+
+			</tbody></table>
+
+		</td>
+
+	</tr>
+
+
+
+	</tbody></table>
+
+
+
+
+
+	<table class="tablebg" cellspacing="1" width="100%">
+
+	
+
+		<tbody><tr>
+
+			<th>Author</th>
+
+			<th>Message</th>
+
+		</tr>
+
+	<tr class="row1">
+
+
+
+			<td align="center" valign="middle">
+
+				<a name="p2851901"></a>
+
+				<a href="http://forum.joomla.org/memberlist.php?mode=viewprofile&amp;u=669348&amp;sid=806b37d3f1d8c063a20e5c1e40f08666"><b class="postauthor">iminothuman]</b></a>
+
+			</td>
+
+			<td height="25" width="100%">
+
+				<table cellspacing="0" width="100%">
+
+				<tbody><tr>
+
+				
+
+					<td><img src="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/fire.gif" alt="" title="" height="16" width="16"></td>
+
+				
+
+					<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> <a href="#p2851901">[Help] Add custom filter dropdown on administrator component</a></div><div style="float: right;"><a href="http://forum.joomla.org/viewtopic.php?p=2851901&amp;sid=806b37d3f1d8c063a20e5c1e40f08666#p2851901"><img src="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/icon_post_target.gif" alt="Post" title="Post" height="9" width="12"></a><b>Posted:</b> Wed Jul 25, 2012 6:17 pm&nbsp;</div></td>
+
+				</tr>
+
+				</tbody></table>
+
+			</td>
+
+		</tr>
+
+
+
+		<tr class="row1">
+
+
+
+			<td class="profile" valign="top">
+
+				<table align="center" cellspacing="4" width="150">
+
+					
+
+				<tbody><tr>
+
+					<td class="postdetails">Joomla! Fledgling</td>
+
+				</tr>
+
+			
+
+				<tr>
+
+					<td><img src="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/fledgling.png" alt="Joomla! Fledgling" title="Joomla! Fledgling"></td>
+
+				</tr>
+
+			
+
+				</tbody></table>
+
+
+
+				<span class="postdetails">
+
+					<br><b>Joined:</b> Mon Jul 23, 2012 7:08 pm<br><b>Posts:</b> 2
+
+				</span>
+
+
+
+			</td>
+
+			<td valign="top">
+
+				<table cellspacing="5" width="100%">
+
+				<tbody><tr>
+
+					<td>
+
+					
+
+
+
+						<div class="postbody">Hi everybody.<br><br>Im trying to create a custom filter to sort data from the DB using a dropdown.<br><br>At the moment i have then following:<br><br>/administrator/components/com_mycomp/models/fields/statusdropdown.php<br><br><div class="codetitle"><b>Code:</b></div><div class="codecontent">&lt;?php<br>// Check to ensure this file in included in Joomla!<br>defined('_JEXEC') or die('Restricted access');<br><br>jimport('joomla.html.html');<br>jimport('joomla.form.formfield');<br><br>class JFormFieldStatus extends JFormField {<br>&nbsp; &nbsp; protected $type = 'Status';<br>&nbsp; &nbsp; <br>&nbsp; &nbsp; //getLabel() left out<br>&nbsp; &nbsp; <br>&nbsp; &nbsp; public function getInput(){<br>&nbsp; &nbsp; &nbsp; &nbsp; <br>&nbsp; &nbsp; &nbsp; &nbsp; $options = array();<br>&nbsp; &nbsp; &nbsp; &nbsp; <br>&nbsp; &nbsp; &nbsp; &nbsp; $db&nbsp; &nbsp; &nbsp; = JFactory::getDbo();<br>&nbsp; &nbsp; &nbsp; &nbsp; $query&nbsp; &nbsp;= $db-&gt;getQuery(true);<br>&nbsp; &nbsp; &nbsp; &nbsp; <br>&nbsp; &nbsp; &nbsp; &nbsp; $query-&gt;select('id_status As value, name_status As text');<br>&nbsp; &nbsp; &nbsp; &nbsp; $query-&gt;from('#__mycomp_status AS a');<br>&nbsp; &nbsp; &nbsp; &nbsp; $query-&gt;order('a.id_status');<br>&nbsp; &nbsp; &nbsp; &nbsp; <br>&nbsp; &nbsp; &nbsp; &nbsp; $db-&gt;setQuery($query);<br>&nbsp; &nbsp; &nbsp; &nbsp; <br>&nbsp; &nbsp; &nbsp; &nbsp; $options = $db-&gt;loadObjectList();<br>&nbsp; &nbsp; &nbsp; &nbsp; <br>&nbsp; &nbsp; &nbsp; &nbsp; if ($db-&gt;getErrorNum()){<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; JError::raiseWarning(500, $db-&gt;getErrorMsg());<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; return $options;<br>&nbsp; &nbsp; }&nbsp; &nbsp; <br>}<br></div><br><br>Then on my:<br>/administrator/components/com_mycomp/views/comp/tmpl/default.php<br>I added this:<br><br><div class="codetitle"><b>Code:</b></div><div class="codecontent">&lt;select
+ type="text" name="filter_searchStatusId" id="filter_searchStatusId" 
+class="inputbox" onchange="this.form.submit()"&gt;<br>&nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &lt;option value=""&gt;Select Status&lt;/option&gt;<br>&nbsp;
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &lt;?php echo JHtml::_('select.options', 
+JFormFieldStatus::getInput(), 'value', 'text', 
+$this-&gt;state-&gt;get('filter.id_status'));?&gt;&nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/select&gt;<br></div><br><br>Then on my i added this:<br>/administrator/components/com_mycomp/view/comp/view.html.php<br><br><div class="codetitle"><b>Code:</b></div><div class="codecontent">public function display($tpl = null)<br>&nbsp; &nbsp;{<br>&nbsp; &nbsp;&nbsp; &nbsp;$this-&gt;state&nbsp; &nbsp;&nbsp; &nbsp;= $this-&gt;get('State');<br>&nbsp; &nbsp;&nbsp; &nbsp;$this-&gt;items&nbsp; &nbsp;&nbsp; &nbsp;= $this-&gt;get('Items');<br>&nbsp; &nbsp;&nbsp; &nbsp;$this-&gt;pagination&nbsp; &nbsp;= $this-&gt;get('Pagination');<br><br>&nbsp; &nbsp;&nbsp; &nbsp;// Check for errors.<br>&nbsp; &nbsp;&nbsp; &nbsp;if (count($errors = $this-&gt;get('Errors'))) {<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;JError::raiseError(500, implode("\n", $errors));<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;return false;<br>&nbsp; &nbsp;&nbsp; &nbsp;}<br><br>&nbsp; &nbsp;&nbsp; &nbsp;$this-&gt;addToolbar();<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; require_once JPATH_COMPONENT .'/models/fields/statusdropdown.php';<br>&nbsp; &nbsp;&nbsp; &nbsp;parent::display($tpl);<br>&nbsp; &nbsp;}<br></div><br><br>Perfect!!!, so far i got a dropdown that have in it the field name of my table Status.<br><br><br>Now i want to make the dropdown filter the table "person" by status so, on my<br>/administrator/components/com_mycomp/models/comp.php<br><br><div class="codetitle"><b>Code:</b></div><div class="codecontent">&lt;?php<br>/**<br>&nbsp;* @version&nbsp; &nbsp; &nbsp;1.0.0<br>&nbsp;* @package&nbsp; &nbsp; &nbsp;com_mycomp<br>&nbsp;*/<br><br>defined('_JEXEC') or die;<br><br>jimport('joomla.application.component.modellist');<br><br>class MyCompModelcomp extends JModelList<br>{<br><br>&nbsp; &nbsp; /**<br>&nbsp; &nbsp; &nbsp;* Constructor.<br>&nbsp; &nbsp; &nbsp;*<br>&nbsp; &nbsp; &nbsp;* @param&nbsp; &nbsp; array&nbsp; &nbsp; An optional associative array of configuration settings.<br>&nbsp; &nbsp; &nbsp;* @see&nbsp; &nbsp; &nbsp; JController<br>&nbsp; &nbsp; &nbsp;* @since&nbsp; &nbsp; 1.6<br>&nbsp; &nbsp; &nbsp;*/<br>&nbsp; &nbsp; public function __construct($config = array())<br>&nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; if (empty($config['filter_fields'])) {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $config['filter_fields'] = array(<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'id_person',&nbsp; &nbsp; &nbsp; &nbsp; 'a.id_person',<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'name_person', 'a.name_person',<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'last_name_person', 'a.last_name_person',<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'status_person',&nbsp; &nbsp; &nbsp;'a.status_person',<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; );<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br><br>&nbsp; &nbsp; &nbsp; &nbsp; parent::__construct($config);<br>&nbsp; &nbsp; }<br><br>&nbsp; &nbsp;/**<br>&nbsp; &nbsp; * Method to auto-populate the model state.<br>&nbsp; &nbsp; *<br>&nbsp; &nbsp; * Note. Calling getState in this method will result in recursion.<br>&nbsp; &nbsp; */<br>&nbsp; &nbsp;protected function populateState($ordering = null, $direction = null)<br>&nbsp; &nbsp;{<br>&nbsp; &nbsp;&nbsp; &nbsp;// Initialise variables.<br>&nbsp; &nbsp;&nbsp; &nbsp;$app = JFactory::getApplication('administrator');<br><br>&nbsp; &nbsp;&nbsp; &nbsp;// Load the filter state.<br>&nbsp; &nbsp;&nbsp; &nbsp;$search = $app-&gt;getUserStateFromRequest($this-&gt;context.'.filter.search', 'filter_search');<br>&nbsp; &nbsp;&nbsp; &nbsp;$this-&gt;setState('filter.search', $search);<br><br>&nbsp;
+ &nbsp;&nbsp; &nbsp;$published = 
+$app-&gt;getUserStateFromRequest($this-&gt;context.'.filter.state', 
+'filter_published', '', 'string');<br>&nbsp; &nbsp;&nbsp; &nbsp;$this-&gt;setState('filter.state', $published);<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>&nbsp;
+ &nbsp; &nbsp; &nbsp; $searchStatusId = 
+$app-&gt;getUserStateFromRequest($this-&gt;context.'.filter.searchStatusId',
+ 'filter_searchStatusId');<br>&nbsp; &nbsp;&nbsp; &nbsp;$this-&gt;setState('filter.searchStatusId', $searchStatusId);<br><br>&nbsp; &nbsp;&nbsp; &nbsp;// Load the parameters.<br>&nbsp; &nbsp;&nbsp; &nbsp;$params = JComponentHelper::getParams('com_mycomp');<br>&nbsp; &nbsp;&nbsp; &nbsp;$this-&gt;setState('params', $params);<br><br>&nbsp; &nbsp;&nbsp; &nbsp;// List state information.<br>&nbsp; &nbsp;&nbsp; &nbsp;parent::populateState('a.name_person', 'asc');<br>&nbsp; &nbsp;}<br><br>&nbsp; &nbsp;/**<br>&nbsp; &nbsp; * Method to get a store id based on model configuration state.<br>&nbsp; &nbsp; *<br>&nbsp; &nbsp; * This is necessary because the model is used by the component and<br>&nbsp; &nbsp; * different modules that might need different sets of data or different<br>&nbsp; &nbsp; * ordering requirements.<br>&nbsp; &nbsp; *<br>&nbsp; &nbsp; * @param&nbsp; &nbsp;string&nbsp; &nbsp;&nbsp; &nbsp;$id&nbsp; &nbsp;A prefix for the store id.<br>&nbsp; &nbsp; * @return&nbsp; &nbsp;string&nbsp; &nbsp;&nbsp; &nbsp;A store id.<br>&nbsp; &nbsp; * @since&nbsp; &nbsp;1.6<br>&nbsp; &nbsp; */<br>&nbsp; &nbsp;protected function getStoreId($id = '')<br>&nbsp; &nbsp;{<br>&nbsp; &nbsp;&nbsp; &nbsp;// Compile the store id.<br>&nbsp; &nbsp;&nbsp; &nbsp;$id.= ':' . $this-&gt;getState('filter.search');<br>&nbsp; &nbsp;&nbsp; &nbsp;$id.= ':' . $this-&gt;getState('filter.state');<br>&nbsp; &nbsp; &nbsp; &nbsp; $id.= ':' . $this-&gt;getState('filter.searchStatusId');<br><br>&nbsp; &nbsp;&nbsp; &nbsp;return parent::getStoreId($id);<br>&nbsp; &nbsp;}<br><br>&nbsp; &nbsp;/**<br>&nbsp; &nbsp; * Build an SQL query to load the list data.<br>&nbsp; &nbsp; *<br>&nbsp; &nbsp; * @return&nbsp; &nbsp;JDatabaseQuery<br>&nbsp; &nbsp; * @since&nbsp; &nbsp;1.6<br>&nbsp; &nbsp; */<br>&nbsp; &nbsp;protected function getListQuery()<br>&nbsp; &nbsp;{<br>&nbsp; &nbsp;&nbsp; &nbsp;// Create a new query object.<br>&nbsp; &nbsp;&nbsp; &nbsp;$db&nbsp; &nbsp;&nbsp; &nbsp;= $this-&gt;getDbo();<br>&nbsp; &nbsp;&nbsp; &nbsp;$query&nbsp; &nbsp;= $db-&gt;getQuery(true);<br><br>&nbsp; &nbsp;&nbsp; &nbsp;// Select the required fields from the table.<br>&nbsp; &nbsp;&nbsp; &nbsp;$query-&gt;select(<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$this-&gt;getState(<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;'list.select',<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;'a.*'<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;)<br>&nbsp; &nbsp;&nbsp; &nbsp;);<br>&nbsp; &nbsp;&nbsp; &nbsp;$query-&gt;from('`#__mycomp_person` AS a');<br><br>&nbsp; &nbsp;&nbsp; &nbsp;// Filter by search in title<br>&nbsp; &nbsp;&nbsp; &nbsp;$search = $this-&gt;getState('filter.search');<br>&nbsp; &nbsp;&nbsp; &nbsp;if (!empty($search)) {<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;if (stripos($search, 'id:') === 0) {<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$query-&gt;where('a.id_person = '.(int) substr($search, 3));<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;}<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; else {<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$search = $db-&gt;Quote('%'.$db-&gt;getEscaped($search, true).'%');<br>&nbsp;
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $query-&gt;where('( a.name_person 
+LIKE '.$search.' )');&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;}<br>&nbsp; &nbsp;&nbsp; &nbsp;}<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>&nbsp; &nbsp; &nbsp; &nbsp; // Filter by status<br>&nbsp; &nbsp;&nbsp; &nbsp;$searchStatusId = $this-&gt;getState('filter.searchStatusId');<br>&nbsp; &nbsp;&nbsp; &nbsp;if (!empty($searchStatusId)) {<br>&nbsp;
+ &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$searchStatusId = 
+$db-&gt;Quote('%'.$db-&gt;getEscaped($searchStatusId, true).'%');<br>&nbsp;
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $query-&gt;where('( a.id_status LIKE 
+'.$searchStatusId.' )');<br>&nbsp; &nbsp;&nbsp; &nbsp;}<br><br>&nbsp; &nbsp;&nbsp; &nbsp;// Add the list ordering clause.<br>&nbsp; &nbsp;&nbsp; &nbsp;$orderCol&nbsp; &nbsp;= $this-&gt;state-&gt;get('list.ordering');<br>&nbsp; &nbsp;&nbsp; &nbsp;$orderDirn&nbsp; &nbsp;= $this-&gt;state-&gt;get('list.direction');<br>&nbsp; &nbsp; &nbsp; &nbsp; if ($orderCol &amp;&amp; $orderDirn) {<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; $query-&gt;order($db-&gt;getEscaped($orderCol.' '.$orderDirn));<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br><br>&nbsp; &nbsp;&nbsp; &nbsp;return $query;<br>&nbsp; &nbsp;}<br>}<br></div><br><br>Nice!!!, everytime i modify the value of the dropdown it triggers a event that show the data by the given status parameter.<br>BUT,
+ everytime i change the value of the dropdown the aplication refresh its
+ view and the dropdown set its value to the default one.<br>Please help me, i have tried several ways but no success.<br>Any ideas of how to make the value of the dropdown persist?. Im i doing it right?.<br><br>Thanks!!!<br><br>[Help] Add custom filter dropdown on administrator component</div>
+
+
+
+					<br clear="all"><br>
+
+
+
+						<table cellspacing="0" width="100%">
+
+						<tbody><tr valign="middle">
+
+							<td class="gensmall" align="right">
+
+							
+
+							</td>
+
+						</tr>
+
+						</tbody></table>
+
+					</td>
+
+				</tr>
+
+				</tbody></table>
+
+			</td>
+
+		</tr>
+
+
+
+		<tr class="row1">
+
+
+
+			<td class="profile"><strong><a href="#wrapheader">Top</a></strong></td>
+
+			<td><div class="gensmall" style="float: left;">
+                &nbsp;<a href="http://forum.joomla.org/memberlist.php?mode=viewprofile&amp;u=669348&amp;sid=806b37d3f1d8c063a20e5c1e40f08666"><img src="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/icon_user_profile.gif" alt="Profile" title="Profile" height="20" width="72"></a> &nbsp;</div>
+                <div class="gensmall" style="float: right;">
+                    &nbsp;</div></td>
+
+	
+
+		</tr>
+
+
+
+	<tr>
+
+		<td class="spacer" colspan="2" height="1"><img src="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/spacer.gif" alt="" height="1" width="1"></td>
+
+	</tr>
+
+	</tbody></table>
+
+
+
+<script type="text/javascript">
+
+  GA_googleFillSlot("Joomla_forum_in_post");
+
+</script><script src="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/ads"></script><div id="google_ads_div_Joomla_forum_in_post_ad_wrapper">
+<div id="google_ads_div_Joomla_forum_in_post_ad_container" style="display:inline-block;">
+<ins style="width: 728px; height: 90px; display: inline-table; position: relative; border: 0px none;"><ins style="width: 728px; height: 90px; display: block; position: relative; border: 0px none;"><iframe style="border: 0px none; position: absolute; top: 0px; left: 0px;" marginheight="0" marginwidth="0" name="google_ads_iframe_Joomla_forum_in_post" id="google_ads_iframe_Joomla_forum_in_post" frameborder="0" height="90" scrolling="no" width="728"></iframe></ins></ins></div>
+</div>
+<script>GA_googleCreateDomIframe("google_ads_div_Joomla_forum_in_post_ad_container" ,"Joomla_forum_in_post");</script>
+
+
+
+	<table class="tablebg" cellspacing="1" width="100%">
+
+	<tbody><tr class="row2">
+
+
+
+			<td align="center" valign="middle">
+
+				<a name="p2958316"></a>
+
+				<a href="http://forum.joomla.org/memberlist.php?mode=viewprofile&amp;u=691814&amp;sid=806b37d3f1d8c063a20e5c1e40f08666"><b class="postauthor">srinivasa</b></a>
+
+			</td>
+
+			<td height="25" width="100%">
+
+				<table cellspacing="0" width="100%">
+
+				<tbody><tr>
+
+				
+
+					<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> <a href="#p2958316">Re: [Help] Add custom filter dropdown on administrator compo</a></div><div style="float: right;"><a href="http://forum.joomla.org/viewtopic.php?p=2958316&amp;sid=806b37d3f1d8c063a20e5c1e40f08666#p2958316"><img src="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/icon_post_target.gif" alt="Post" title="Post" height="9" width="12"></a><b>Posted:</b> Thu Dec 13, 2012 1:50 pm&nbsp;</div></td>
+
+				</tr>
+
+				</tbody></table>
+
+			</td>
+
+		</tr>
+
+
+
+		<tr class="row2">
+
+
+
+			<td class="profile" valign="top">
+
+				<table align="center" cellspacing="4" width="150">
+
+					
+
+				<tbody><tr>
+
+					<td class="postdetails">Joomla! Fledgling</td>
+
+				</tr>
+
+			
+
+				<tr>
+
+					<td><img src="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/fledgling.png" alt="Joomla! Fledgling" title="Joomla! Fledgling"></td>
+
+				</tr>
+
+			
+
+				</tbody></table>
+
+
+
+				<span class="postdetails">
+
+					<br><b>Joined:</b> Thu Dec 13, 2012 12:48 pm<br><b>Posts:</b> 1
+
+				</span>
+
+
+
+			</td>
+
+			<td valign="top">
+
+				<table cellspacing="5" width="100%">
+
+				<tbody><tr>
+
+					<td>
+
+					
+
+
+
+						<div class="postbody">Hello iminothuman,<br><br>                   You have do like this:<br><br>
+              &lt;select type="text" name="filter_searchStatusId" 
+id="filter_searchStatusId" class="inputbox"               
+onchange="this.form.submit()"&gt;<br>                            &lt;option value=""&gt;Select Status&lt;/option&gt;<br>
+                            &lt;?php echo JHtml::_('select.options', 
+JFormFieldStatus::getInput(), 'value', 'text', 
+$this-&gt;state-&gt;get('filter_searchStatusId'));?&gt;                 
+           <br>                        &lt;/select&gt;<br><br> I hope it works for you.<br><br>Thanks,<br>Srinivasa.</div>
+
+
+
+					<br clear="all"><br>
+
+
+
+						<table cellspacing="0" width="100%">
+
+						<tbody><tr valign="middle">
+
+							<td class="gensmall" align="right">
+
+							
+
+							</td>
+
+						</tr>
+
+						</tbody></table>
+
+					</td>
+
+				</tr>
+
+				</tbody></table>
+
+			</td>
+
+		</tr>
+
+
+
+		<tr class="row2">
+
+
+
+			<td class="profile"><strong><a href="#wrapheader">Top</a></strong></td>
+
+			<td><div class="gensmall" style="float: left;">
+                &nbsp;<a href="http://forum.joomla.org/memberlist.php?mode=viewprofile&amp;u=691814&amp;sid=806b37d3f1d8c063a20e5c1e40f08666"><img src="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/icon_user_profile.gif" alt="Profile" title="Profile" height="20" width="72"></a> &nbsp;</div>
+                <div class="gensmall" style="float: right;">
+                    &nbsp;</div></td>
+
+	
+
+		</tr>
+
+
+
+	<tr>
+
+		<td class="spacer" colspan="2" height="1"><img src="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/spacer.gif" alt="" height="1" width="1"></td>
+
+	</tr>
+
+	</tbody></table>
+
+
+
+	<table class="tablebg" cellspacing="1" width="100%">
+
+	<tbody><tr align="center">
+
+		<td class="cat"><form name="viewtopic" method="post" action="./viewtopic.php?f=642&amp;t=732640&amp;sid=806b37d3f1d8c063a20e5c1e40f08666"><span class="gensmall">Display posts from previous:</span> <select name="st" id="st"><option value="0" selected="selected">All posts</option><option value="1">1 day</option><option value="7">7 days</option><option value="14">2 weeks</option><option value="30">1 month</option><option value="90">3 months</option><option value="180">6 months</option><option value="365">1 year</option></select>&nbsp;<span class="gensmall">Sort by</span> <select name="sk" id="sk"><option value="a">Author</option><option value="t" selected="selected">Post time</option><option value="s">Subject</option></select> <select name="sd" id="sd"><option value="a" selected="selected">Ascending</option><option value="d">Descending</option></select>&nbsp;<input class="btnlite" value="Go" name="sort" type="submit"></form></td>
+
+	</tr>
+
+	</tbody></table>
+
+	
+
+
+
+	<table cellspacing="1" width="100%">
+
+	<tbody><tr>
+
+		<td align="left" nowrap="nowrap" valign="middle">
+
+		<a href="http://forum.joomla.org/posting.php?mode=post&amp;f=642&amp;sid=806b37d3f1d8c063a20e5c1e40f08666"><img src="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/button_topic_new.gif" alt="Post new topic" title="Post new topic" height="25" width="96"></a>&nbsp;<a href="http://forum.joomla.org/posting.php?mode=reply&amp;f=642&amp;t=732640&amp;sid=806b37d3f1d8c063a20e5c1e40f08666"><img src="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/button_topic_reply.gif" alt="Reply to topic" title="Reply to topic" height="25" width="96"></a>
+
+		</td>
+
+		
+
+			<td class="nav" nowrap="nowrap" valign="middle">&nbsp;Page <strong>1</strong> of <strong>1</strong><br></td>
+
+			<td class="gensmall" nowrap="nowrap">&nbsp;[ 2 posts ]&nbsp;</td>
+
+			<td class="gensmall" align="right" nowrap="nowrap" width="100%"></td>
+
+		
+
+	</tr>
+
+	</tbody></table>
+
+
+
+</div>
+
+
+
+<div id="pagefooter"></div>
+
+
+
+<br clear="all">
+
+
+
+
+
+							<div style="margin:0 auto;padding: 15px 0 5px 0;width:468px;border:0;">
+
+									<script type="text/javascript">
+
+ 										GA_googleFillSlot("Joomla_Forum_Footer");
+
+									</script><script src="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/ads_002"></script><div id="google_ads_div_Joomla_Forum_Footer_ad_wrapper">
+<div id="google_ads_div_Joomla_Forum_Footer_ad_container" style="display:inline-block;">
+<ins style="width: 468px; height: 60px; display: inline-table; position: relative; border: 0px none;"><ins style="width: 468px; height: 60px; display: block; position: relative; border: 0px none;"><iframe style="border: 0px none; position: absolute; top: 0px; left: 0px;" marginheight="0" marginwidth="0" name="google_ads_iframe_Joomla_Forum_Footer" id="google_ads_iframe_Joomla_Forum_Footer" frameborder="0" height="60" scrolling="no" width="468"></iframe></ins></ins></div>
+</div>
+<script>GA_googleCreateDomIframe("google_ads_div_Joomla_Forum_Footer_ad_container" ,"Joomla_Forum_Footer");</script>
+
+								</div>
+
+	<br clear="all">							
+
+<table class="tablebg" style="margin-top: 5px;" cellpadding="0" cellspacing="1" width="100%">
+	<tbody><tr>
+		<td class="row1">
+			<p class="breadcrumbs"><a href="http://forum.joomla.org/index.php?sid=806b37d3f1d8c063a20e5c1e40f08666">Board index</a> » <a href="http://forum.joomla.org/viewforum.php?f=646&amp;sid=806b37d3f1d8c063a20e5c1e40f08666">Joomla! Development Forums</a> » <a href="http://forum.joomla.org/viewforum.php?f=509&amp;sid=806b37d3f1d8c063a20e5c1e40f08666">Joomla! Development</a> » <a href="http://forum.joomla.org/viewforum.php?f=642&amp;sid=806b37d3f1d8c063a20e5c1e40f08666">Joomla! 2.5 Coding</a></p>
+		</td>
+	</tr>
+	</tbody></table>
+
+	<br clear="all">
+
+
+
+	<table class="tablebg" cellspacing="1" width="100%">
+
+	<tbody><tr>
+
+		<td class="catwho"><h4>Who is online</h4></td>
+
+	</tr>
+
+	<tr>
+
+		<td class="row1"><p class="gensmall">Users browsing this forum: No registered users and 7 guests</p></td>
+
+	</tr>
+
+	</tbody></table>
+
+
+
+
+
+<br clear="all">
+
+
+
+<table cellspacing="1" width="100%">
+
+<tbody><tr>
+
+	<td align="left" nowrap="nowrap" valign="top" width="40%"></td>
+
+	<td align="right" nowrap="nowrap" valign="top"><span class="gensmall">You <strong>cannot</strong> post new topics in this forum<br>You <strong>cannot</strong> reply to topics in this forum<br>You <strong>cannot</strong> edit your posts in this forum<br>You <strong>cannot</strong> delete your posts in this forum<br>You <strong>cannot</strong> post attachments in this forum<br></span></td>
+
+</tr>
+
+</tbody></table>
+
+
+
+<br clear="all">
+
+
+
+<table cellspacing="0" width="100%">
+
+<tbody><tr>
+
+	<td></td>
+
+	<td align="right">
+	<form method="post" name="jumpbox" action="./viewforum.php?sid=806b37d3f1d8c063a20e5c1e40f08666" onsubmit="if(document.jumpbox.f.value == -1){return false;}">
+
+	<table border="0" cellpadding="0" cellspacing="0">
+	<tbody><tr>
+		<td nowrap="nowrap"><span class="gensmall">Jump to:</span>&nbsp;<select name="f" onchange="if(this.options[this.selectedIndex].value != -1){ document.forms['jumpbox'].submit() }">
+
+		
+			<option value="-1">Select a forum</option>
+		<option value="-1">------------------</option>
+			<option value="504">Joomla! Announcements</option>
+		
+			<option value="8">&nbsp; &nbsp;Announcements</option>
+		
+			<option value="9">&nbsp; &nbsp;&nbsp; &nbsp;Announcements Discussions</option>
+		
+			<option value="614">Joomla! 2.5 - Ask Support Questions Here</option>
+		
+			<option value="615">&nbsp; &nbsp;General Questions/New to Joomla! 2.5</option>
+		
+			<option value="622">&nbsp; &nbsp;Installation Joomla! 2.5</option>
+		
+			<option value="623">&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 2.5 on IIS webserver</option>
+		
+			<option value="624">&nbsp; &nbsp;Administration Joomla! 2.5</option>
+		
+			<option value="673">&nbsp; &nbsp;&nbsp; &nbsp;Access Control List (ACL) in Joomla! 2.5</option>
+		
+			<option value="625">&nbsp; &nbsp;Migrating and Upgrading to Joomla! 2.5</option>
+		
+			<option value="621">&nbsp; &nbsp;Security in Joomla! 2.5</option>
+		
+			<option value="620">&nbsp; &nbsp;Extensions for Joomla! 2.5</option>
+		
+			<option value="626">&nbsp; &nbsp;&nbsp; &nbsp;Components - Joomla! 2.5</option>
+		
+			<option value="627">&nbsp; &nbsp;&nbsp; &nbsp;Modules - Joomla! 2.5</option>
+		
+			<option value="628">&nbsp; &nbsp;&nbsp; &nbsp;Plugins - Joomla! 2.5</option>
+		
+			<option value="619">&nbsp; &nbsp;Templates for Joomla! 2.5</option>
+		
+			<option value="629">&nbsp; &nbsp;&nbsp; &nbsp;Template overrides in Joomla! 2.5</option>
+		
+			<option value="674">&nbsp; &nbsp;&nbsp; &nbsp;Default template: Atomic in Joomla! 2.5</option>
+		
+			<option value="675">&nbsp; &nbsp;&nbsp; &nbsp;Default template: Beez 5 in Joomla! 2.5</option>
+		
+			<option value="676">&nbsp; &nbsp;&nbsp; &nbsp;Default template: Beez 20 in Joomla! 2.5</option>
+		
+			<option value="677">&nbsp; &nbsp;&nbsp; &nbsp;Default template: Rhuk Milkyway in Joomla! 2.5</option>
+		
+			<option value="678">&nbsp; &nbsp;&nbsp; &nbsp;Default Admin templates in Joomla! 2.5</option>
+		
+			<option value="680">&nbsp; &nbsp;&nbsp; &nbsp;Templates for Mobile Devices in Joomla! 2.5</option>
+		
+			<option value="618">&nbsp; &nbsp;Search Engine Optimization (Joomla! SEO) in Joomla! 2.5</option>
+		
+			<option value="617">&nbsp; &nbsp;Language - Joomla! 2.5</option>
+		
+			<option value="616">&nbsp; &nbsp;Performance - Joomla! 2.5</option>
+		
+			<option value="705">Joomla! 3.x - Ask Support Questions Here</option>
+		
+			<option value="706">&nbsp; &nbsp;General Questions/New to Joomla! 3.x</option>
+		
+			<option value="707">&nbsp; &nbsp;Installation Joomla! 3.x</option>
+		
+			<option value="717">&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 3.x on IIS webserver</option>
+		
+			<option value="708">&nbsp; &nbsp;Administration Joomla! 3.x</option>
+		
+			<option value="719">&nbsp; &nbsp;&nbsp; &nbsp;Access Control List (ACL) in Joomla! 3.x</option>
+		
+			<option value="710">&nbsp; &nbsp;Migrating and Upgrading to Joomla! 3.x</option>
+		
+			<option value="714">&nbsp; &nbsp;Security in Joomla! 3.x</option>
+		
+			<option value="715">&nbsp; &nbsp;Extensions for Joomla! 3.x</option>
+		
+			<option value="721">&nbsp; &nbsp;&nbsp; &nbsp;Components - Joomla! 3.x</option>
+		
+			<option value="723">&nbsp; &nbsp;&nbsp; &nbsp;Plugins - Joomla! 3.x</option>
+		
+			<option value="724">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Modules - Joomla! 3.x</option>
+		
+			<option value="713">&nbsp; &nbsp;Templates for Joomla! 3.x</option>
+		
+			<option value="718">&nbsp; &nbsp;&nbsp; &nbsp;Template overrides in Joomla! 3.x</option>
+		
+			<option value="726">&nbsp; &nbsp;&nbsp; &nbsp;Default template: Beez3 in Joomla! 3.x</option>
+		
+			<option value="725">&nbsp; &nbsp;&nbsp; &nbsp;Default template: Protostar in Joomla! 3.x</option>
+		
+			<option value="720">&nbsp; &nbsp;&nbsp; &nbsp;Default Admin templates in Joomla! 3.x</option>
+		
+			<option value="722">&nbsp; &nbsp;&nbsp; &nbsp;Templates for Mobile Devices in Joomla! 3.x</option>
+		
+			<option value="712">&nbsp; &nbsp;Search Engine Optimization (Joomla! SEO) in Joomla! 3.x</option>
+		
+			<option value="711">&nbsp; &nbsp;Language - Joomla! 3.x</option>
+		
+			<option value="709">&nbsp; &nbsp;Performance - Joomla! 3.x</option>
+		
+			<option value="513">Joomla! Older Version Support</option>
+		
+			<option value="506">&nbsp; &nbsp;Joomla! 1.5</option>
+		
+			<option value="428">&nbsp; &nbsp;&nbsp; &nbsp;General Questions/New to Joomla! 1.5</option>
+		
+			<option value="429">&nbsp; &nbsp;&nbsp; &nbsp;Installation 1.5</option>
+		
+			<option value="543">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 1.5 on IIS webserver</option>
+		
+			<option value="431">&nbsp; &nbsp;&nbsp; &nbsp;Administration 1.5</option>
+		
+			<option value="430">&nbsp; &nbsp;&nbsp; &nbsp;Migrating and Upgrading to Joomla! 1.5</option>
+		
+			<option value="432">&nbsp; &nbsp;&nbsp; &nbsp;Security in Joomla! 1.5</option>
+		
+			<option value="470">&nbsp; &nbsp;&nbsp; &nbsp;Extensions for Joomla! 1.5</option>
+		
+			<option value="471">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Components for Joomla! 1.5</option>
+		
+			<option value="472">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Modules for Joomla! 1.5</option>
+		
+			<option value="473">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Plugins for Joomla! 1.5</option>
+		
+			<option value="474">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;WYSIWYG Editors for Joomla! 1.5</option>
+		
+			<option value="466">&nbsp; &nbsp;&nbsp; &nbsp;Templates for Joomla! 1.5</option>
+		
+			<option value="469">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Template overrides for Joomla! 1.5</option>
+		
+			<option value="404">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Default template: BEEZ in Joomla! 1.5</option>
+		
+			<option value="480">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Default template: Milky Way  in Joomla! 1.5</option>
+		
+			<option value="541">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Default Template: JA Purity in Joomla! 1.5</option>
+		
+			<option value="544">&nbsp; &nbsp;&nbsp; &nbsp;Search Engine Optimization (Joomla! SEO) in Joomla! 1.5</option>
+		
+			<option value="485">&nbsp; &nbsp;&nbsp; &nbsp;Language - Joomla! 1.5</option>
+		
+			<option value="433">&nbsp; &nbsp;&nbsp; &nbsp;Performance - Joomla! 1.5</option>
+		
+			<option value="505">&nbsp; &nbsp;Joomla! 1.0</option>
+		
+			<option value="35">&nbsp; &nbsp;&nbsp; &nbsp;Installation - 1.0.x</option>
+		
+			<option value="36">&nbsp; &nbsp;&nbsp; &nbsp;Upgrading - 1.0.x</option>
+		
+			<option value="267">&nbsp; &nbsp;&nbsp; &nbsp;Security - 1.0.x</option>
+		
+			<option value="296">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;3rd Party/Non Joomla! Security Issues</option>
+		
+			<option value="34">&nbsp; &nbsp;&nbsp; &nbsp;Administration - 1.0.x</option>
+		
+			<option value="465">&nbsp; &nbsp;&nbsp; &nbsp;Extensions - 1.0.x</option>
+		
+			<option value="39">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Components</option>
+		
+			<option value="40">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Modules</option>
+		
+			<option value="41">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Plugins/Mambots</option>
+		
+			<option value="57">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;WYSIWYG Editors - 1.0.x</option>
+		
+			<option value="43">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Integration &amp; Bridges - 1.0.x</option>
+		
+			<option value="216">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;phpbb - Joomla! Integration</option>
+		
+			<option value="42">&nbsp; &nbsp;&nbsp; &nbsp;Templates &amp; CSS - 1.0.x</option>
+		
+			<option value="309">&nbsp; &nbsp;&nbsp; &nbsp;Language - 1.0.x</option>
+		
+			<option value="123">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joom!Fish and Multilingual Sites</option>
+		
+			<option value="268">&nbsp; &nbsp;&nbsp; &nbsp;Performance - 1.0.x</option>
+		
+			<option value="32">&nbsp; &nbsp;&nbsp; &nbsp;General Questions - 1.0.x</option>
+		
+			<option value="542">Joomla! International Language Support</option>
+		
+			<option value="511">&nbsp; &nbsp;International Zone</option>
+		
+			<option value="243">&nbsp; &nbsp;&nbsp; &nbsp;Albanian Forum</option>
+		
+			<option value="17">&nbsp; &nbsp;&nbsp; &nbsp;Arabic Forum</option>
+		
+			<option value="558">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;تنبيهات هامة</option>
+		
+			<option value="560">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;الدروس</option>
+		
+			<option value="644">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;جوملا! 1.6/1.7</option>
+		
+			<option value="665">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;الأسئلة الشائعة</option>
+		
+			<option value="666">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;التثبيت و الترقية</option>
+		
+			<option value="667">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;الحماية - و تحسين السرعة والأداء</option>
+		
+			<option value="668">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;لوحة التحكم</option>
+		
+			<option value="669">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;الإضافات البرمجية</option>
+		
+			<option value="670">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;تعريب جوملا! و الإضافات البرمجية</option>
+		
+			<option value="671">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;القوالب و التصميم</option>
+		
+			<option value="672">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;صداقة محركات البحث</option>
+		
+			<option value="645">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;القسم العام</option>
+		
+			<option value="289">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;1.5 !جوملا</option>
+		
+			<option value="549">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;الأسئلة الشائعة</option>
+		
+			<option value="550">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;التثبيت و الترقية</option>
+		
+			<option value="551">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;الحماية - و تحسين السرعة والأداء</option>
+		
+			<option value="552">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;لوحة التحكم</option>
+		
+			<option value="553">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;الإضافات البرمجية</option>
+		
+			<option value="554">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;تعريب جوملا! و الإضافات البرمجية</option>
+		
+			<option value="555">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;القوالب و التصميم</option>
+		
+			<option value="556">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;صداقة محركات البحث</option>
+		
+			<option value="557">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;القسم العام</option>
+		
+			<option value="547">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;جوملا! 1.0</option>
+		
+			<option value="383">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;الأسئلة الشائـعة</option>
+		
+			<option value="311">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;التثبيت</option>
+		
+			<option value="312">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;لوحة التحكم</option>
+		
+			<option value="313">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;الإضافات البرمجية</option>
+		
+			<option value="360">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;الإضافات المعرّبة</option>
+		
+			<option value="314">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;القوالب و التصميم</option>
+		
+			<option value="548">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;الحماية - تحسين السرعة والأداء - صداقة محركات البحث</option>
+		
+			<option value="310">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;القسم العام</option>
+		
+			<option value="559">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;القسم العام</option>
+		
+			<option value="315">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;!عرض موقعك بجوملا</option>
+		
+			<option value="316">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;الأرشيف</option>
+		
+			<option value="568">&nbsp; &nbsp;&nbsp; &nbsp;Azeri Forum</option>
+		
+			<option value="274">&nbsp; &nbsp;&nbsp; &nbsp;Basque Forum</option>
+		
+			<option value="275">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Itzulpenaren inguruan</option>
+		
+			<option value="276">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Laguntza teknikoa</option>
+		
+			<option value="753">&nbsp; &nbsp;&nbsp; &nbsp;Belarusian Forum</option>
+		
+			<option value="64">&nbsp; &nbsp;&nbsp; &nbsp;Bengali Forum</option>
+		
+			<option value="104">&nbsp; &nbsp;&nbsp; &nbsp;Bosnian Forum</option>
+		
+			<option value="494">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 1.5</option>
+		
+			<option value="495">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Instalacija i prvi koraci</option>
+		
+			<option value="496">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Ekstenzije</option>
+		
+			<option value="497">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Templejti</option>
+		
+			<option value="498">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Moduli</option>
+		
+			<option value="499">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Prevodi i dokumentacija</option>
+		
+			<option value="601">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 1.7 / Joomla! 1.6</option>
+		
+			<option value="95">&nbsp; &nbsp;&nbsp; &nbsp;Catalan Forum</option>
+		
+			<option value="134">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Notícies</option>
+		
+			<option value="135">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Temes sobre l'administració</option>
+		
+			<option value="136">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Temes sobre la traducció</option>
+		
+			<option value="137">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Components, mòduls i joombots</option>
+		
+			<option value="138">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Temes de disseny</option>
+		
+			<option value="139">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Webs realitzades amb Joomla!</option>
+		
+			<option value="140">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Offtopics</option>
+		
+			<option value="98">&nbsp; &nbsp;&nbsp; &nbsp;Chinese Forum</option>
+		
+			<option value="150">&nbsp; &nbsp;&nbsp; &nbsp;Croatian Forum</option>
+		
+			<option value="16">&nbsp; &nbsp;&nbsp; &nbsp;Danish Forum</option>
+		
+			<option value="115">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Meddelelser</option>
+		
+			<option value="595">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 2.5 (Den anbefalede version til de fleste brugere)</option>
+		
+			<option value="596">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Installation, backup, opdatering og flytning - Godt igang</option>
+		
+			<option value="597">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Administration - Generel brug</option>
+		
+			<option value="598">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Komponenter, Moduler og Plugins</option>
+		
+			<option value="599">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Template, CSS og Design</option>
+		
+			<option value="600">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Nethandel, betaling m.m.</option>
+		
+			<option value="758">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 3.0 (Beregnet for udviklere og early adapters)</option>
+		
+			<option value="757">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Ældre versioner (disse vedligeholdes ikke længere fra officiel side)</option>
+		
+			<option value="458">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla 1.5 (Tidligere langtidssupporteret version indtil sep. 2012)</option>
+		
+			<option value="459">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Installation, backup, opdatering og flytning - Godt igang</option>
+		
+			<option value="460">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Administration - Generel brug</option>
+		
+			<option value="461">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Komponenter, Moduler og Plugins</option>
+		
+			<option value="462">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Template, CSS og Design</option>
+		
+			<option value="463">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Nethandel, betaling m.m.</option>
+		
+			<option value="456">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla 1.0 (Udgået version, der blev afløst af 1.5 i 2008)</option>
+		
+			<option value="116">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Installation, backup, opdatering og flytning - Godt igang</option>
+		
+			<option value="117">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Administration - Generel brug</option>
+		
+			<option value="118">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Komponenter, Moduler og Mambots</option>
+		
+			<option value="119">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Template, CSS og Design</option>
+		
+			<option value="457">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Nethandel, betaling m.m.</option>
+		
+			<option value="120">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Oversættelser (lokalisering)</option>
+		
+			<option value="589">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla brugergrupper i Danmark</option>
+		
+			<option value="593">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;JUG Kolding</option>
+		
+			<option value="590">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;JUG København</option>
+		
+			<option value="591">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;JUG Odense</option>
+		
+			<option value="592">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;JUG Århus</option>
+		
+			<option value="685">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;JUG Sorø</option>
+		
+			<option value="299">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Kommerciel (betalt) hjælp ønskes</option>
+		
+			<option value="464">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;SEO</option>
+		
+			<option value="295">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;FAQ - Dokumentation og vejledninger</option>
+		
+			<option value="121">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Vis dit websted</option>
+		
+			<option value="417">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Afviste 'Vis dit websted' indlæg</option>
+		
+			<option value="122">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Diverse (Off topic)</option>
+		
+			<option value="13">&nbsp; &nbsp;&nbsp; &nbsp;Dutch Forum</option>
+		
+			<option value="77">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Aankondigingen</option>
+		
+			<option value="78">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Algemene vragen</option>
+		
+			<option value="630">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 2.5</option>
+		
+			<option value="631">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Installatie 2.5</option>
+		
+			<option value="632">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Componenten 2.5</option>
+		
+			<option value="633">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Modules 2.5</option>
+		
+			<option value="634">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Plugins 2.5</option>
+		
+			<option value="635">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Templates 2.5</option>
+		
+			<option value="351">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 1.5</option>
+		
+			<option value="489">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Installatie</option>
+		
+			<option value="490">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Componenten</option>
+		
+			<option value="491">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Modules</option>
+		
+			<option value="492">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Plugins</option>
+		
+			<option value="493">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Templates</option>
+		
+			<option value="488">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 1.0</option>
+		
+			<option value="79">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Installatie 1.0.x</option>
+		
+			<option value="81">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Componenten 1.0.x</option>
+		
+			<option value="82">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Modules 1.0.x</option>
+		
+			<option value="83">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Mambots 1.0.x</option>
+		
+			<option value="84">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Templates 1.0.x</option>
+		
+			<option value="80">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Vertalingen</option>
+		
+			<option value="85">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Offtopic</option>
+		
+			<option value="105">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Show jouw website</option>
+		
+			<option value="21">&nbsp; &nbsp;&nbsp; &nbsp;Filipino Forum</option>
+		
+			<option value="101">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;International Support Center</option>
+		
+			<option value="226">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Pinoy General Discussion &amp; Archives</option>
+		
+			<option value="65">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Site Showcase</option>
+		
+			<option value="96">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Events</option>
+		
+			<option value="100">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Design Tips and Tricks</option>
+		
+			<option value="99">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Tsismis Zone</option>
+		
+			<option value="168">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Pinoy Translation Zone</option>
+		
+			<option value="227">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Pinoy Forum Archives</option>
+		
+			<option value="242">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! Philippines Local Forum www.joomla.org.ph</option>
+		
+			<option value="25">&nbsp; &nbsp;&nbsp; &nbsp;Finnish Forum</option>
+		
+			<option value="19">&nbsp; &nbsp;&nbsp; &nbsp;French Forum</option>
+		
+			<option value="530">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Les annonces!</option>
+		
+			<option value="158">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Le bistrot!</option>
+		
+			<option value="336">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;L'expo!</option>
+		
+			<option value="655">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;J! 2.5.x - L'atelier!</option>
+		
+			<option value="656">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;2.5 - Questions générales</option>
+		
+			<option value="657">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;2.5 - Installation, migration et mise à jour</option>
+		
+			<option value="658">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;2.5 - Sécurité et performances</option>
+		
+			<option value="659">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;2.5 - Extensions tierce partie</option>
+		
+			<option value="661">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;2.5 - Templates et design</option>
+		
+			<option value="662">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;2.5 - Développement</option>
+		
+			<option value="663">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;2.5 - Ressources</option>
+		
+			<option value="745">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;J! 3.x - L'atelier!</option>
+		
+			<option value="746">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;3.x - Questions générales, nouvel utilisateur</option>
+		
+			<option value="747">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;3.x - Installation, migration et mise à jour</option>
+		
+			<option value="748">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;3.x - Sécurité et performances</option>
+		
+			<option value="749">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;3.x - Extensions tierce partie</option>
+		
+			<option value="750">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;3.x - Templates et design</option>
+		
+			<option value="751">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;3.x - Développement</option>
+		
+			<option value="752">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;3.x - Ressources</option>
+		
+			<option value="330">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;J! 1.5.x - L'atelier!</option>
+		
+			<option value="531">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;1.5 - Questions générales</option>
+		
+			<option value="532">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;1.5 - Installation, migration et mise à jour</option>
+		
+			<option value="533">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;1.5 - Sécurité et performances</option>
+		
+			<option value="534">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;1.5 - Extensions tierce partie</option>
+		
+			<option value="535">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;1.5 - Templates et design</option>
+		
+			<option value="536">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;1.5 - Développement</option>
+		
+			<option value="537">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;1.5 - Ressources</option>
+		
+			<option value="159">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;J! 1.0.x - L'atelier!</option>
+		
+			<option value="332">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;1.0 - Questions générales</option>
+		
+			<option value="331">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;1.0 - Installation et mise à jour</option>
+		
+			<option value="335">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;1.0 - Sécurité</option>
+		
+			<option value="333">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;1.0 - Extensions tierce partie</option>
+		
+			<option value="334">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;1.0 - Templates et design</option>
+		
+			<option value="538">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;1.0 - Développement</option>
+		
+			<option value="160">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;1.0 - Ressources</option>
+		
+			<option value="427">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Besoin d'un professionel ?</option>
+		
+			<option value="482">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Extensions Open Source pour Joomla!</option>
+		
+			<option value="14">&nbsp; &nbsp;&nbsp; &nbsp;German Forum</option>
+		
+			<option value="66">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Ankündigungen</option>
+		
+			<option value="648">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 2.5</option>
+		
+			<option value="649">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Allgemeine Fragen</option>
+		
+			<option value="650">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Installation und erste Schritte</option>
+		
+			<option value="651">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Komponenten, Module, Plugins</option>
+		
+			<option value="654">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Template, CSS und Designfragen</option>
+		
+			<option value="652">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Entwicklerforum</option>
+		
+			<option value="653">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Zeige Deine Webseite</option>
+		
+			<option value="759">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 3.0</option>
+		
+			<option value="760">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Allgemeine Fragen</option>
+		
+			<option value="762">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Installation und erste Schritte</option>
+		
+			<option value="763">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Komponenten, Module, Plugins</option>
+		
+			<option value="764">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Template, CSS und Designfragen</option>
+		
+			<option value="765">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Entwicklerforum</option>
+		
+			<option value="766">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Zeige Deine Webseite</option>
+		
+			<option value="516">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 1.5</option>
+		
+			<option value="518">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Allgemeine Fragen</option>
+		
+			<option value="519">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Installation und erste Schritte</option>
+		
+			<option value="520">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Komponenten, Module, Plugins</option>
+		
+			<option value="521">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Template, CSS und Designfragen</option>
+		
+			<option value="522">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Entwicklerforum</option>
+		
+			<option value="523">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Zeige Deine Webseite</option>
+		
+			<option value="272">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Professioneller Service</option>
+		
+			<option value="70">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Sonstiges (Offtopic)</option>
+		
+			<option value="696">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Archiv</option>
+		
+			<option value="517">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 1.0</option>
+		
+			<option value="269">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Allgemeine Fragen 1.0.x</option>
+		
+			<option value="67">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Installation und erste Schritte 1.0.x</option>
+		
+			<option value="68">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Komponenten, Module, Mambots 1.0.x</option>
+		
+			<option value="69">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Template, CSS und Designfragen 1.0.x</option>
+		
+			<option value="270">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Entwicklerforum 1.0.x</option>
+		
+			<option value="271">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Zeige Deine Webseite 1.0.x</option>
+		
+			<option value="50">&nbsp; &nbsp;&nbsp; &nbsp;Greek Forum</option>
+		
+			<option value="454">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 1.0.x</option>
+		
+			<option value="455">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 1.5.x</option>
+		
+			<option value="172">&nbsp; &nbsp;&nbsp; &nbsp;Hebrew Forum</option>
+		
+			<option value="403">&nbsp; &nbsp;&nbsp; &nbsp;Hungarian Forum</option>
+		
+			<option value="162">&nbsp; &nbsp;&nbsp; &nbsp;Indic Languages Forum</option>
+		
+			<option value="53">&nbsp; &nbsp;&nbsp; &nbsp;Indonesian Forum</option>
+		
+			<option value="349">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;FAQ</option>
+		
+			<option value="221">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Bantuan</option>
+		
+			<option value="222">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Komponen</option>
+		
+			<option value="223">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Modul</option>
+		
+			<option value="224">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Template</option>
+		
+			<option value="225">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Diskusi</option>
+		
+			<option value="55">&nbsp; &nbsp;&nbsp; &nbsp;Italian Forum</option>
+		
+			<option value="110">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Guide</option>
+		
+			<option value="111">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Traduzioni</option>
+		
+			<option value="112">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Componenti - Moduli - Plugins</option>
+		
+			<option value="348">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Template - Grafica</option>
+		
+			<option value="113">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Notizie</option>
+		
+			<option value="169">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Prodotti Open Source per Joomla!</option>
+		
+			<option value="238">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Richieste professionali</option>
+		
+			<option value="767">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 3.x</option>
+		
+			<option value="647">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 2.5.x</option>
+		
+			<option value="481">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 1.x</option>
+		
+			<option value="141">&nbsp; &nbsp;&nbsp; &nbsp;Japanese Forum</option>
+		
+			<option value="569">&nbsp; &nbsp;&nbsp; &nbsp;Khmer Forum</option>
+		
+			<option value="683">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;ពិពណ៌​ស្ថាន​បណ្ដាញ​ជុំឡា</option>
+		
+			<option value="684">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;ជុំឡា​ខ្មែរ​មូលដ្ឋានីយកម្ម</option>
+		
+			<option value="358">&nbsp; &nbsp;&nbsp; &nbsp;Latvian Forum</option>
+		
+			<option value="189">&nbsp; &nbsp;&nbsp; &nbsp;Lithuanian Forum</option>
+		
+			<option value="361">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 1.5</option>
+		
+			<option value="643">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 1.7 / Joomla! 1.6</option>
+		
+			<option value="561">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 1.0</option>
+		
+			<option value="421">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Vertimai ir Kalba</option>
+		
+			<option value="215">&nbsp; &nbsp;&nbsp; &nbsp;Malaysian Forum</option>
+		
+			<option value="327">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Solved</option>
+		
+			<option value="191">&nbsp; &nbsp;&nbsp; &nbsp;Maltese Forum</option>
+		
+			<option value="97">&nbsp; &nbsp;&nbsp; &nbsp;Norwegian Forum</option>
+		
+			<option value="435">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Informasjon og annonseringer</option>
+		
+			<option value="436">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;FAQ - Ofte spurte spørsmål</option>
+		
+			<option value="603">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 2.5</option>
+		
+			<option value="604">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Administrasjon/installasjon</option>
+		
+			<option value="605">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Migrering/Oppdatering</option>
+		
+			<option value="606">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Template, CSS og design</option>
+		
+			<option value="607">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Komponenter/moduler/programutvidelser</option>
+		
+			<option value="608">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Sikkerhet</option>
+		
+			<option value="609">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Generelt</option>
+		
+			<option value="729">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 3.0</option>
+		
+			<option value="730">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Administrasjon/installasjon</option>
+		
+			<option value="731">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Migrering/Oppdatering</option>
+		
+			<option value="732">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Template, CSS og design</option>
+		
+			<option value="733">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Komponenter/moduler/programutvidelser</option>
+		
+			<option value="734">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Sikkerhet</option>
+		
+			<option value="735">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Generelt</option>
+		
+			<option value="438">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 1.5</option>
+		
+			<option value="439">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Administrasjon/installasjon</option>
+		
+			<option value="440">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Migrering/Oppdatering</option>
+		
+			<option value="441">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Template, CSS og design</option>
+		
+			<option value="442">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Komponenter/moduler/programutvidelser</option>
+		
+			<option value="443">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Sikkerhet</option>
+		
+			<option value="444">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Generelt</option>
+		
+			<option value="396">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Netthandel, betaling m.m.</option>
+		
+			<option value="565">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;VirtueMart</option>
+		
+			<option value="611">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;redSHOP</option>
+		
+			<option value="566">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Andre nettbutikkløsninger</option>
+		
+			<option value="567">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Generelt</option>
+		
+			<option value="210">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Oversettelser</option>
+		
+			<option value="187">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Fremvisning av sider (Show off)</option>
+		
+			<option value="416">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Avviste fremvisninger</option>
+		
+			<option value="288">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Diverse (off topic)</option>
+		
+			<option value="298">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Kommersiell hjelp ønskes</option>
+		
+			<option value="610">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Eldre versjoner av Joomla!</option>
+		
+			<option value="437">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 1.0</option>
+		
+			<option value="184">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Administrasjon/installasjon</option>
+		
+			<option value="185">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Template, CSS og design</option>
+		
+			<option value="183">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Komponenter/moduler/mambots</option>
+		
+			<option value="186">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Sikkerhet</option>
+		
+			<option value="182">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Generelt</option>
+		
+			<option value="102">&nbsp; &nbsp;&nbsp; &nbsp;Persian Forum</option>
+		
+			<option value="278">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;قالب ها</option>
+		
+			<option value="279">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;مدیریت</option>
+		
+			<option value="280">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;سوالهای عمومی</option>
+		
+			<option value="281">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;نصب</option>
+		
+			<option value="282">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;مامبوت ها</option>
+		
+			<option value="283">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;ماژولها</option>
+		
+			<option value="284">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;کامپوننت ها</option>
+		
+			<option value="18">&nbsp; &nbsp;&nbsp; &nbsp;Polish Forum</option>
+		
+			<option value="71">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Instalacja i aktualizacja</option>
+		
+			<option value="72">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Administracja</option>
+		
+			<option value="73">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Komponenty, moduły, wtyczki</option>
+		
+			<option value="74">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Szablony</option>
+		
+			<option value="232">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Paczta i Podziwiajta</option>
+		
+			<option value="75">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Modyfikacje i własne rozwiązania</option>
+		
+			<option value="76">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Tłumaczenia</option>
+		
+			<option value="130">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;FAQ</option>
+		
+			<option value="131">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Tips&amp;Tricks</option>
+		
+			<option value="132">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Humor</option>
+		
+			<option value="133">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Dokumentacja</option>
+		
+			<option value="239">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Profesjonalne usługi</option>
+		
+			<option value="23">&nbsp; &nbsp;&nbsp; &nbsp;Portuguese Forum</option>
+		
+			<option value="106">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Componentes, módulos e mambots</option>
+		
+			<option value="107">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Programação e desenvolvimento</option>
+		
+			<option value="374">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Segurança</option>
+		
+			<option value="108">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Sites dos usuários</option>
+		
+			<option value="109">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Off-topic</option>
+		
+			<option value="163">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Tradução</option>
+		
+			<option value="230">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Templates</option>
+		
+			<option value="30">&nbsp; &nbsp;&nbsp; &nbsp;Romanian Forum</option>
+		
+			<option value="148">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Traduceri</option>
+		
+			<option value="26">&nbsp; &nbsp;&nbsp; &nbsp;Russian Forum</option>
+		
+			<option value="29">&nbsp; &nbsp;&nbsp; &nbsp;Serbian/Montenegrin Forum</option>
+		
+			<option value="144">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Tehnička pitanja</option>
+		
+			<option value="420">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Instalacija i početnička pitanja</option>
+		
+			<option value="147">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Šabloni</option>
+		
+			<option value="173">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Prevod i dokumentacija</option>
+		
+			<option value="247">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Ćaskanje</option>
+		
+			<option value="419">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Bezbednost</option>
+		
+			<option value="293">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! dodaci</option>
+		
+			<option value="584">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Pravna pitanja</option>
+		
+			<option value="484">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Arhiva</option>
+		
+			<option value="486">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! Događaji i Zajednica</option>
+		
+			<option value="585">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Izlog (spisak) sajtova radjenih u Joomla! CMS-u</option>
+		
+			<option value="572">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Profesionalne usluge</option>
+		
+			<option value="402">&nbsp; &nbsp;&nbsp; &nbsp;Slovak Forum</option>
+		
+			<option value="157">&nbsp; &nbsp;&nbsp; &nbsp;Slovenian Forum</option>
+		
+			<option value="24">&nbsp; &nbsp;&nbsp; &nbsp;Spanish Forum</option>
+		
+			<option value="602">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 2.5</option>
+		
+			<option value="737">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 3.x</option>
+		
+			<option value="87">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 1.5</option>
+		
+			<option value="89">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Extensiones</option>
+		
+			<option value="91">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Plantillas (templates) y diseño</option>
+		
+			<option value="92">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Idioma y traducciones</option>
+		
+			<option value="587">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;SEO para Joomla!</option>
+		
+			<option value="300">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Seguridad y rendimiento</option>
+		
+			<option value="170">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Productos de Código Abierto para Joomla!</option>
+		
+			<option value="582">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Servicios profesionales</option>
+		
+			<option value="63">&nbsp; &nbsp;&nbsp; &nbsp;Swedish Forum</option>
+		
+			<option value="192">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Meddelanden</option>
+		
+			<option value="686">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Forum för Joomla! med långtidssupport</option>
+		
+			<option value="690">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Forum Joomla! 2.5</option>
+		
+			<option value="691">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Allmänna frågor</option>
+		
+			<option value="692">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Användning och administration</option>
+		
+			<option value="693">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Installation, backup och säkerhet</option>
+		
+			<option value="694">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Komponenter, moduler och plugin</option>
+		
+			<option value="695">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Mallar (templates) och design</option>
+		
+			<option value="446">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Forum Joomla! 1.5</option>
+		
+			<option value="447">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Allmänna frågor</option>
+		
+			<option value="448">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Användning och administration</option>
+		
+			<option value="449">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Installation, backup och säkerhet</option>
+		
+			<option value="450">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Komponenter, moduler och plugin</option>
+		
+			<option value="451">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Mallar (templates) och design</option>
+		
+			<option value="687">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Forum för Joomla! med standardsupport</option>
+		
+			<option value="736">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Forum Joomla! 3.0</option>
+		
+			<option value="738">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Allmänna frågor</option>
+		
+			<option value="739">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Användning och administration</option>
+		
+			<option value="740">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Installation, backup och säkerhet</option>
+		
+			<option value="741">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Komponenter, moduler och plugin</option>
+		
+			<option value="742">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Mallar (templates) och design</option>
+		
+			<option value="688">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Äldre versioner</option>
+		
+			<option value="445">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Forum Joomla! 1.0</option>
+		
+			<option value="212">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Allmänna frågor</option>
+		
+			<option value="193">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Användning och administration</option>
+		
+			<option value="194">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Installation, backup och säkerhet</option>
+		
+			<option value="195">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Komponenter, moduler och Mambots</option>
+		
+			<option value="196">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Mallar (templates) och design</option>
+		
+			<option value="636">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Forum Joomla! 1.7 / Joomla! 1.6</option>
+		
+			<option value="637">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Allmänna frågor</option>
+		
+			<option value="638">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Användning och administration</option>
+		
+			<option value="639">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Installation, backup och säkerhet</option>
+		
+			<option value="640">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Komponenter, moduler och plugin</option>
+		
+			<option value="641">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Mallar (templates) och design</option>
+		
+			<option value="285">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Översättning</option>
+		
+			<option value="539">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Webbplatser gjorda i Joomla</option>
+		
+			<option value="689">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Webbplatser J! 2.5</option>
+		
+			<option value="664">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Webbplatser Joomla! 1.7 / Joomla! 1.6</option>
+		
+			<option value="540">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Webbplatser J! 1.5</option>
+		
+			<option value="197">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Webbplatser J! 1.0</option>
+		
+			<option value="308">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Kommersiell hjälp önskas</option>
+		
+			<option value="213">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Diverse (off topic)</option>
+		
+			<option value="545">&nbsp; &nbsp;&nbsp; &nbsp;Tamil Forum</option>
+		
+			<option value="15">&nbsp; &nbsp;&nbsp; &nbsp;Thai Forum</option>
+		
+			<option value="385">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;โชว์เว็บไซต์ของคุณที่สร้างด้วยจูมล่า</option>
+		
+			<option value="386">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;เคล็ดลับการใช้งานส่วนต่างๆ เกี่ยวกับจ&amp;#</option>
+		
+			<option value="387">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;คอมโพเน้นท์ โมดูล ปลักอิน ต่างๆ ที่ติดตั</option>
+		
+			<option value="388">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;อับเดดข่าวสารเกี่ยวกับจูมล่าลายไทย</option>
+		
+			<option value="51">&nbsp; &nbsp;&nbsp; &nbsp;Turkish Forum</option>
+		
+			<option value="408">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Duyurular</option>
+		
+			<option value="409">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Dersler</option>
+		
+			<option value="413">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Genel Sorular</option>
+		
+			<option value="410">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Bileşen, Modül, Bot</option>
+		
+			<option value="411">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Eklenti Haberleri</option>
+		
+			<option value="412">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Temalar</option>
+		
+			<option value="340">&nbsp; &nbsp;&nbsp; &nbsp;Urdu Forum</option>
+		
+			<option value="171">&nbsp; &nbsp;&nbsp; &nbsp;Vietnamese Forum</option>
+		
+			<option value="214">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Gặp gỡ và giao lưu</option>
+		
+			<option value="203">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla Tiếng Việt</option>
+		
+			<option value="204">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Cài đặt - Cấu hình</option>
+		
+			<option value="205">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Thành phần mở rộng cho Joomla!</option>
+		
+			<option value="754">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Hỏi đáp Joomla! 3</option>
+		
+			<option value="755">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Hỏi đáp Joomla! 2.5</option>
+		
+			<option value="207">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Hỗ trợ kỹ thuật</option>
+		
+			<option value="756">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Bài viết cũ</option>
+		
+			<option value="206">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Thiết kế Template</option>
+		
+			<option value="453">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 1.5</option>
+		
+			<option value="151">&nbsp; &nbsp;&nbsp; &nbsp;Welsh Forum</option>
+		
+			<option value="507">Other Forums</option>
+		
+			<option value="46">&nbsp; &nbsp;Open Source Products for Joomla!</option>
+		
+			<option value="306">&nbsp; &nbsp;Joomla! Events</option>
+		
+			<option value="514">&nbsp; &nbsp;Site Showcase</option>
+		
+			<option value="48">&nbsp; &nbsp;The Lounge</option>
+		
+			<option value="562">&nbsp; &nbsp;Registered Joomla! User Groups</option>
+		
+			<option value="571">&nbsp; &nbsp;Trending Topics</option>
+		
+			<option value="575">&nbsp; &nbsp;Joomla! Ideas Forum</option>
+		
+			<option value="704">&nbsp; &nbsp;Community Blog Discussions</option>
+		
+			<option value="681">&nbsp; &nbsp;Help wanted in the community</option>
+		
+			<option value="646">Joomla! Development Forums</option>
+		
+			<option value="509">&nbsp; &nbsp;Joomla! Development</option>
+		
+			<option value="727">&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 3.x Coding</option>
+		
+			<option value="642" selected="selected">&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 2.5 Coding</option>
+		
+			<option value="728">&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 3.x Bug Reporting</option>
+		
+			<option value="304">&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 1.5 Coding</option>
+		
+			<option value="579">&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 2.5 Bug Reporting</option>
+		
+			<option value="199">&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 1.5 Bug Reporting</option>
+		
+			<option value="703">&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 3 Beta Support</option>
+		
+			<option value="508">Joomla! Official Sites &amp; Infrastructure</option>
+		
+			<option value="262">&nbsp; &nbsp;Extensions.Joomla.org - Feedback/Information</option>
+		
+			<option value="563">&nbsp; &nbsp;Resources.joomla.org - Feedback/Information</option>
+		
+			<option value="303">&nbsp; &nbsp;Documentation - Feedback/Information/Suggestions</option>
+		
+			<option value="7">&nbsp; &nbsp;Sites &amp; Infrastructure - Feedback/Information</option>
+		
+			<option value="406">&nbsp; &nbsp;&nbsp; &nbsp;JoomlaCode.org</option>
+		
+			<option value="229">&nbsp; &nbsp;&nbsp; &nbsp;Archived Boards - All boards closed</option>
+		
+			<option value="142">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Design and Accessibility - Archived</option>
+		
+			<option value="179">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Quality and Testing - Locked and Archived</option>
+		
+			<option value="198">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 1.0.x_Q&amp;T</option>
+		
+			<option value="240">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Q&amp;T 1.0.x Resolved</option>
+		
+			<option value="241">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Known Issues</option>
+		
+			<option value="264">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Superseded Issues</option>
+		
+			<option value="375">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Archive</option>
+		
+			<option value="376">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Q&amp;T 1.0.x Resolved - Archived</option>
+		
+			<option value="377">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Known Issues - Archive</option>
+		
+			<option value="378">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Superseded Issues - Archive</option>
+		
+			<option value="234">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Third Party Testing for Joomla! 1.5</option>
+		
+			<option value="235">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Q&amp;T 1.5.x Resolved</option>
+		
+			<option value="350">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 1.5 BETA</option>
+		
+			<option value="407">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 1.5 BETA 2</option>
+		
+			<option value="1">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Reaction to the 'Letter to the community'</option>
+		
+			<option value="124">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Reaction to New Project Name</option>
+		
+			<option value="145">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Logo Competition</option>
+		
+			<option value="52">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Humor, Fun and Games</option>
+		
+			<option value="341">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Libraries</option>
+		
+			<option value="202">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;patTemplate</option>
+		
+			<option value="174">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;com_connector - Multi Joomla Bridge</option>
+		
+			<option value="294">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;CiviCRM Support</option>
+		
+			<option value="370">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;CiviCRM Installation Issues</option>
+		
+			<option value="414">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;FAQ Archive</option>
+		
+			<option value="237">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;FAQ Discussion Board</option>
+		
+			<option value="338">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;3rd Party Extensions FAQ</option>
+		
+			<option value="337">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;FAQs not moved</option>
+		
+			<option value="346">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;3rd Party/Non Joomla! Security FAQ</option>
+		
+			<option value="452">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! Coding 101</option>
+		
+			<option value="475">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joombie Tools of the Trade</option>
+		
+			<option value="476">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joombie Coding Q/A</option>
+		
+			<option value="477">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joombie Think Tank</option>
+		
+			<option value="478">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joombie Developer Lab</option>
+		
+			<option value="152">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla Forge - Archived</option>
+		
+			<option value="153">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Non-Profit Organizations and Joomla!</option>
+		
+			<option value="265">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Schools and Universities</option>
+		
+			<option value="266">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Bangsamoro Forum</option>
+		
+			<option value="479">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 1.5 Template Contest</option>
+		
+			<option value="149">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;SMF - Simplemachines.org Forum</option>
+		
+			<option value="425">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;GPL Discussion</option>
+		
+			<option value="372">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Security Announcements - Old</option>
+		
+			<option value="483">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Tips &amp; Tricks - Moving</option>
+		
+			<option value="236">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Submit Your Suggested Tips &amp; Tricks to Docs.joomla.org now please.</option>
+		
+			<option value="397">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Google Summer of Code and GHOP</option>
+		
+			<option value="525">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Google Summer of Code 2008</option>
+		
+			<option value="526">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Proposed projects</option>
+		
+			<option value="528">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Student area</option>
+		
+			<option value="398">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Past Google Summer of Code Editions</option>
+		
+			<option value="487">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Google's Highly Open Participation Contest</option>
+		
+			<option value="390">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Documentation</option>
+		
+			<option value="393">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Suggestions, Modifications, and Corrections</option>
+		
+			<option value="394">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Archive</option>
+		
+			<option value="392">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;1.5 Archive</option>
+		
+			<option value="59">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Suggestions, Modifications &amp; Corrections</option>
+		
+			<option value="287">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Submit</option>
+		
+			<option value="391">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Feedback and Suggestions</option>
+		
+			<option value="353">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Applications for participation in the Development Workgroup</option>
+		
+			<option value="326">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Development</option>
+		
+			<option value="515">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;1.5 Site Showcase - Archived</option>
+		
+			<option value="58">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;1.0 x Site Showcase - Archived.</option>
+		
+			<option value="500">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Feature Requests - White Papers - Archived</option>
+		
+			<option value="501">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Under Review - Archived</option>
+		
+			<option value="502">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Accepted - Archived</option>
+		
+			<option value="503">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Not Accepted - Archived</option>
+		
+			<option value="38">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Wishlists and Feature Requests - Archive</option>
+		
+			<option value="175">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Wishlist Archives - Archived</option>
+		
+			<option value="588">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Spanish Forum - Archive</option>
+		
+			<option value="190">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Papelera</option>
+		
+			<option value="93">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Tutoriales</option>
+		
+			<option value="211">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;General</option>
+		
+			<option value="94">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Salón de la Joomlaesfera hispanohablante</option>
+		
+			<option value="594">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Danish Forum - Archive</option>
+		
+			<option value="260">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Diskussion af Meddelelser + Sikkerhedsmeddelelser + FAQ</option>
+		
+			<option value="364">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Shop.Joomla.org</option>
+		
+			<option value="580">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 1.6 RC Support [closed]</option>
+		
+			<option value="126">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 1.0 Coding</option>
+		
+			<option value="178">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Core Hacks and Patches</option>
+		
+			<option value="682">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Joomla! 2.5 Beta Support</option>
+		
+			<option value="576">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;People.joomla.org - Feedback/Information</option>
+		
+			<option value="701">&nbsp; &nbsp;Templates.Joomla.org - Feedback/Information</option>
+		
+			<option value="573">&nbsp; &nbsp;Joomla! Community Magazine</option>
+		
+			<option value="574">&nbsp; &nbsp;&nbsp; &nbsp;Joomla! Community Magazine Editors</option>
+		
+			<option value="510">&nbsp; &nbsp;Joomla! Working Groups</option>
+		
+			<option value="11">&nbsp; &nbsp;&nbsp; &nbsp;Translations</option>
+		
+			<option value="381">&nbsp; &nbsp;&nbsp; &nbsp;OpenSourceMatters.org</option>
+		
+			<option value="699">&nbsp; &nbsp;&nbsp; &nbsp;Joomla! Marketing and PR Team</option>
+		
+
+		</select>&nbsp;<input class="btnlite" value="Go" type="submit"></td>
+	</tr>
+	</tbody></table>
+
+	</form>
+</td>
+
+</tr>
+
+</tbody></table>
+
+
+
+
+</div>
+
+<div id="wrapfooter">
+	
+	<span class="copyright">Powered by <a href="http://www.phpbb.com/" target="_blank">phpBB</a>® Forum Software © phpBB Group
+	</span>
+</div>
+
+
+</div>
+                        <div class="clear"></div>
+    </div>
+</div>
+<div class="clear"></div>
+
+<div id="closingWrap"><div id="closing" class="container_12 clearfix"></div></div>
+<div class="clear"></div>
+<div id="footerWrap">
+  <div id="footer" class="container_12 clearfix">
+    <div class="inside">
+      <div id="copy">
+        <ul class="menu">
+        	<li class="item97">
+        		<a href="http://www.joomla.org/"><span>Home</span></a>
+
+        	</li>
+        	<li class="item110"><a href="http://www.joomla.org/about-joomla.html"><span>About</span></a>
+        	</li>
+        	<li class="item98"><a href="http://community.joomla.org/"><span>Community</span></a></li><li class="item99"><a href="http://forum.joomla.org/"><span>Forum</span></a>
+        	</li>
+        	<li class="item100"><a href="http://extensions.joomla.org/"><span>Extensions</span></a></li><li class="item206"><a href="http://resources.joomla.org/"><span>Resources</span></a>
+
+        	</li>
+        	<li class="item102"><a href="http://docs.joomla.org/"><span>Docs</span></a></li><li class="item101"><a href="http://developer.joomla.org/"><span>Developer</span></a>
+        	</li>
+        	<li class="item103"><a href="http://shop.joomla.org/"><span>Shop</span></a>
+        	</li>
+        </ul>
+		<div class="clr"></div>
+
+      </div>
+      <div id="link">
+        <div id="footerInfo">©2005-2013 <a href="http://www.opensourcematters.org/">Open Source Matters, Inc.</a> All rights reserved.&nbsp;&nbsp;&nbsp;
+               			<a href="http://www.rochenhost.com/joomla-hosting" target="_blank">Joomla Hosting by Rochen Ltd.</a>&nbsp;&nbsp;&nbsp;
+               			<a href="http://www.joomla.org/accessibility-statement.html">Accessibility Statement</a>&nbsp;&nbsp;&nbsp;
+               			<a href="http://www.joomla.org/privacy-policy.html">Privacy Policy</a>&nbsp;&nbsp;&nbsp;
+
+               			<a href="http://community.joomla.org/login.html">Log in</a>
+               			<!-- end #footerInfo --></div>
+        <div class="clr"></div>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+</div>
+<div id="debug">
+
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write("\<script src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'>\<\/script>" );
+</script><script src="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-544070-3");
+pageTracker._setDomainName("joomla.org");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="Joomla%21%20%E2%80%A2%20View%20topic%20-%20%5BHelp%5D%20Add%20custom%20filter%20dropdown%20on%20administrator%20component_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-544070-18");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+
+</body></html>

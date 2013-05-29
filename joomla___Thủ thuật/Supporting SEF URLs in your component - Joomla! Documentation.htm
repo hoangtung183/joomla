@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html dir="ltr" class="client-nojs" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Supporting SEF URLs in your component - Joomla! Documentation</title>
+<meta charset="UTF-8">
+<meta name="generator" content="MediaWiki 1.19.3">
+<link rel="canonical" href="http://docs.joomla.org/Supporting_SEF_URLs_in_your_component">
+<link rel="shortcut icon" href="http://docs.joomla.org/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://docs.joomla.org/opensearch_desc.php" title="Joomla! Documentation (en)">
+<link rel="EditURI" type="application/rsd+xml" href="http://docs.joomla.org/api.php?action=rsd">
+<link rel="copyright" href="http://docs.joomla.org/JEDL">
+<link rel="alternate" type="application/atom+xml" title="Joomla! Documentation Atom feed" href="http://docs.joomla.org/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="Supporting%20SEF%20URLs%20in%20your%20component%20-%20Joomla%21%20Documentation_files/load_002.css">
+<link rel="stylesheet" href="Supporting%20SEF%20URLs%20in%20your%20component%20-%20Joomla%21%20Documentation_files/ext.htm"><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="Supporting%20SEF%20URLs%20in%20your%20component%20-%20Joomla%21%20Documentation_files/load.css">
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}a.new,#quickbar a.new{color:#ba0000}
+
+/* cache key: docsj_mediawiki:resourceloader:filter:minify-css:7:c88e2bcd56513749bec09a7e29cb3ffa */
+</style>
+
+<script src="Supporting%20SEF%20URLs%20in%20your%20component%20-%20Joomla%21%20Documentation_files/ga.js" async="" type="text/javascript"></script><script src="Supporting%20SEF%20URLs%20in%20your%20component%20-%20Joomla%21%20Documentation_files/ga.js" async="" type="text/javascript"></script><script src="Supporting%20SEF%20URLs%20in%20your%20component%20-%20Joomla%21%20Documentation_files/load.php"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Supporting_SEF_URLs_in_your_component","wgTitle":"Supporting SEF URLs in your component","wgCurRevisionId":85776,"wgArticleId":34,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Tutorials","Component Development","Search Engine Friendly URLs"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgRelevantPageName":"Supporting_SEF_URLs_in_your_component","wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"Router","wgVectorEnabledModules":{"collapsiblenav":true,"collapsibletabs":true,"editwarning":false,"expandablesearch":false,"footercleanup":false,"sectioneditlinks":false,"simplesearch":true,"experiments":true},"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"templateEditor":false,"templates":false,"preview":true,"previewDialog":false,"publish":false,"toc":false},"htTabIndexes":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"highlightbroken":1,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,
+"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"vector-simplesearch":1,"usebetatoolbar":1,"usebetatoolbar-cgd":1,"wikieditor-preview":1,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"searchNs100":false,"searchNs101":false,"searchNs104":true,"searchNs105":false,"searchNs106":false,"searchNs107":false,"searchNs108":false,"searchNs109":false,"searchNs111":false,"searchNs112":false,"searchNs114":false,"searchNs115":false,"searchNs116":true,"searchNs117":false,"searchNs118":true,"searchNs119":false,"searchNs120":false,"searchNs121":false,"searchNs122":false,"searchNs123":false,
+"searchNs124":true,"searchNs125":false,"searchNs126":true,"searchNs127":false,"searchNs128":false,"searchNs129":false,"searchNs130":true,"searchNs131":false,"searchNs132":false,"searchNs133":false,"searchNs134":true,"searchNs135":false,"searchNs136":false,"searchNs137":false,"searchNs138":true,"searchNs139":false,"searchNs140":false,"searchNs141":false,"searchNs142":true,"searchNs143":false,"searchNs144":true,"searchNs145":false,"searchNs146":true,"searchNs147":false,"searchNs500":false,"searchNs501":false,"searchNs502":true,"searchNs503":false,"searchNs504":false,"searchNs505":false,"gadget-Code_insert":1});;},{},{});mw.loader.implement("user.tokens",function($){mw.user.tokens.set({"editToken":"+\\","watchToken":false});;},{},{});
+
+/* cache key: docsj_mediawiki:resourceloader:filter:minify-js:7:4aebe1ac146459dbc992579c2e41e781 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-php {line-height: normal;}
+.source-php li, .source-php pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for php
+ * CSS class: source-php, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.php.source-php .de1, .php.source-php .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.php.source-php  {font-family:monospace;}
+.php.source-php .imp {font-weight: bold; color: red;}
+.php.source-php li, .php.source-php .li1 {font-weight: normal; vertical-align:top;}
+.php.source-php .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.php.source-php .li2 {font-weight: bold; vertical-align:top;}
+.php.source-php .kw1 {color: #b1b100;}
+.php.source-php .kw2 {color: #000000; font-weight: bold;}
+.php.source-php .kw3 {color: #990000;}
+.php.source-php .co1 {color: #666666; font-style: italic;}
+.php.source-php .co2 {color: #666666; font-style: italic;}
+.php.source-php .co3 {color: #0000cc; font-style: italic;}
+.php.source-php .co4 {color: #009933; font-style: italic;}
+.php.source-php .coMULTI {color: #666666; font-style: italic;}
+.php.source-php .es0 {color: #000099; font-weight: bold;}
+.php.source-php .es1 {color: #000099; font-weight: bold;}
+.php.source-php .es2 {color: #660099; font-weight: bold;}
+.php.source-php .es3 {color: #660099; font-weight: bold;}
+.php.source-php .es4 {color: #006699; font-weight: bold;}
+.php.source-php .es5 {color: #006699; font-weight: bold; font-style: italic;}
+.php.source-php .es6 {color: #009933; font-weight: bold;}
+.php.source-php .es_h {color: #000099; font-weight: bold;}
+.php.source-php .br0 {color: #009900;}
+.php.source-php .sy0 {color: #339933;}
+.php.source-php .sy1 {color: #000000; font-weight: bold;}
+.php.source-php .st0 {color: #0000ff;}
+.php.source-php .st_h {color: #0000ff;}
+.php.source-php .nu0 {color: #cc66cc;}
+.php.source-php .nu8 {color: #208080;}
+.php.source-php .nu12 {color: #208080;}
+.php.source-php .nu19 {color:#800080;}
+.php.source-php .me1 {color: #004000;}
+.php.source-php .me2 {color: #004000;}
+.php.source-php .re0 {color: #000088;}
+.php.source-php .ln-xtra, .php.source-php li.ln-xtra, .php.source-php div.ln-xtra {background-color: #ffc;}
+.php.source-php span.xtra { display:block; }
+
+/*]]>*/
+</style><!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/vector/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Supporting_SEF_URLs_in_your_component skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<!-- content -->
+		<div id="content" class="mw-body">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">
+				<span dir="auto">Supporting SEF URLs in your component</span>
+			</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+								<!-- tagline -->
+				<div id="siteSub">From Joomla! Documentation</div>
+				<!-- /tagline -->
+								<!-- subtitle -->
+				<div id="contentSub">(Redirected from <a href="http://docs.joomla.org/index.php?title=Router&amp;redirect=no" title="Router">Router</a>)</div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav" class="mw-jump">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodycontent -->
+				<div id="mw-content-text" dir="ltr" class="mw-content-ltr" lang="en"><div style="position:relative; left:0px; top:-10px; width:100%; margin-bottom:-20px;" class="metadata" id="version">
+<div style="width:auto; border:1px solid #84ABD4; padding:1px 3px 1px 3px; background-color:rgba(183,226,251,.5); text-align:center; font-size:1.0em; -moz-border-radius:5px; border-radius:5px; margin-bottom:20px;">This article is for Joomla! CMS Version(s) <a href="http://docs.joomla.org/File:Compat_icon_1_5.png" class="image" title="Joomla 1.5"><img alt="Joomla 1.5" src="Supporting%20SEF%20URLs%20in%20your%20component%20-%20Joomla%21%20Documentation_files/Compat_icon_1_5.png" height="17" width="40"></a>&nbsp;<a href="http://docs.joomla.org/File:Compat_icon_2_5.png" class="image" title="Joomla 2.5"><img alt="Joomla 2.5" src="Supporting%20SEF%20URLs%20in%20your%20component%20-%20Joomla%21%20Documentation_files/Compat_icon_2_5.png" height="17" width="40"></a>&nbsp;<a href="http://docs.joomla.org/File:Compat_icon_3_1.png" class="image" title="Joomla 3.1"><img alt="Joomla 3.1" src="Supporting%20SEF%20URLs%20in%20your%20component%20-%20Joomla%21%20Documentation_files/Compat_icon_3_1.png" height="17" width="40"></a></div></div>
+<p><br>
+<b>Search engine friendly (SEF)</b>, <b>human-readable</b> or  <a href="http://en.wikipedia.org/wiki/Clean_URL" class="extiw" title="wikipedia:Clean URL">clean URLs</a>
+ are URLs that make sense to both humans and search engines because they
+ explain the path to the particular page they point to. Since version 
+1.5, Joomla! is capable of creating and parsing URLs in any format, 
+including SEF URLs. This does not depend on URL rewriting executed by 
+the web server, so it works even if Joomla! runs a server other than 
+Apache with the mod_rewrite module. The SEF URLs follow a certain fixed 
+pattern, but the user can define a <a href="http://docs.joomla.org/Alias" title="Alias">short descriptive text (alias)</a> for each segment of the URL.
+</p><p>Internally, the local part of a SEF URL (the part after the domain name) is called a <b>route</b>. Creating and processing SEF URLs is therefore referred to as <b>routing</b>, and the relevant code is called a <b>router</b>.
+</p><p>In Joomla!, each <a href="http://docs.joomla.org/Component" title="Component">component</a> is responsible for handling its own SEF URLs. Therefore, as the <a href="http://docs.joomla.org/Developers" title="Developers">developer</a> of a component, you will have to create your own <b>router</b> to allow your component to use SEF URLs.
+</p>
+<table id="toc" class="toc"><tbody><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#The_Concept"><span class="tocnumber">1</span> <span class="toctext">The Concept</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Applying_JRoute::"><span class="tocnumber">1.1</span> <span class="toctext">Applying JRoute::_</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Writing_a_router"><span class="tocnumber">1.2</span> <span class="toctext">Writing a router</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#Preparing_Your_Data_for_Routing"><span class="tocnumber">2</span> <span class="toctext">Preparing Your Data for Routing</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#The_Alias"><span class="tocnumber">2.1</span> <span class="toctext">The Alias</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#The_Slug"><span class="tocnumber">2.2</span> <span class="toctext">The Slug</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Routing_URLs"><span class="tocnumber">3</span> <span class="toctext">Routing URLs</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#The_Component_Router"><span class="tocnumber">4</span> <span class="toctext">The Component Router</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="#A_Simple_Example"><span class="tocnumber">4.1</span> <span class="toctext">A Simple Example</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#A_More_Advanced_Example"><span class="tocnumber">4.2</span> <span class="toctext">A More Advanced Example</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#Routers_and_Menu_Items"><span class="tocnumber">5</span> <span class="toctext">Routers and Menu Items</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#See_Also"><span class="tocnumber">6</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</td></tr></tbody></table>
+<h2> <span class="mw-headline" id="The_Concept"> The Concept </span></h2>
+<p>Assuming you are following standard development practices, your component is probably using "system URLs" that look a lot like <tt>http://www.example.com/index.php?option=com_yourcomponent&amp;view=article&amp;id=1&amp;catid=20&amp;Itemid=50</tt>, and your goal is to transform this into <tt>http://www.example.com/example-menu-item/20/1</tt>.
+ As the developer, you have two tasks: signalling the system that 
+certain pieces of text are URLs and need to be transformed, and 
+explaining the system how to transform URLs.
+</p>
+<h3> <span class="mw-headline" id="Applying_JRoute::"> Applying <code>JRoute::_</code> </span></h3>
+<p>It is difficult and inefficient for Joomla! to figure out which parts
+ of your component's output are URLs. To support SEF URLs, you will need
+ to change URL-generating code so that it applies <code>JRoute::_</code> before outputting the URL:
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="php source-php" style="font-family:monospace;"><pre class="de1"><span class="kw3">echo</span> JRoute<span class="sy0">::</span><span class="kw3">_</span><span class="br0">(</span><span class="st_h">'index.php?view=article&amp;id=1&amp;catid=20'</span><span class="br0">)</span><span class="sy0">;</span></pre></div></div>
+<p>Notice that it is possible to leave out the parameters <code>option</code> and <code>Itemid</code>. <code>option</code> defaults to the name of the component currently being executed, and <code>Itemid</code> defaults to the current menu item's ID.
+</p><p>In general, you should only apply this to URLs that users and/or 
+search engines are able to see. For example, there is no need to 
+transform URLs used in redirects that immediately result in other 
+redirects.
+</p><p>If the user turns off SEF URLs in the site's settings, <code>JRoute::_</code> will produce working non-SEF URLs without any changes to the code.
+</p>
+<h3> <span class="mw-headline" id="Writing_a_router"> Writing a router </span></h3>
+<p>You'll also need to write a router, which is a single file with two 
+functions that convert system URLs to and from SEF URLs. This file needs
+ to be placed at <tt>/components/com_yourcomponent/router.php</tt>.
+</p><p>The first function, <code>[componentname]BuildRoute(&amp;$query)</code>,
+ must transform an array of URL parameters into an array of segments 
+that will form the SEF URL. Schematically, the transformation works as 
+follows:
+</p>
+<dl><dd><tt>http://www.example.com/index.php?option=com_yourcomponent&amp;view=article&amp;id=1&amp;catid=20&amp;Itemid=50</tt>
+</dd></dl>
+<dl><dd><dl><dd><span style="font-size: xx-large">↓</span> <code>JRoute::_</code>, called by your component or any other extension
+</dd></dl>
+</dd></dl>
+<dl><dd><code>$query = array('view' =&gt; 'article', 'id' =&gt; 1, 'catid' =&gt; 20)</code>
+</dd></dl>
+<dl><dd><dl><dd><span style="font-size: xx-large">↓</span> Your router's <code>com_yourcomponentBuildRoute</code>
+</dd></dl>
+</dd></dl>
+<dl><dd><code>$segments = array(20, 1);</code>
+</dd></dl>
+<dl><dd><dl><dd><span style="font-size: xx-large">↓</span> Joomla's internal route building (for display)
+</dd></dl>
+</dd></dl>
+<dl><dd><tt>http://www.example.com/example-menu-item/20/1</tt>
+</dd></dl>
+<p>The second function, <code>[componentname]ParseRoute($segments)</code>, must transform an array of segments back into an array of URL parameters. Schematically:
+</p>
+<dl><dd><tt>http://www.example.com/example-menu-item/20/1</tt>
+</dd></dl>
+<dl><dd><dl><dd><span style="font-size: xx-large">↓</span> Joomla's internal route parsing
+</dd></dl>
+</dd></dl>
+<dl><dd><code>$segments = array(20, 1);</code>
+</dd></dl>
+<dl><dd><dl><dd><span style="font-size: xx-large">↓</span> Your router's <code>com_yourcomponentParseRoute</code>
+</dd></dl>
+</dd></dl>
+<dl><dd><code>$query = array('view' =&gt; 'article', 'id' =&gt; 1, 'catid' =&gt; 20)</code>
+</dd></dl>
+<p>The two functions must cooperate in such a way that the original URL can be reconstructed. You can think of <code>BuildRoute</code> as a form of <a href="http://en.wikipedia.org/wiki/Encoding" class="extiw" title="wikipedia:Encoding">encoding</a> and <code>ParseRoute</code> as the corresponding decoding. When the original URL isn't properly reproduced, your component will stop working.
+</p>
+<h2> <span class="mw-headline" id="Preparing_Your_Data_for_Routing"> Preparing Your Data for Routing </span></h2>
+<h3> <span class="mw-headline" id="The_Alias"> The Alias </span></h3>
+<p>The first step is the generation of the so called alias. The alias is
+ used in the URL instead of the title (the alias is the text you want to
+ have in the URL). The alias has to be URI safe, which means accented 
+UTF­8 characters are replaced by their ASCII­7 equivalents, white spaces
+ by hyphens, etc.
+</p><p>The alias can be defined by the user, but you should ensure that 
+the above requirements for a URL safe alias are met. A good way to do so
+ is to use the JTable::check() method during the save process. Have a 
+look at this example code:
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="php source-php" style="font-family:monospace;"><pre class="de1"><span class="kw2">function</span> check<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    jimport<span class="br0">(</span> <span class="st_h">'joomla.filter.output'</span> <span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">if</span><span class="br0">(</span><span class="kw3">empty</span><span class="br0">(</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">alias</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
+            <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">alias</span> <span class="sy0">=</span> <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">title</span><span class="sy0">;</span>
+    <span class="br0">}</span>
+    <span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">alias</span> <span class="sy0">=</span> JFilterOutput<span class="sy0">::</span><span class="me2">stringURLSafe</span><span class="br0">(</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">alias</span><span class="br0">)</span><span class="sy0">;</span>
+&nbsp;
+    <span class="coMULTI">/* All your other checks */</span>
+    <span class="kw1">return</span> <span class="kw2">true</span><span class="sy0">;</span>
+<span class="br0">}</span></pre></div></div>
+<p>If the alias field is empty the title will be used as alias. Then the alias will be made URLSafe using the <code>JFilterOutput::stringURLSafe()</code> method.
+</p>
+<h3> <span class="mw-headline" id="The_Slug"> The Slug </span></h3>
+<p>Continuing with the same example, the "slug" - 
+"1­:welcome­-to­-joomla" has two parts. The first part is the article 
+identifier (id) and the second is the alias. They are separated by a 
+colon. These two elements were combined during the database query in the
+ model:
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="php source-php" style="font-family:monospace;"><pre class="de1"><span class="re0">$query</span> <span class="sy0">=</span> <span class="st_h">'SELECT a.*, '</span><span class="sy0">.</span>
+         <span class="st_h">'CASE WHEN CHAR_LENGTH(a.alias) THEN CONCAT_WS(":", a.id, a.alias) ELSE a.id END as slug,'</span>
+         <span class="coMULTI">/*...*/</span><span class="sy0">;</span></pre></div></div>
+<p>After this step the slug is used instead of the id.
+</p>
+<h2> <span class="mw-headline" id="Routing_URLs"> Routing URLs </span></h2>
+<p>The <code>JRoute::_</code> method translates the internal Joomla! URL to a custom URL. <tt>JRoute</tt> has three parameters and its prototype is:
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="php source-php" style="font-family:monospace;"><pre class="de1">JRoute<span class="sy0">::</span><span class="kw3">_</span><span class="br0">(</span> <span class="re0">$url</span><span class="sy0">,</span> <span class="re0">$xhtml</span> <span class="sy0">=</span> <span class="kw2">true</span><span class="sy0">,</span> <span class="re0">$ssl</span><span class="sy0">=</span><span class="kw2">null</span> <span class="br0">)</span><span class="sy0">;</span></pre></div></div>
+<p>Where:
+</p>
+<ul><li> <code>$url</code> is a string containing the absolute or relative internal Joomla! URL.
+</li><li> <code>$xhtml</code> is a boolean value that specifies whether 
+or not the output should be in XHTML. This parameter is optional and if 
+omitted defaults to true.
+</li><li> <code>$ssl</code> is an integer value that specifies whether 
+the URI should be secure. It should be set to 1 to force the URI to be 
+secure using the global secure site URI, 0 to leave it in the same state
+ as when it was passed, and -1 to force the URI to be unsecure using the
+ global unsecure site URI.
+</li></ul>
+<p>The most important parameter is <code>$url</code>. A call to this method might look like:
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="php source-php" style="font-family:monospace;"><pre class="de1">JRoute<span class="sy0">::</span><span class="kw3">_</span><span class="br0">(</span> <span class="st_h">'index.php?view=article&amp;id='</span><span class="sy0">.</span><span class="re0">$row</span><span class="sy0">-&gt;</span><span class="me1">slug</span> <span class="br0">)</span><span class="sy0">;</span></pre></div></div>
+<p><code>$row-­&gt;slug</code> is the value that was generated in step 2 from a combination of id and title alias.
+</p><p>Another advantage of using JRoute is that the router now handles 
+$option (the component name) and the $Itemid (the menu item ID). The 
+component itself doesn’t have to know its name ($option) or the active 
+menu item ($Itemid) like it did in previous version of Joomla!.
+</p><p>It is important that you think about the sequence of the URL 
+parameter in this stage. This will be more clear when we have a deeper 
+look at the router.php in the next section.
+</p><p>The building process of JRouter is divided into two steps:
+</p>
+<ul><li> Create the application route. The application route is fully 
+handled by JRouter and the component developer doesn’t have to do 
+anything to make it work.
+</li><li> Create the component route. To create the component route, JRouter looks for the <tt>router.php</tt> in the component directory which is responsible for building the route for the component.
+</li></ul>
+<h2> <span class="mw-headline" id="The_Component_Router"> The Component Router </span></h2>
+<p>We will have two functions in the <tt>router.php</tt>. One is 
+responsible for building the URL and the other is responsible for 
+parsing it. In the next examples, a very basic and a more advanced one, 
+we assume that we have three views that links can point to. The first is
+ a categories overview (<code>view=categories</code>), the second is a single category (<code>view=category</code>) and the third is a single article (<code>view=article</code>).
+</p><p>The file <tt>router.php</tt> should be in the site area of your component. It is not used on admin/backend pages. Don't forget to add it to your XML <a href="http://docs.joomla.org/Manifest_files" title="Manifest files">manifest file</a> in the site folder.
+</p>
+<h3> <span class="mw-headline" id="A_Simple_Example"> A Simple Example </span></h3>
+<p>This simple example will illustrate the basics of implementing a router for your component.
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="php source-php" style="font-family:monospace;"><pre class="de1"><span class="kw2">function</span> <span class="br0">[</span>componentname<span class="br0">]</span>BuildRoute<span class="br0">(</span> <span class="sy0">&amp;</span><span class="re0">$query</span> <span class="br0">)</span>
+<span class="br0">{</span>
+       <span class="re0">$segments</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+       <span class="kw1">if</span><span class="br0">(</span><span class="kw3">isset</span><span class="br0">(</span><span class="re0">$query</span><span class="br0">[</span><span class="st_h">'view'</span><span class="br0">]</span><span class="br0">)</span><span class="br0">)</span>
+       <span class="br0">{</span>
+                <span class="re0">$segments</span><span class="br0">[</span><span class="br0">]</span> <span class="sy0">=</span> <span class="re0">$query</span><span class="br0">[</span><span class="st_h">'view'</span><span class="br0">]</span><span class="sy0">;</span>
+                <span class="kw3">unset</span><span class="br0">(</span> <span class="re0">$query</span><span class="br0">[</span><span class="st_h">'view'</span><span class="br0">]</span> <span class="br0">)</span><span class="sy0">;</span>
+       <span class="br0">}</span>
+       <span class="kw1">if</span><span class="br0">(</span><span class="kw3">isset</span><span class="br0">(</span><span class="re0">$query</span><span class="br0">[</span><span class="st_h">'id'</span><span class="br0">]</span><span class="br0">)</span><span class="br0">)</span>
+       <span class="br0">{</span>
+                <span class="re0">$segments</span><span class="br0">[</span><span class="br0">]</span> <span class="sy0">=</span> <span class="re0">$query</span><span class="br0">[</span><span class="st_h">'id'</span><span class="br0">]</span><span class="sy0">;</span>
+                <span class="kw3">unset</span><span class="br0">(</span> <span class="re0">$query</span><span class="br0">[</span><span class="st_h">'id'</span><span class="br0">]</span> <span class="br0">)</span><span class="sy0">;</span>
+       <span class="br0">}</span><span class="sy0">;</span>
+       <span class="kw1">return</span> <span class="re0">$segments</span><span class="sy0">;</span>
+<span class="br0">}</span></pre></div></div>
+<p><code>JRouter</code> passes a $query array to the <code>[<i>componentname</i>]BuildRoute</code>
+ function. This function will add the relevant parts of the array to the
+ $segments array in the right order and will return the properly ordered
+ array. The content of the <code>$query</code> array needs to be unset, otherwise <code>JRouter</code>
+ will add it to the URL in the form of a query string (i.e. any 
+variables that are not handled by the router will be passed in the query
+ string).
+</p><p>The prefix <i>componentname</i> is the name for your component, 
+as found in the directory holding the component's files. For instance, a
+ component "Magic" in directory <tt>/components/com_magic/...</tt> would use a prefix <code>magic</code> (all lower case).
+</p><p>The next function in the <tt>router.php</tt> parses the URL:
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="php source-php" style="font-family:monospace;"><pre class="de1"><span class="kw2">function</span> <span class="br0">[</span>componentname<span class="br0">]</span>ParseRoute<span class="br0">(</span> <span class="re0">$segments</span> <span class="br0">)</span>
+<span class="br0">{</span>
+       <span class="re0">$vars</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+       <span class="kw1">switch</span><span class="br0">(</span><span class="re0">$segments</span><span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span><span class="br0">)</span>
+       <span class="br0">{</span>
+               <span class="kw1">case</span> <span class="st_h">'categories'</span><span class="sy0">:</span>
+                       <span class="re0">$vars</span><span class="br0">[</span><span class="st_h">'view'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="st_h">'categories'</span><span class="sy0">;</span>
+                       <span class="kw1">break</span><span class="sy0">;</span>
+               <span class="kw1">case</span> <span class="st_h">'category'</span><span class="sy0">:</span>
+                       <span class="re0">$vars</span><span class="br0">[</span><span class="st_h">'view'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="st_h">'category'</span><span class="sy0">;</span>
+                       <span class="re0">$id</span> <span class="sy0">=</span> <span class="kw3">explode</span><span class="br0">(</span> <span class="st_h">':'</span><span class="sy0">,</span> <span class="re0">$segments</span><span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> <span class="br0">)</span><span class="sy0">;</span>
+                       <span class="re0">$vars</span><span class="br0">[</span><span class="st_h">'id'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="br0">(</span>int<span class="br0">)</span> <span class="re0">$id</span><span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span><span class="sy0">;</span>
+                       <span class="kw1">break</span><span class="sy0">;</span>
+               <span class="kw1">case</span> <span class="st_h">'article'</span><span class="sy0">:</span>
+                       <span class="re0">$vars</span><span class="br0">[</span><span class="st_h">'view'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="st_h">'article'</span><span class="sy0">;</span>
+                       <span class="re0">$id</span> <span class="sy0">=</span> <span class="kw3">explode</span><span class="br0">(</span> <span class="st_h">':'</span><span class="sy0">,</span> <span class="re0">$segments</span><span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span> <span class="br0">)</span><span class="sy0">;</span>
+                       <span class="re0">$vars</span><span class="br0">[</span><span class="st_h">'id'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="br0">(</span>int<span class="br0">)</span> <span class="re0">$id</span><span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span><span class="sy0">;</span>
+                       <span class="kw1">break</span><span class="sy0">;</span>
+       <span class="br0">}</span>
+       <span class="kw1">return</span> <span class="re0">$vars</span><span class="sy0">;</span>
+<span class="br0">}</span></pre></div></div>
+<p>What happens here? In the function <code>[<i>componentname</i>]BuildRoute</code> we arranged the items in the <code>$query</code> array in a specific sequence. This means that in this example the view is first and the id is second in the array.
+</p><p>By reading <code>$segments[0]</code>, we access the name of the view. We set the right view and/or identifier depending on its value and we return the <code>$vars</code> array to <code>JRouter</code>. $vars should be an associative array similar to the array that was passed to the BuildRoute method.
+</p><p>The above example of the <tt>router.php</tt> is a very simple way to generate SEF URLs but should show how this works quite clearly.
+</p><p>The generated URL in this example contains the name of the view and doesn't reflect the content hierarchy:
+</p><p><tt>http://www.example.com/[menualias]/[view]/[slug]</tt>
+</p>
+<h3> <span class="mw-headline" id="A_More_Advanced_Example"> A More Advanced Example </span></h3>
+<p>In the next example we will try to get rid of the need for the view 
+and we will try to reflect the current hierarchy level in the URL.
+</p><p>The goal is URL's that look like:
+</p>
+<ul><li> When viewing an article: <tt>http://www.example.com/[menualias]/[category]/[article]</tt>
+</li><li> When viewing a category: <tt>http://www.example.com/[menualias]/[category]</tt>
+</li><li> When viewing the categories overview: <tt>http://www.example.com/[menualias]</tt>
+</li></ul>
+<p>Let's assume we have done step 1 and 2 also for the category.
+</p><p>The link to the article would look like this:
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="php source-php" style="font-family:monospace;"><pre class="de1">JRoute<span class="sy0">::</span><span class="kw3">_</span><span class="br0">(</span> <span class="st_h">'index.php?view=article&amp;catid='</span><span class="sy0">.</span><span class="re0">$row</span><span class="sy0">-</span>­<span class="sy0">&gt;</span>catslug <span class="sy0">.</span><span class="st_h">'&amp;id='</span><span class="sy0">.</span><span class="re0">$row</span><span class="sy0">-</span>­<span class="sy0">&gt;</span>slug <span class="br0">)</span><span class="sy0">;</span></pre></div></div>
+<p>And the Link to the category would look like this:
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="php source-php" style="font-family:monospace;"><pre class="de1">JRoute<span class="sy0">::</span><span class="kw3">_</span><span class="br0">(</span> <span class="st_h">'index.php?view=category&amp;id='</span><span class="sy0">.</span><span class="re0">$row</span><span class="sy0">-&gt;</span><span class="me1">catslug</span> <span class="br0">)</span><span class="sy0">;</span></pre></div></div>
+<p>The corresponding <tt>router.php</tt>:
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="php source-php" style="font-family:monospace;"><pre class="de1"><span class="kw2">function</span> <span class="br0">[</span><span class="st_h">''</span>Componentname<span class="st_h">''</span><span class="br0">]</span>BuildRoute<span class="br0">(</span><span class="sy0">&amp;</span><span class="re0">$query</span><span class="br0">)</span>
+<span class="br0">{</span>
+       <span class="re0">$segments</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+       <span class="kw1">if</span><span class="br0">(</span><span class="kw3">isset</span><span class="br0">(</span> <span class="re0">$query</span><span class="br0">[</span><span class="st_h">'catid'</span><span class="br0">]</span> <span class="br0">)</span><span class="br0">)</span>
+       <span class="br0">{</span>
+                <span class="re0">$segments</span><span class="br0">[</span><span class="br0">]</span> <span class="sy0">=</span> <span class="re0">$query</span><span class="br0">[</span><span class="st_h">'catid'</span><span class="br0">]</span><span class="sy0">;</span>
+                <span class="kw3">unset</span><span class="br0">(</span> <span class="re0">$query</span><span class="br0">[</span><span class="st_h">'catid'</span><span class="br0">]</span> <span class="br0">)</span><span class="sy0">;</span>
+       <span class="br0">}</span><span class="sy0">;</span>
+       <span class="kw1">if</span><span class="br0">(</span> <span class="kw3">isset</span><span class="br0">(</span><span class="re0">$query</span><span class="br0">[</span><span class="st_h">'id'</span><span class="br0">]</span><span class="br0">)</span> <span class="br0">)</span>
+       <span class="br0">{</span>
+                <span class="re0">$segments</span><span class="br0">[</span><span class="br0">]</span> <span class="sy0">=</span> <span class="re0">$query</span><span class="br0">[</span><span class="st_h">'id'</span><span class="br0">]</span><span class="sy0">;</span>
+                <span class="kw3">unset</span><span class="br0">(</span> <span class="re0">$query</span><span class="br0">[</span><span class="st_h">'id'</span><span class="br0">]</span> <span class="br0">)</span><span class="sy0">;</span>
+       <span class="br0">}</span><span class="sy0">;</span>
+       <span class="kw3">unset</span><span class="br0">(</span> <span class="re0">$query</span><span class="br0">[</span><span class="st_h">'view'</span><span class="br0">]</span> <span class="br0">)</span><span class="sy0">;</span>
+       <span class="kw1">return</span> <span class="re0">$segments</span><span class="sy0">;</span>
+<span class="br0">}</span></pre></div></div>
+<p>The difference now is that we don’t add the name of the view to the <code>$segments</code> array. We still unset the view key since otherwise, <code>JRouter</code>
+ would add it to the URL as part of the query string. Another new thing 
+here is the additional parameter catid that we push into the <code>$segments</code> array.
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="php source-php" style="font-family:monospace;"><pre class="de1"><span class="kw2">function</span> <span class="br0">[</span><span class="st_h">''</span>Componentname<span class="st_h">''</span><span class="br0">]</span>ParseRoute<span class="br0">(</span><span class="re0">$segments</span><span class="br0">)</span>
+<span class="br0">{</span>
+       <span class="re0">$vars</span> <span class="sy0">=</span> <span class="kw3">array</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+       <span class="re0">$app</span> <span class="sy0">=&amp;</span> JFactory<span class="sy0">::</span><span class="me2">getApplication</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+       <span class="re0">$menu</span> <span class="sy0">=&amp;</span> <span class="re0">$app</span><span class="sy0">-&gt;</span><span class="me1">getMenu</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+       <span class="re0">$item</span> <span class="sy0">=&amp;</span> <span class="re0">$menu</span><span class="sy0">-&gt;</span><span class="me1">getActive</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+       <span class="co1">// Count segments</span>
+       <span class="re0">$count</span> <span class="sy0">=</span> <span class="kw3">count</span><span class="br0">(</span> <span class="re0">$segments</span> <span class="br0">)</span><span class="sy0">;</span>
+       <span class="co1">//Handle View and Identifier</span>
+       <span class="kw1">switch</span><span class="br0">(</span> <span class="re0">$item</span><span class="sy0">-&gt;</span><span class="me1">query</span><span class="br0">[</span><span class="st_h">'view'</span><span class="br0">]</span> <span class="br0">)</span>
+       <span class="br0">{</span>
+               <span class="kw1">case</span> <span class="st_h">'categories'</span><span class="sy0">:</span>
+                       <span class="kw1">if</span><span class="br0">(</span><span class="re0">$count</span> <span class="sy0">==</span> <span class="nu0">1</span><span class="br0">)</span> <span class="br0">{</span>
+                               <span class="re0">$vars</span><span class="br0">[</span><span class="st_h">'view'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="st_h">'category'</span><span class="sy0">;</span>
+                       <span class="br0">}</span>
+                       <span class="kw1">if</span><span class="br0">(</span><span class="re0">$count</span> <span class="sy0">==</span> <span class="nu0">2</span><span class="br0">)</span> <span class="br0">{</span>
+                               <span class="re0">$vars</span><span class="br0">[</span><span class="st_h">'view'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="st_h">'article'</span><span class="sy0">;</span>
+                       <span class="br0">}</span>
+                       <span class="re0">$id</span> <span class="sy0">=</span> <span class="kw3">explode</span><span class="br0">(</span> <span class="st_h">':'</span><span class="sy0">,</span> <span class="re0">$segments</span><span class="br0">[</span><span class="re0">$count</span><span class="sy0">-</span><span class="nu0">1</span><span class="br0">]</span> <span class="br0">)</span><span class="sy0">;</span>
+                       <span class="re0">$vars</span><span class="br0">[</span><span class="st_h">'id'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="br0">(</span>int<span class="br0">)</span> <span class="re0">$id</span><span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span><span class="sy0">;</span>
+                       <span class="kw1">break</span><span class="sy0">;</span>
+               <span class="kw1">case</span> <span class="st_h">'category'</span><span class="sy0">:</span>
+                       <span class="re0">$id</span>   <span class="sy0">=</span> <span class="kw3">explode</span><span class="br0">(</span> <span class="st_h">':'</span><span class="sy0">,</span> <span class="re0">$segments</span><span class="br0">[</span><span class="re0">$count</span><span class="sy0">-</span><span class="nu0">1</span><span class="br0">]</span> <span class="br0">)</span><span class="sy0">;</span>
+                       <span class="re0">$vars</span><span class="br0">[</span><span class="st_h">'id'</span><span class="br0">]</span>   <span class="sy0">=</span> <span class="br0">(</span>int<span class="br0">)</span> <span class="re0">$id</span><span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span><span class="sy0">;</span>
+                       <span class="re0">$vars</span><span class="br0">[</span><span class="st_h">'view'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="st_h">'article'</span><span class="sy0">;</span>
+                       <span class="kw1">break</span><span class="sy0">;</span>
+       <span class="br0">}</span>
+       <span class="kw1">return</span> <span class="re0">$vars</span><span class="sy0">;</span>
+<span class="br0">}</span></pre></div></div>
+<p>You can see that this ParseRoute function has a lot of different code
+ parts in comparison to the previous. The reason for this is simple. We 
+don’t have the name of the view in the <code>$segments</code> array and we need to find another way to determine it.
+</p><p>We need to find out which level of hierarchy we are in by 
+receiving the root element. We do this by looking to the view name of 
+the active menu item:
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="php source-php" style="font-family:monospace;"><pre class="de1"><span class="re0">$item</span><span class="sy0">-</span>­<span class="sy0">&gt;</span>query<span class="br0">[</span><span class="st_h">'view'</span><span class="br0">]</span></pre></div></div>
+<p>Also we need to know the number of items in the <code>$segments</code> array:
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="php source-php" style="font-family:monospace;"><pre class="de1"><span class="re0">$count</span> <span class="sy0">=</span> <span class="kw3">count</span><span class="br0">(</span> <span class="re0">$segments</span> <span class="br0">)</span><span class="sy0">;</span></pre></div></div>
+<p>With this information we can correctly set the view for all possible three cases:
+</p>
+<ul><li> The menu item is a link to the categories view and the <code>$segments</code> array has two items (<code>$catid</code> and <code>$id</code>). In this case we know that we need to parse a link to an article.
+</li><li> The menu item is a link to the categories view and the <code>$segments</code> array has one item (<code>$id</code>). In this case we know that we need to parse a link to a category.
+</li><li> The menu item is a link to a category. In this case, we know that any item in the <code>$segments</code> array is the identifier for an article.
+</li></ul>
+<p>The result of all this code is clean and human-readable component URLs.
+</p>
+<h2> <span class="mw-headline" id="Routers_and_Menu_Items"> Routers and Menu Items </span></h2>
+<p>A last important part of creating a router is considering what to do with menu items. As explained on <a href="http://docs.joomla.org/Search_Engine_Friendly_URLs" title="Search Engine Friendly URLs">Search Engine Friendly URLs</a>, the output of the component router is used <i>after</i>
+ the first segment of a route, the first segment being the menu item's 
+alias. This creates a difficult question: how is your router and/or 
+other code to know which menu item to route through?
+</p><p>Suppose, for example, that your component is currently producing output for the page <tt>/dogs</tt>,
+ which lists all dogs in the system. Of course, the items in the list 
+need to be links to pages that display more details about one dog. What 
+should the URL to the dog with ID 21 and name Fido become? Using a 
+router that works according to the principles we've seen so far, the 
+route that is produced is <tt>dogs/21-fido</tt>, or with some additional work <tt>/dogs/fido</tt>. But perhaps the user has created a menu item with the alias <tt>mydoggy</tt>
+ which displays exactly that dog's details. Then it is probably the 
+user's intention to route this URL through that menu item, and the item 
+in the list should link to the page <tt>/mydoggy</tt>.
+</p><p>More generally, whenever you are building a route, you will need to find the menu item that is most suitable as a <i>starting point</i> for building your route. The term <i>starting point</i> is emphasized because the rest of the route depends on the configuration of the menu item. In our example above, <tt>/dogs/21-fido</tt> is an acceptable route, <tt>/mydoggy</tt> is arguably even better, but <tt>/mydoggy/21-fido</tt> is simply wrong, since <tt>/mydoggy</tt> is in itself a menu item that is set up to display <tt>fido</tt>'s information.
+</p><p>Several approaches are available to tackle this problem. 
+Joomla!'s core components take a mixed approach, separating 
+responsibilities in two units of code: the router itself and the 
+so-called <code>[componentname]RouteHelper</code>. The <code>[componentname]RouteHelper</code>
+ provides methods that find the most suitable menu item for a given 
+piece of data to be displayed, while the router analyzes the menu item 
+and puts any information that is not determined by the menu item's 
+configuration into the route. This does mean that the <i>calling code</i> must explicitly call the helper's method before routing (<code>echo JRoute::_(DogsRouteHelper::getDogRoute(21));</code>).
+</p>
+<h2> <span class="mw-headline" id="See_Also"> See Also </span></h2>
+<p>There is a useful thread on this subject here: <a href="http://forum.joomla.org/viewtopic.php?t=148632" class="extiw" title="jtopic:148632">jtopic:148632</a> (note, may be out of date)
+</p><p>For details on the internals of routing, see <a href="http://docs.joomla.org/Routing_implementation_details" title="Routing implementation details">Routing implementation details</a>.
+</p>
+<!-- Tidy found serious XHTML errors -->
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 336/1000000
+Post-expand include size: 1800/2097152 bytes
+Template argument size: 40/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key docsj_mediawiki:pcache:idhash:34-0!*!0!!en!2!* and timestamp 20130524004720 -->
+</div>				<!-- /bodycontent -->
+								<!-- printfooter -->
+				<div class="printfooter">
+				Retrieved from "<a href="http://docs.joomla.org/index.php?title=Supporting_SEF_URLs_in_your_component&amp;oldid=85776">http://docs.joomla.org/index.php?title=Supporting_SEF_URLs_in_your_component&amp;oldid=85776</a>"				</div>
+				<!-- /printfooter -->
+												<!-- catlinks -->
+				<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="http://docs.joomla.org/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="http://docs.joomla.org/Category:Tutorials" title="Category:Tutorials">Tutorials</a></li><li><a href="http://docs.joomla.org/Category:Component_Development" title="Category:Component Development">Component Development</a></li><li><a href="http://docs.joomla.org/Category:Search_Engine_Friendly_URLs" title="Category:Search Engine Friendly URLs">Search Engine Friendly URLs</a></li></ul></div></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+				<!-- debughtml -->
+								<!-- /debughtml -->
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		<div id="mw-head" class="noprint">
+			
+<!-- 0 -->
+<div id="p-personal" class="">
+	<h5>Personal tools</h5>
+	<ul>
+		<li id="pt-login"><a href="http://docs.joomla.org/index.php?title=Special:UserLogin&amp;returnto=Router" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in / create account</a></li>
+	</ul>
+</div>
+
+<!-- /0 -->
+			<div id="left-navigation">
+				
+<!-- 0 -->
+<div id="p-namespaces" class="vectorTabs">
+	<h5>Namespaces</h5>
+	<ul>
+					<li id="ca-nstab-main" class="selected"><span><a href="http://docs.joomla.org/Supporting_SEF_URLs_in_your_component" title="View the content page [c]" accesskey="c">Page</a></span></li>
+					<li id="ca-talk"><span><a href="http://docs.joomla.org/Talk:Supporting_SEF_URLs_in_your_component" title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" class="vectorMenu emptyPortlet">
+	<h4>
+		</h4>
+	<h5><span>Variants</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+			</div>
+			<div id="right-navigation">
+				
+<!-- 0 -->
+<div id="p-views" class="vectorTabs">
+	<h5>Views</h5>
+	<ul>
+					<li id="ca-view" class="selected"><span><a href="http://docs.joomla.org/Supporting_SEF_URLs_in_your_component">Read</a></span></li>
+					<li id="ca-viewsource"><span><a href="http://docs.joomla.org/index.php?title=Supporting_SEF_URLs_in_your_component&amp;action=edit" title="This page is protected.
+You can view its source [e]" accesskey="e">View source</a></span></li>
+					<li id="ca-history" class="collapsible"><span><a href="http://docs.joomla.org/index.php?title=Supporting_SEF_URLs_in_your_component&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+	<h5><span>Actions</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+
+<!-- 2 -->
+<div id="p-search">
+	<h5><label for="searchInput">Search</label></h5>
+	<form action="/index.php" id="searchform">
+				<div>
+			<input name="search" title="Search Joomla! Documentation [f]" accesskey="f" id="searchInput" type="search">			<input name="go" value="Go" title="Go to a page with this exact name if exists" id="searchGoButton" class="searchButton" type="submit">			<input name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton" type="submit">					<input name="title" value="Special:Search" type="hidden">
+		</div>
+	</form>
+</div>
+
+<!-- /2 -->
+			</div>
+		</div>
+		<!-- /header -->
+		<!-- panel -->
+			<div id="mw-panel" class="noprint">
+				<!-- logo -->
+					<div id="p-logo"><a style="background-image: url(/skins/common/images/workgroups_documentation.jpg);" href="http://docs.joomla.org/Main_Page" title="Visit the main page"></a></div>
+				<!-- /logo -->
+				
+<!-- navigation -->
+<div class="portal" id="p-navigation">
+	<h5>Navigation</h5>
+	<div class="body">
+		<ul>
+			<li id="n-mainpage"><a href="http://docs.joomla.org/Main_Page" title="Visit the main page [z]" accesskey="z">Main Page</a></li>
+			<li id="n-recentchanges"><a href="http://docs.joomla.org/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+			<li id="n-currentevents"><a href="http://docs.joomla.org/Events" title="Find background information on current events">Current events</a></li>
+			<li id="n-randompage"><a href="http://docs.joomla.org/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+			<li id="n-Browse-categories"><a href="http://docs.joomla.org/Category:Top_Level">Browse categories</a></li>
+			<li id="n-help"><a href="http://docs.joomla.org/Help:Contents" title="The place to find out">Help</a></li>
+		</ul>
+	</div>
+</div>
+
+<!-- /navigation -->
+
+<!-- SEARCH -->
+
+<!-- /SEARCH -->
+
+<!-- LANGUAGES -->
+
+<!-- /LANGUAGES -->
+
+<!-- Joomla! Sites -->
+<div class="portal" id="p-Joomla.21_Sites">
+	<h5>Joomla! Sites</h5>
+	<div class="body">
+		<ul>
+			<li id="n-Main"><a href="http://www.joomla.org/" rel="nofollow">Main</a></li>
+			<li id="n-Community"><a href="http://community.joomla.org/" rel="nofollow">Community</a></li>
+			<li id="n-Forum"><a href="http://forum.joomla.org/" rel="nofollow">Forum</a></li>
+			<li id="n-Extensions"><a href="http://extensions.joomla.org/" rel="nofollow">Extensions</a></li>
+			<li id="n-Shop"><a href="http://shop.joomla.org/" rel="nofollow">Shop</a></li>
+			<li id="n-Developers"><a href="http://developer.joomla.org/" rel="nofollow">Developers</a></li>
+			<li id="n-API"><a href="http://api.joomla.org/" rel="nofollow">API</a></li>
+		</ul>
+	</div>
+</div>
+
+<!-- /Joomla! Sites -->
+
+<!-- TOOLBOX -->
+<div class="portal" id="p-tb">
+	<h5>Toolbox</h5>
+	<div class="body">
+		<ul>
+			<li id="t-whatlinkshere"><a href="http://docs.joomla.org/Special:WhatLinksHere/Supporting_SEF_URLs_in_your_component" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+			<li id="t-recentchangeslinked"><a href="http://docs.joomla.org/Special:RecentChangesLinked/Supporting_SEF_URLs_in_your_component" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+			<li id="t-specialpages"><a href="http://docs.joomla.org/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+			<li><a href="http://docs.joomla.org/index.php?title=Supporting_SEF_URLs_in_your_component&amp;printable=yes" rel="alternate">Printable version</a></li>
+			<li id="t-permalink"><a href="http://docs.joomla.org/index.php?title=Supporting_SEF_URLs_in_your_component&amp;oldid=85776" title="Permanent link to this revision of the page">Permanent link</a></li>
+		</ul>
+	</div>
+</div>
+
+<!-- /TOOLBOX -->
+			</div>
+		<!-- /panel -->
+		<!-- footer -->
+		<div id="footer">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 29 April 2013, at 04:40.</li>
+											<li id="footer-info-copyright">Content is available under <a href="http://docs.joomla.org/JEDL" title="JEDL">Joomla! EDL</a>.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="http://docs.joomla.org/JDOC:Privacy_policy" title="JDOC:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="http://docs.joomla.org/JDOC:About" title="JDOC:About">About Joomla! Documentation</a></li>
+											<li id="footer-places-disclaimer"><a href="http://docs.joomla.org/JDOC:General_disclaimer" title="JDOC:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+					<li id="footer-copyrightico">
+						<a href="http://docs.joomla.org/JEDL"><img src="Supporting%20SEF%20URLs%20in%20your%20component%20-%20Joomla%21%20Documentation_files/JEDL_icon.png" alt="Joomla! EDL" height="31" width="88"></a>
+					</li>
+					<li id="footer-poweredbyico">
+						<a href="http://www.mediawiki.org/"><img src="Supporting%20SEF%20URLs%20in%20your%20component%20-%20Joomla%21%20Documentation_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" height="31" width="88"></a>
+					</li>
+				</ul>
+						<div style="clear:both"></div>
+		</div>
+		<!-- /footer -->
+		<script src="Supporting%20SEF%20URLs%20in%20your%20component%20-%20Joomla%21%20Documentation_files/load_002.php"></script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.user","mediawiki.page.ready","ext.vector.collapsibleNav","ext.vector.collapsibleTabs","ext.vector.simpleSearch","ext.headertabs"], null, true);
+}</script>
+<script src="Supporting%20SEF%20URLs%20in%20your%20component%20-%20Joomla%21%20Documentation_files/load_003.php"></script>
+<script type="text/javascript">
+ var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-544070-3']);
+  _gaq.push(['_setDomainName', 'joomla.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-544070-19']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script><!-- Served in 0.176 secs. -->
+	
+
+</body></html>
